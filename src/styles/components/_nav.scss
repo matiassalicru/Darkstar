@@ -1,0 +1,38 @@
+.nav__main {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 4em;
+  background-color: $dark-grey;
+
+  .nav__img {
+    width: 10em;
+    height: auto;
+    margin-left: 20px;
+    border-bottom: 1px solid $violet;
+  }
+
+  .nav__list {
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40px;
+  }
+
+  .nav__list-item {
+    margin: 0 10px;
+    font-size: 1.8em;
+
+    a {
+      &:hover {
+        color: $violet;
+      }
+    }
+  }
+}

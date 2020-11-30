@@ -1,0 +1,37 @@
+.sidebar__main {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  margin: 4em;
+  margin-top: 6em;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px $dark-grey;
+  background-color: $light-grey;
+  width: 12em;
+
+  .sidebar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar__list-item {
+    font-size: 1.8em;
+    margin: 10px 0;
+    
+    a {
+      color: $dark-grey;
+
+      &:hover{
+        color: $violet;
+      }
+    }
+
+    .sidebar__linkTo{
+      cursor: pointer; 
+    }
+  }
+}
