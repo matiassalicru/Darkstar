@@ -1,5 +1,5 @@
 import React from "react";
-import LogoW from "../../Assets/logos/LogoWritten.png";
+import LogoW from "../../Assets/logos/LogoWritten.svg";
 
 export const Navbar = () => {
   return (

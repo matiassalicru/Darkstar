@@ -1,12 +1,15 @@
-import React from 'react'
-import img from '../../Assets/productImages/bigRound.png'
+import React from "react";
 
-export const ProductCard = () => {
-    return (
-      <div className="card__main">
-        <img src={img} alt="" className="card__img" />
-        <h1 className="card__title">Article Title</h1>
-        <p className="card__price">$ 599</p>
-      </div>
-    );
-}
+export const ProductCard = ({ img, title, price }) => {
+  return (
+    <>
+      {title ? (
+        <div className="card__main">
+          <img src={img} alt="" className="card__img" />
+          <h1 className="card__title">{title}</h1>
+          <p className="card__price">$ {price}</p>
+        </div> 
+      ) : null}
+    </>
+  );
+};

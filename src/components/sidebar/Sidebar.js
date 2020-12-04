@@ -1,9 +1,24 @@
 import React from "react";
 import { Link } from "react-scroll";
+import exit from "../../Assets/exit.svg";
+import { closeSidebar } from "../../actions/ui";
+import { useDispatch } from "react-redux";
 
 export const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const cSidebar = () => {
+    dispatch(closeSidebar());
+  };
+
   return (
-    <aside className="sidebar__main">
+    <aside className="sidebar__main  animate__animated animate__bounceInLeft">
+      <img
+        src={exit}
+        alt="exit"
+        className="sidebar__exit"
+        onClick={cSidebar}
+      />
       <ul className="sidebar__list">
         <li className="sidebar__list-item">
           <Link
@@ -12,17 +27,7 @@ export const Sidebar = () => {
             smooth={true}
             className="sidebar__linkTo"
           >
-            Más vendido
-          </Link>
-        </li>
-        <li className="sidebar__list-item">
-          <Link
-            to="LoUltimo"
-            spy={true}
-            smooth={true}
-            className="sidebar__linkTo"
-          >
-            Lo último
+            Inicio
           </Link>
         </li>
         <li className="sidebar__list-item">
@@ -37,7 +42,7 @@ export const Sidebar = () => {
             smooth={true}
             className="sidebar__linkTo"
           >
-            Collares
+            Chockers
           </Link>
         </li>
         <li className="sidebar__list-item">
@@ -47,17 +52,17 @@ export const Sidebar = () => {
             smooth={true}
             className="sidebar__linkTo"
           >
-            Cadenas
+            Collares
           </Link>
         </li>
         <li className="sidebar__list-item">
           <Link
-            to="Ombligueras"
+            to="WaistChain"
             spy={true}
             smooth={true}
             className="sidebar__linkTo"
           >
-            Chokers
+            Waist chain
           </Link>
         </li>
         <li className="sidebar__list-item">
@@ -67,7 +72,12 @@ export const Sidebar = () => {
             smooth={true}
             className="sidebar__linkTo"
           >
-            Ombligueras
+            Cadenas
+          </Link>
+        </li>
+        <li className="sidebar__list-item">
+          <Link to="Shoes" spy={true} smooth={true} className="sidebar__linkTo">
+            Shoes
           </Link>
         </li>
       </ul>

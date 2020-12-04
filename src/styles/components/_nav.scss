@@ -7,13 +7,14 @@
   align-items: center;
   justify-content: space-between;
   height: 4em;
-  background-color: $dark-grey;
+  background-color: $primary;
+  z-index: 999;
 
   .nav__img {
     width: 10em;
-    height: auto;
+    height: 55px;
     margin-left: 20px;
-    border-bottom: 1px solid $violet;
+    border-bottom: 1px solid $black;
   }
 
   .nav__list {
@@ -28,8 +29,10 @@
   .nav__list-item {
     margin: 0 10px;
     font-size: 1.8em;
-
+    
     a {
+      color: $dark-grey;
+      font-style: normal;
       &:hover {
         color: $violet;
       }

@@ -1,16 +1,29 @@
 .sidebar__main {
+  position: absolute;
+  left: 0;
   display: flex;
-  position: fixed;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 2em;
-  margin: 4em;
-  margin-top: 6em;
-  border-radius: 10px;
-  box-shadow: 4px 4px 10px $dark-grey;
-  background-color: $light-grey;
+  height: 60%;
+  box-sizing: border-box;
+  margin-top: 4em;
+  border-radius: 0px 0px 10px 0px;
+  background-color: $primary;
   width: 12em;
+
+  .sidebar__exit {
+    height: 40px;
+    align-self: flex-start;
+    cursor: pointer;
+    margin-bottom: 1em;
+    justify-self: flex-start;
+
+    &:hover {
+      filter: drop-shadow(2px 2px 14px $white);
+    }
+  }
 
   .sidebar__list {
     list-style: none;
@@ -21,17 +34,17 @@
   .sidebar__list-item {
     font-size: 1.8em;
     margin: 10px 0;
-    
+
     a {
       color: $dark-grey;
 
-      &:hover{
+      &:hover {
         color: $violet;
       }
     }
 
-    .sidebar__linkTo{
-      cursor: pointer; 
+    .sidebar__linkTo {
+      cursor: pointer;
     }
   }
 }

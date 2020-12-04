@@ -1,30 +1,67 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import wave from "../Assets/bg/wave.svg";
+import hambMenu from "../Assets/hambMenu.svg";
+import cart from "../Assets/cart.svg";
 import { Navbar } from "./common/Navbar";
-import { ProductGrid } from "./productGrid/ProductGrid";
 import { Sidebar } from "./sidebar/Sidebar";
+import { Header } from "./header/Header";
+import { openSidebar } from "../actions/ui";
 
 export const Home = () => {
+  const dispatch = useDispatch();
+  const { ui } = useSelector((state) => state);
 
-  fetch("https://darkstar-tienda.firebaseio.com/")
-  .then(data => console.log(data))
+  const [aros, setAros] = useState([]);
+  const [cadenas, setCadenas] = useState([]);
+  const [chokers, setChokers] = useState([]);
+  const [collares, setCollares] = useState([]);
+  const [ombligueras, setOmbligueras] = useState([]);
+  const [shoes, setShoes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("https://backend-darkstar.herokuapp.com/darkstar")
+      .then((res) => res.json())
+      .then((data) => {
+        setAros(data.aros);
+        setCadenas(data.cadenas);
+        setChokers(data.chokers);
+        setCollares(data.collares);
+        setOmbligueras(data.ombligueras);
+        setShoes(data.shoeChain);
+      })
+      .then(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  const oSidebar = () => {
+    dispatch(openSidebar());
+  };
 
   return (
     <div className="home__main">
-      <div>
-        <Navbar />
-        <Sidebar />
+      <img
+        src={hambMenu}
+        alt="menu"
+        className="home__menu"
+        onClick={oSidebar}
+      />
+      <img src={cart} alt="cart" className="home__cart" />
+      <Navbar />
+
+      <div className="home__container">
+        <Header />
+        <h1 className="home__title">Productos Destacados</h1>
       </div>
-      {/* <div className='home__bg1'></div> */}
-      {/* <div className="home__bg2"></div> */}
-      <section className="home__container">
-        <ProductGrid id="MasVendido" title="Mas vendido" />
-        <ProductGrid id="LoUltimo" title="Lo último" />
-        <ProductGrid id="Aros" title="Aros" />
-        <ProductGrid id="Chockers" title="Chockers" />
-        <ProductGrid id="Collares" title="Collares" />
-        <ProductGrid id="Ombligueras" title="Ombligueras" />
-        <ProductGrid id="Cadenas" title="Cadenas" />
-      </section>
+
+      <div className="home__bg1">
+        <img src={wave} alt="bg" />
+      </div>
+      {ui.isOpen ? <Sidebar /> : null}
     </div>
   );
 };
