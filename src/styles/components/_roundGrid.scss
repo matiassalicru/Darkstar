@@ -1,0 +1,32 @@
+.roundGrid__main {
+  display: flex;
+  height: 200px;
+  width: 80%;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+
+  .roundGrid__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 170px;
+    height: 170px;
+    background-color: #30303090;
+    margin: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover{
+        box-shadow: 6px 6px 10px $white;
+        opacity: 0.2;
+    }
+
+    p {
+      color: white;
+    }
+  }
+}

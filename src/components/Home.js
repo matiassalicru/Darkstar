@@ -8,6 +8,8 @@ import { Navbar } from "./common/Navbar";
 import { Sidebar } from "./sidebar/Sidebar";
 import { Header } from "./header/Header";
 import { openSidebar } from "../actions/ui";
+import { RoundGrid } from "./roundGrid/RoundGrid";
+import { Footer } from "./common/Footer";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -56,8 +58,10 @@ export const Home = () => {
       <div className="home__container">
         <Header />
         <h1 className="home__title">Productos Destacados</h1>
+        <RoundGrid />
       </div>
 
+        <Footer />
       <div className="home__bg1">
         <img src={wave} alt="bg" />
       </div>

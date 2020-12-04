@@ -1,0 +1,31 @@
+.footer__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5em;
+  width: 100%;
+  background-color: #30303090;
+  border-radius: 90px;
+  margin: 15px 0;
+
+  .footer__list {
+    list-style: none;
+    display: flex;
+
+    .footer__list-item {
+      margin: 0 20px;
+
+      a {
+        text-decoration: none;
+        color: $white;
+        font-size: 1.8em;
+        transition: all 0.5s ease;
+        font-style: inherit;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
