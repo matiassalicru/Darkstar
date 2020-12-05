@@ -12,13 +12,8 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="sidebar__main  animate__animated animate__bounceInLeft">
-      <img
-        src={exit}
-        alt="exit"
-        className="sidebar__exit"
-        onClick={cSidebar}
-      />
+    <aside className="sidebar__main  animate__animated animate__bounceInLeft ">
+      <img src={exit} alt="exit" className="sidebar__exit" onClick={cSidebar} />
       <ul className="sidebar__list">
         <li className="sidebar__list-item">
           <Link

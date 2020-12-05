@@ -1,15 +1,27 @@
 .header__main {
-  // position: absolute;
-  // bottom: 25em;
-  // margin-left: auto;
-  // margin-right: auto;
-  // left: 0;
-  // right: 0;
+  position: relative;
   box-sizing: border-box;
   border-radius: 30px;
-  // height: 350px;
-  // width: 50em;
-  padding: 200px 30%;
+  box-sizing: border-box;
   margin: 0;
-  background-color: lavender;
+  background-color: $white;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 80%;
+
+  .header__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .header__list-item {
+
+      .header__img-carousel {
+        height: 90%;
+        z-index: -10;
+      }
+    }
+  }
 }

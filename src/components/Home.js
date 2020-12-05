@@ -57,7 +57,7 @@ export const Home = () => {
 
       <div className="home__container">
         <Header />
-        <h1 className="home__title">Productos Destacados</h1>
+        <h1 className="home__title">Nuestros productos</h1>
         <RoundGrid />
       </div>
 

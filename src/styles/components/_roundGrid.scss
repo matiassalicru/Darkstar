@@ -9,12 +9,16 @@
   .roundGrid__card {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    width: 170px;
-    height: 170px;
+    min-width: 200px;
+    min-height: 200px;
     background-color: #30303090;
+    opacity: 0.7;
+    background-position: center;
+    background-size: cover;
     margin: 20px;
     border-radius: 50%;
     cursor: pointer;
@@ -22,11 +26,34 @@
 
     &:hover{
         box-shadow: 6px 6px 10px $white;
-        opacity: 0.2;
+        opacity: 1;
     }
 
     p {
       color: white;
     }
+
+
   }
+
+  .cadena{
+    background-image: url('../../Assets/logos/jean.jpeg');
+  }
+
+  .vario{
+    background-image: url('../../Assets/logos/vario.jpeg');
+  }
+
+  .choker{
+    background-image: url('../../Assets/logos/choker.jpeg');
+  }
+
+  .aro{
+    background-image: url('../../Assets/logos/ear.jpeg');
+  }
+
+  .collar{
+    background-image: url('../../Assets/logos/neck.jpeg');
+  }
+ 
 }
