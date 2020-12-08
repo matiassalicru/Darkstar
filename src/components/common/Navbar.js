@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LogoW from "../../Assets/logos/LogoWritten.svg";
 
 export const Navbar = () => {
@@ -8,31 +9,13 @@ export const Navbar = () => {
 
       <ul className="nav__list">
         <li className="nav__list-item">
-          <a
-            href="https://www.twitter.com/matiassalicru"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Inicio
-          </a>
+          <Link to="/">Inicio</Link>
         </li>
         <li className="nav__list-item">
-          <a
-            href="https://www.twitter.com/matiassalicru"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Productos
-          </a>
+          <Link to="/tienda">Productos</Link>
         </li>
         <li className="nav__list-item">
-          <a
-            href="https://www.twitter.com/matiassalicru"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contacto
-          </a>
+          <Link to="/contacto"> Contacto</Link>
         </li>
       </ul>
     </nav>

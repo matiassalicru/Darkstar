@@ -35,10 +35,10 @@ export const Header = () => {
       })}
 
       <button onClick={goLeft} id="arrow-left">
-        <i class="fas fa-arrow-left"></i>
+        <i className="fas fa-arrow-left"></i>
       </button>
       <button onClick={goRight} id="arrow-right">
-        <i class="fas fa-arrow-right"></i>
+        <i className="fas fa-arrow-right"></i>
       </button>
     </div>
   );

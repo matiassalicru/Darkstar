@@ -27,3 +27,37 @@ a{
 .pointer{
     cursor: pointer;
 }
+
+.noDisplay{
+    display: none;
+}
+
+.noShow{
+    opacity: 0;
+}
+
+
+.home__menu {
+    position: fixed;
+    top: 6em;
+    width: 3em;
+    left: 1.5em;
+    cursor: pointer;
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:hover {
+      filter: drop-shadow(2px 2px 5px $primary);
+    }
+  }
+
+  .home__cart {
+    position: fixed;
+    width: 3.5em;
+    top: 6em;
+    right: 1.5em;
+    cursor: pointer;
+
+    &:hover {
+      filter: drop-shadow(2px 2px 5px $primary);
+    }
+  }

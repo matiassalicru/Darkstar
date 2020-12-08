@@ -1,13 +1,13 @@
 import React from "react";
 import { ProductCard } from "./ProductCard";
 
-export const ProductGrid = ({ id, title, article }) => {
+export const ProductGrid = ({data}) => {
   return (
-    <section className="grid__main" id={id}>
-      <h2 className="grid__title">{title}</h2>
+    <section className="grid__main">
+      <h2 className="grid__title">Titulo</h2>
 
       <article className="grid__card-container">
-        {article.map(({ image_link, title, id, price }) => {
+        {data.map(({ image_link, title, id, price }) => {
           return (
             <ProductCard
               img={image_link}

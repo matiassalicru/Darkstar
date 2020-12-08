@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-scroll";
 import exit from "../../Assets/exit.svg";
 import { closeSidebar } from "../../actions/ui";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
+  const ui = useSelector((state) => state.ui);
+  console.log(ui.isOpen);
 
   const cSidebar = () => {
     dispatch(closeSidebar());
@@ -13,7 +15,9 @@ export const Sidebar = () => {
 
   return (
     <aside className="sidebar__main  animate__animated animate__bounceInLeft ">
-      <img src={exit} alt="exit" className="sidebar__exit" onClick={cSidebar} />
+      <div className={`sidebar__exit`} onClick={cSidebar}>
+        <i className="fas fa-times"></i>
+      </div>
       <ul className="sidebar__list">
         <li className="sidebar__list-item">
           <Link

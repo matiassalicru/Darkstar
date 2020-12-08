@@ -1,15 +1,24 @@
 import React from "react";
-import swal from "sweetalert";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchAros } from "../../actions/data";
 
 export const RoundCard = ({ title, bg }) => {
-  const show = (title) => {
-    swal(`acá debería salir la sección de ${title}`, "", "warning");
+  const dispatch = useDispatch();
+
+  const bringData = () => {
+    dispatch(fetchAros(title.toLowerCase()));
   };
 
   return (
-    <div className={`roundGrid__card `} onClick={() => show(title)}>
-      <div className={`roundGrid__img ${bg}`}></div>
-      <p>{title}</p>
-    </div>
+    <Link
+      to={`/tienda/${title.toLowerCase()}`}
+      onClick={() => bringData(title)}
+    >
+      <div className={`roundGrid__card `}>
+        <div className={`roundGrid__img ${bg}`}></div>
+        <p>{title}</p>
+      </div>
+    </Link>
   );
 };

@@ -15,31 +15,6 @@ export const Home = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
 
-  const [aros, setAros] = useState([]);
-  const [cadenas, setCadenas] = useState([]);
-  const [chokers, setChokers] = useState([]);
-  const [collares, setCollares] = useState([]);
-  const [ombligueras, setOmbligueras] = useState([]);
-  const [shoes, setShoes] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch("https://backend-darkstar.herokuapp.com/darkstar")
-      .then((res) => res.json())
-      .then((data) => {
-        setAros(data.aros);
-        setCadenas(data.cadenas);
-        setChokers(data.chokers);
-        setCollares(data.collares);
-        setOmbligueras(data.ombligueras);
-        setShoes(data.shoeChain);
-      })
-      .then(() => {
-        setLoading(false);
-      });
-  }, []);
-
   const oSidebar = () => {
     dispatch(openSidebar());
   };
@@ -49,7 +24,7 @@ export const Home = () => {
       <img
         src={hambMenu}
         alt="menu"
-        className="home__menu"
+        className={`home__menu ${ui.isOpen && `noShow`}`}
         onClick={oSidebar}
       />
       <img src={cart} alt="cart" className="home__cart" />
@@ -61,7 +36,7 @@ export const Home = () => {
         <RoundGrid />
       </div>
 
-        <Footer />
+      <Footer />
       <div className="home__bg1">
         <img src={wave} alt="bg" />
       </div>

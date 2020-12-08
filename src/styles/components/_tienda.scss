@@ -1,0 +1,34 @@
+.tienda__main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: $dark-grey;
+  // margin-top: 4em;
+
+  .tienda__bg1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0;
+
+    img {
+      position: absolute;
+      box-sizing: border-box;
+      bottom: 0px;
+      width: 100%;
+    }
+  }
+}
+
+.tienda__loading{
+  // margin: 600px;
+  color: black;
+}

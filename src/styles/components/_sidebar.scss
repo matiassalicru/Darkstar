@@ -6,22 +6,28 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 2em;
-  height: 60%;
+  height: 70%;
   box-sizing: border-box;
   margin-top: 4em;
   border-radius: 0px 0px 10px 0px;
-  background-color: $primary;
+  background-color: #00000050;
   width: 12em;
 
   .sidebar__exit {
     height: 40px;
     align-self: flex-start;
     cursor: pointer;
-    margin-bottom: 1em;
+    margin-bottom: 5em;
     justify-self: flex-start;
+    color: $white;
+    // background: $white;
+
+    i {
+      font-size: 4em;
+    }
 
     &:hover {
-      filter: drop-shadow(2px 2px 14px $white);
+      filter: drop-shadow(2px 2px 14px $primary);
     }
   }
 
@@ -36,7 +42,7 @@
     margin: 10px 0;
 
     a {
-      color: $dark-grey;
+      color: $white;
 
       &:hover {
         color: $violet;
