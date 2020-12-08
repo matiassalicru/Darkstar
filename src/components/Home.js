@@ -20,27 +20,29 @@ export const Home = () => {
   };
 
   return (
-    <div className="home__main">
-      <img
-        src={hambMenu}
-        alt="menu"
-        className={`home__menu ${ui.isOpen && `noShow`}`}
-        onClick={oSidebar}
-      />
-      <img src={cart} alt="cart" className="home__cart" />
+    <>
       <Navbar />
+      <div className="home__main">
+        <img
+          src={hambMenu}
+          alt="menu"
+          className={`home__menu ${ui.isOpen && `noShow`}`}
+          onClick={oSidebar}
+        />
+        <img src={cart} alt="cart" className="home__cart" />
 
-      <div className="home__container">
-        <Header />
-        <h1 className="home__title">Nuestros productos</h1>
-        <RoundGrid />
-      </div>
+        <div className="home__container">
+          <Header />
+          <h1 className="home__title">Nuestros productos</h1>
+          <RoundGrid />
+        </div>
 
-      <Footer />
-      <div className="home__bg1">
-        <img src={wave} alt="bg" />
+        <div className="home__bg1">
+          <img src={wave} alt="bg" />
+        </div>
+        {ui.isOpen ? <Sidebar /> : null}
+        <Footer />
       </div>
-      {ui.isOpen ? <Sidebar /> : null}
-    </div>
+    </>
   );
 };

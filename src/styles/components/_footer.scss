@@ -1,5 +1,7 @@
 .footer__main {
   display: flex;
+  position: absolute;
+  bottom: 0;
   justify-content: center;
   align-items: center;
   height: 3.5em;
@@ -7,12 +9,16 @@
   background-color: #30303090;
   border-radius: 90px;
   margin: 2em 0;
+  box-sizing: border-box;
 
   .footer__list {
     list-style: none;
     display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 
     .footer__list-item {
+      box-sizing: border-box;
       margin: 0 20px;
 
       a {

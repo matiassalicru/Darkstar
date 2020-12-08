@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 
-import header1 from "../../Assets/carousel/header1.jpg";
-import header2 from "../../Assets/carousel/header2.jpg";
-import header3 from "../../Assets/carousel/header3.jpg";
-import header4 from "../../Assets/carousel/header4.jpeg";
+// import header1 from "../../Assets/carousel/header1.jpg";
+// import header4 from "../../Assets/carousel/header4.jpeg";
+import header1 from '../../Assets/carousel/Banner-1.png';
+import header2 from '../../Assets/carousel/Banner-2.png';
+import header3 from "../../Assets/carousel/Banner-3.png";
+
 
 import { ImgComp } from "./ImgComp";
 
 export const Header = () => {
   const [x, setX] = useState(0);
 
-  const slideImgs = [header4, header1, header2, header3];
+  const slideImgs = [ header1, header2, header3];
 
   const goLeft = () => {
     x === 0 ? setX((slideImgs.length - 1) * -100) : setX(x + 100);

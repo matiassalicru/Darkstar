@@ -12,11 +12,11 @@ export const rounds = [
     bg: "choker",
   },
   {
-    type: "Ombligueras",
+    type: "Varios",
     bg: "vario",
   },
   {
-    type: "Cadenas",
+    type: "Colores",
     bg: "cadena",
   },
 ];

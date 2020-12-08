@@ -1,6 +1,6 @@
 import { types } from "../types/types";
 
-export const fetchAros = (title) => {
+export const fetchData = (title) => {
   return (dispatch) => {
     fetch("https://backend-darkstar.herokuapp.com/darkstar")
       .then((resp) => resp.json())

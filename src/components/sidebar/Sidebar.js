@@ -1,17 +1,21 @@
 import React from "react";
-import { Link } from "react-scroll";
-import exit from "../../Assets/exit.svg";
+import { Link } from "react-router-dom";
 import { closeSidebar } from "../../actions/ui";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../../actions/data";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
-  const ui = useSelector((state) => state.ui);
-  console.log(ui.isOpen);
+  
+  const state = useSelector((state) => state);
 
   const cSidebar = () => {
     dispatch(closeSidebar());
   };
+
+  const getData = (product) => {
+    dispatch( fetchData(product) )
+  }
 
   return (
     <aside className="sidebar__main  animate__animated animate__bounceInLeft ">
@@ -20,63 +24,33 @@ export const Sidebar = () => {
       </div>
       <ul className="sidebar__list">
         <li className="sidebar__list-item">
-          <Link
-            to="MasVendido"
-            spy={true}
-            smooth={true}
-            className="sidebar__linkTo"
-          >
+          <Link to="/" className="sidebar__linkTo">
             Inicio
           </Link>
         </li>
-        <li className="sidebar__list-item">
-          <Link to="Aros" spy={true} smooth={true} className="sidebar__linkTo">
+        <li className="sidebar__list-item" onClick={() => getData("aros")}>
+          <Link to="/tienda/aros" className="sidebar__linkTo">
             Aros
           </Link>
         </li>
-        <li className="sidebar__list-item">
-          <Link
-            to="Chockers"
-            spy={true}
-            smooth={true}
-            className="sidebar__linkTo"
-          >
-            Chockers
+        <li className="sidebar__list-item" onClick={() => getData("chokers")}>
+          <Link to="/tienda/chokers" className="sidebar__linkTo">
+            Chokers
           </Link>
         </li>
-        <li className="sidebar__list-item">
-          <Link
-            to="Collares"
-            spy={true}
-            smooth={true}
-            className="sidebar__linkTo"
-          >
+        <li className="sidebar__list-item" onClick={() => getData("collares")}>
+          <Link to="/tienda/collares" className="sidebar__linkTo">
             Collares
           </Link>
         </li>
-        <li className="sidebar__list-item">
-          <Link
-            to="WaistChain"
-            spy={true}
-            smooth={true}
-            className="sidebar__linkTo"
-          >
-            Waist chain
+        <li className="sidebar__list-item" onClick={() => getData("varios")}>
+          <Link to="/tienda/varios" className="sidebar__linkTo">
+            Varios
           </Link>
         </li>
-        <li className="sidebar__list-item">
-          <Link
-            to="Cadenas"
-            spy={true}
-            smooth={true}
-            className="sidebar__linkTo"
-          >
-            Cadenas
-          </Link>
-        </li>
-        <li className="sidebar__list-item">
-          <Link to="Shoes" spy={true} smooth={true} className="sidebar__linkTo">
-            Shoes
+        <li className="sidebar__list-item" onClick={() => getData("colores")}>
+          <Link to="/tienda/colores" className="sidebar__linkTo">
+            Colores
           </Link>
         </li>
       </ul>

@@ -10,10 +10,10 @@ export const AppRouter = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/tienda/aros" component={Tienda} />
-          <Route exact path="/tienda/chokers" component={Tienda} />
           <Route exact path="/tienda/collares" component={Tienda} />
-          <Route exact path="/tienda/cadenas" component={Tienda} />
-          <Route exact path="/tienda/ombligueras" component={Tienda} />
+          <Route exact path="/tienda/chokers" component={Tienda} />
+          <Route exact path="/tienda/varios" component={Tienda} />
+          <Route exact path="/tienda/colores" component={Tienda} />
 
           <Redirect to="/" />
         </Switch>
