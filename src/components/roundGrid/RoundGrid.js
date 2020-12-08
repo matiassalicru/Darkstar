@@ -8,8 +8,8 @@ export const RoundGrid = () => {
 
   return (
     <div className="roundGrid__main">
-      {destacados.map((destacado) => (
-        <RoundCard title={destacado.type} bg={destacado.bg}/>
+      {destacados.map((destacado,index) => (
+        <RoundCard key={index} title={destacado.type} bg={destacado.bg}/>
       ))}
     </div>
   );
