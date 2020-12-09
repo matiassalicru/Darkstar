@@ -18,7 +18,7 @@
   //   border-bottom: 1px solid $black;
   // }
 
-  .nav__title{
+  .nav__title {
     font-size: 2.8em;
     padding: 0;
     margin: 0;
@@ -26,7 +26,10 @@
     font-style: normal;
     border-bottom: 1px solid $black;
     font-weight: 500;
-    filter: drop-shadow(2px 2px 5px black);
-  }
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+    &:hover {
+      filter: drop-shadow(2px 2px 5px $black);
+    }
+  }
 }

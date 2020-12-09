@@ -7,10 +7,10 @@ export const ProductGrid = ({ data }) => {
       <h2 className="grid__title">{data.length > 0 && data[0].type}</h2>
 
       <article className="grid__card-container">
-        {data.map(({ image_link, title, id, price }) => {
+        {data.map(({ images_thumb, title, id, price }) => {
           return (
             <ProductCard
-              img={image_link}
+              imgs={images_thumb}
               title={title}
               price={price}
               key={id}
