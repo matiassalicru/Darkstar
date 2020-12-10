@@ -8,7 +8,6 @@
   padding: 2em;
   height: 70%;
   box-sizing: border-box;
-  // margin-top: 4em;
   border-radius: 0px 0px 10px 0px;
   background-color: #00000050;
   width: 12em;
@@ -20,10 +19,10 @@
     margin-bottom: 5em;
     justify-self: flex-start;
     color: $white;
-    // background: $white;
 
     i {
       font-size: 4em;
+      z-index: 999;
     }
 
     &:hover {

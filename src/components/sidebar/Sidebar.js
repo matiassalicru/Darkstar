@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { closeSidebar } from "../../actions/ui";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchData } from "../../actions/data";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
   
-  const state = useSelector((state) => state);
-
   const cSidebar = () => {
     dispatch(closeSidebar());
   };

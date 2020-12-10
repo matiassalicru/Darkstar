@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import wave from "../Assets/bg/wave.svg";
@@ -13,8 +13,11 @@ import { Footer } from "./common/Footer";
 
 export const Home = () => {
   const dispatch = useDispatch();
+  
+  //Trae el state ui desde el store de redux.
   const { ui } = useSelector((state) => state);
 
+  //Dispatch que ejecuta una action en redux para cambiar el estado de la "ui.isOpen" en true.
   const oSidebar = () => {
     dispatch(openSidebar());
   };

@@ -10,6 +10,7 @@ import { openSidebar } from "../../actions/ui";
 import { Sidebar } from "../sidebar/Sidebar";
 import { fetchData } from "../../actions/data";
 import { Footer } from "../common/Footer";
+import { Template } from "../common/Template";
 
 export const Tienda = () => {
   const [loading, setLoading] = useState(true);
@@ -50,23 +51,12 @@ export const Tienda = () => {
     <>
       <Navbar />
       <div className="tienda__main">
-        <img
-          src={hambMenu}
-          alt="menu"
-          className={`home__menu ${ui.isOpen && `noShow`}`}
-          onClick={oSidebar}
-        />
-        <img src={cart} alt="cart" className="home__cart" />
+        <Template />
         {!loading ? (
           <ProductGrid data={data} />
         ) : (
           <h1 style={{ color: "white" }}>Cargando...</h1>
         )}
-        <div className="tienda__bg1">
-          <img src={wave} alt="bg" />
-        </div>
-        {ui.isOpen ? <Sidebar /> : null}
-          <Footer />
       </div>
     </>
   );

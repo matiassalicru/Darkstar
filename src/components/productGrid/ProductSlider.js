@@ -31,7 +31,7 @@ export const ProductSlider = ({ slideImgs }) => {
             <i className="fas fa-chevron-left"></i>
           </button>
           <button onClick={goRight} id="arrow-right">
-            <i class="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right"></i>
           </button>
         </>
       )}

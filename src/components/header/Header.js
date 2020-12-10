@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 
-// import header1 from "../../Assets/carousel/header1.jpg";
-// import header4 from "../../Assets/carousel/header4.jpeg";
 import header1 from '../../Assets/carousel/Banner-1.png';
 import header2 from '../../Assets/carousel/Banner-2.png';
 import header3 from "../../Assets/carousel/Banner-3.png";
 
 
-import { ImgComp } from "./ImgComp";
 
 export const Header = () => {
   const [x, setX] = useState(0);
@@ -31,7 +28,7 @@ export const Header = () => {
             className="header__slide"
             style={{ transform: `translateX(${x}%)` }}
           >
-            <ImgComp src={img} key={index} />
+            <img src={img} alt="slideImg" className="header__img-carousel" />
           </div>
         );
       })}
