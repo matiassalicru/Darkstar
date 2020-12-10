@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar, openSidebar } from "../../actions/ui";
+import { openSidebar } from "../../actions/ui";
 import { Sidebar } from "../sidebar/Sidebar";
 import { Footer } from "./Footer";
 import wave from "../../Assets/bg/wave.svg";

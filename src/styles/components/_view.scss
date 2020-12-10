@@ -1,0 +1,8 @@
+.view__main {
+    @extend %main;
+    align-items: center;
+
+  .view__title {
+      color: $white
+  }
+}

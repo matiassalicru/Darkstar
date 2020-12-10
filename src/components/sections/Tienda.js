@@ -3,25 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navbar } from "../common/Navbar";
 import { ProductGrid } from "../productGrid/ProductGrid";
 
-import hambMenu from "../../Assets/hambMenu.svg";
-import cart from "../../Assets/cart.svg";
-import wave from "../../Assets/bg/wave.svg";
-import { openSidebar } from "../../actions/ui";
-import { Sidebar } from "../sidebar/Sidebar";
 import { fetchData } from "../../actions/data";
-import { Footer } from "../common/Footer";
 import { Template } from "../common/Template";
 
 export const Tienda = () => {
   const [loading, setLoading] = useState(true);
+  const [render, setRender] = useState(false);
 
-  // const data = useSelector((state) => state.data);
-  const { ui, data } = useSelector((state) => state);
+  const { data } = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  const oSidebar = () => {
-    dispatch(openSidebar());
-  };
 
   const url = window.location.href;
 
@@ -40,24 +30,28 @@ export const Tienda = () => {
   }, [dispatch, url]);
 
   useEffect(() => {
-    if (data.length !== 0) {
-      setLoading(false);
-    } else {
+    if (!url.includes(data[0]?.type) || data.length === 0) {
       setLoading(true);
+      setRender(false);
+    } else {
+      setLoading(false);
+      setRender(true)
     }
-  }, [data, loading]);
+  }, [data, loading, url]);
 
   return (
     <>
       <Navbar />
-      <div className="tienda__main">
-        <Template />
-        {!loading ? (
-          <ProductGrid data={data} />
-        ) : (
-          <h1 style={{ color: "white" }}>Cargando...</h1>
-        )}
-      </div>
+      {render && (
+        <div className="tienda__main">
+          <Template />
+          {!loading ? (
+            <ProductGrid data={data} />
+          ) : (
+            <h1 style={{ color: "white" }}>Cargando...</h1>
+          )}
+        </div>
+      )}
     </>
   );
 };

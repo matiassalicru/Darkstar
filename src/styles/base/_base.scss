@@ -79,3 +79,17 @@ a {
     width: 100%;
   }
 }
+
+%main{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: flex-end;
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: $dark-grey;
+  margin-top: 4em;
+  box-sizing: border-box;
+}
