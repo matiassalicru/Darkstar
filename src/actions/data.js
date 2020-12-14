@@ -16,3 +16,10 @@ export const setData = (data) => {
     payload: data,
   };
 };
+
+export const cleanData = () => {
+  return {
+    type: types.cleanData,
+    payload: []
+  }
+}

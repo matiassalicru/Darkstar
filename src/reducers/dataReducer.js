@@ -5,6 +5,9 @@ export const dataReducer = (state = [], action) => {
     case types.setData:
       return action.payload;
 
+    case types.cleanData:
+      return action.payload;
+
     default:
       return state;
   }

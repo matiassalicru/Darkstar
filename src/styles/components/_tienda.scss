@@ -3,8 +3,13 @@
 }
 
 .tienda__loading {
-  color: black;
+  @extend %main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
   box-sizing: border-box;
+  text-align: center;
 }
 
 

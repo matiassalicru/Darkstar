@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { closeSidebar } from "../../actions/ui";
+import { closeSidebar, isLoading } from "../../actions/ui";
 import { useDispatch } from "react-redux";
-import { fetchData } from "../../actions/data";
+import { cleanData, fetchData } from "../../actions/data";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,9 @@ export const Sidebar = () => {
   };
 
   const getData = (product) => {
-    dispatch( fetchData(product) )
+    dispatch( cleanData() );
+    dispatch( isLoading() );
+    dispatch( fetchData(product) );
   }
 
   return (
@@ -21,7 +23,7 @@ export const Sidebar = () => {
         <i className="fas fa-times"></i>
       </div>
       <ul className="sidebar__list">
-        <li className="sidebar__list-item">
+        <li className="sidebar__list-item" onClick={() => dispatch( cleanData() )}>
           <Link to="/" className="sidebar__linkTo">
             Inicio
           </Link>

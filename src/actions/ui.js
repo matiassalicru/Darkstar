@@ -11,3 +11,15 @@ export const openSidebar = () => {
     type: types.openSidebar,
   };
 };
+
+export const isLoading = () => {
+  return {
+    type: types.isLoading
+  }
+}
+
+export const isNotLoading = () => {
+  return {
+    type: types.isNotLoading
+  }
+}

@@ -1,57 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar } from "../common/Navbar";
 import { ProductGrid } from "../productGrid/ProductGrid";
 
 import { fetchData } from "../../actions/data";
 import { Template } from "../common/Template";
+import { isNotLoading, isLoading } from "../../actions/ui";
 
 export const Tienda = () => {
-  const [loading, setLoading] = useState(true);
-  const [render, setRender] = useState(false);
-
-  const { data } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+  const { data, ui } = useSelector((state) => state);
+  const { loading } = ui;
 
   const url = window.location.href;
 
   useEffect(() => {
-    if (url.includes("aros")) {
-      return dispatch(fetchData("aros"));
-    } else if (url.includes("chokers")) {
-      return dispatch(fetchData("chokers"));
-    } else if (url.includes("collares")) {
-      return dispatch(fetchData("collares"));
-    } else if (url.includes("varios")) {
-      return dispatch(fetchData("varios"));
-    } else if (url.includes("colores")) {
-      return dispatch(fetchData("colores"));
+    if (data.length === 0) {
+      dispatch(isLoading());
+    } else {
+      dispatch(isNotLoading());
     }
-  }, [dispatch, url]);
+  }, [data, dispatch, loading]);
 
   useEffect(() => {
-    if (!url.includes(data[0]?.type) || data.length === 0) {
-      setLoading(true);
-      setRender(false);
+    if (loading) {
+      if (url.includes("aros")) {
+        dispatch(fetchData("aros"));
+      } else if (url.includes("chokers")) {
+        dispatch(fetchData("chokers"));
+      } else if (url.includes("collares")) {
+        dispatch(fetchData("collares"));
+      } else if (url.includes("varios")) {
+        dispatch(fetchData("varios"));
+      } else if (url.includes("colores")) {
+        dispatch(fetchData("colores"));
+      }
     } else {
-      setLoading(false);
-      setRender(true)
+      
     }
-  }, [data, loading, url]);
+  }, [loading, dispatch, url]);
 
   return (
     <>
       <Navbar />
-      {render && (
-        <div className="tienda__main">
-          <Template />
-          {!loading ? (
-            <ProductGrid data={data} />
-          ) : (
-            <h1 style={{ color: "white" }}>Cargando...</h1>
-          )}
-        </div>
-      )}
+      <div className="tienda__main">
+        <Template />
+        {loading ? (
+          <h1 className="tienda__loading">Cargando...</h1>
+        ) : (
+          <ProductGrid data={data} />
+        )}
+      </div>
     </>
   );
 };
