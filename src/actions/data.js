@@ -21,5 +21,5 @@ export const cleanData = () => {
   return {
     type: types.cleanData,
     payload: []
-  }
-}
+  };
+};
