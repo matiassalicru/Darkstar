@@ -9,28 +9,33 @@ import { ProductGrid } from "../productGrid/ProductGrid";
 //Actions
 import { fetchData } from "../../actions/data";
 import { isNotLoading, isLoading } from "../../actions/ui";
+import { useParams } from "react-router-dom";
 
-export const Tienda = () => {
+export const Tienda = ({history}) => {
   const dispatch = useDispatch();
+  console.log(history);
+
+  const params = useParams();
+
   const { data, ui } = useSelector((state) => state);
   const { loading } = ui;
   const url = window.location.href;
 
   //Efecto para setear el localStorage el key Type para la url
   useEffect(() => {
-    if (data.length !== 0) {
-      localStorage.setItem("type", `/${data[0].type.toLowerCase()}`);
-    }
-  }, [data]);
+    console.log(params);
+  }, [params]);
 
   //Efecto para mostrar la pantalla de cargando mientras no se esté mostrando la data correcta
   useEffect(() => {
     if (data.length === 0) {
-      if (!loading) { //Condición que verifica que no se ejecute 2 veces la misma acción
+      if (!loading) {
+        //Condición que verifica que no se ejecute 2 veces la misma acción
         dispatch(isLoading());
       }
     } else {
-      if (loading) { //Condición que verifica que no se ejecute 2 veces la misma acción
+      if (loading) {
+        //Condición que verifica que no se ejecute 2 veces la misma acción
         dispatch(isNotLoading());
       }
     }

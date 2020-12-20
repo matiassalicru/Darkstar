@@ -1,13 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { sendToView } from "../../actions/view";
 import { Navbar } from "../common/Navbar";
 import { Template } from "../common/Template";
 
 export const View = () => {
+  const dispatch = useDispatch()
+  const view = useSelector((state) => state.view);
 
-  const view = useSelector(state => state.view)
+  const { tipo, itemView } = useParams();
 
-  console.log(view);
+  useEffect(() => {
+    // dispatch( sendToView )
+  }, []);
+
   return (
     <>
       <Navbar />
