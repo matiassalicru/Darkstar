@@ -1,11 +1,11 @@
 import { types } from "../types/types";
 
-export const fetchData = (title) => {
+export const fetchData = (type) => {
   return (dispatch) => {
     fetch("https://backend-darkstar.herokuapp.com/darkstar")
       .then((resp) => resp.json())
       .then((data) => {
-        dispatch(setData(data[title]));
+        dispatch(setData(data[type]));
       });
   };
 };

@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 
 export const Tienda = ({history}) => {
   const dispatch = useDispatch();
-  console.log(history);
+  // console.log(history);
 
   const params = useParams();
 
@@ -23,7 +23,7 @@ export const Tienda = ({history}) => {
 
   //Efecto para setear el localStorage el key Type para la url
   useEffect(() => {
-    console.log(params);
+    // console.log(params);
   }, [params]);
 
   //Efecto para mostrar la pantalla de cargando mientras no se esté mostrando la data correcta
