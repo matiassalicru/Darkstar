@@ -14,12 +14,24 @@ export const openSidebar = () => {
 
 export const isLoading = () => {
   return {
-    type: types.isLoading
-  }
-}
+    type: types.isLoading,
+  };
+};
 
 export const isNotLoading = () => {
   return {
-    type: types.isNotLoading
-  }
-}
+    type: types.isNotLoading,
+  };
+};
+
+export const darkModeOff = () => {
+  return {
+    type: types.darkModeOff,
+  };
+};
+
+export const darkModeOn = () => {
+  return {
+    type: types.darkModeOn,
+  };
+};

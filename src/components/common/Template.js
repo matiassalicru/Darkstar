@@ -24,7 +24,12 @@ export const Template = () => {
         className={`home__menu ${ui.isOpen && `noShow`}`}
         onClick={openSide}
       />
-      <img src={cart} alt="cart" className="home__cart" />
+      {/* <img src={cart} alt="cart" className="home__cart" /> */}
+      <img 
+        src={cart}
+        className="home__cart"
+        alt="darklightmode" 
+      />
 
       <div className="bg1">
         <img src={wave} alt="bg" />

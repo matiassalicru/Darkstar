@@ -80,7 +80,7 @@ a {
   }
 }
 
-%main{
+%main {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -89,7 +89,18 @@ a {
   min-height: 100vh;
   width: 100vw;
   z-index: 10;
-  background-color: $dark-grey;
   margin-top: 4em;
   box-sizing: border-box;
+  background-color: $dark-grey;
+
+}
+
+%dark {
+  background-color: $dark-grey;
+  color: $light-grey;
+}
+
+%light {
+  background-color: $white;
+  color: $dark-grey;
 }

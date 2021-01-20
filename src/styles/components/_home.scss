@@ -1,5 +1,5 @@
 .home__main {
-    @extend %main;
+  @extend %main;
 
   .home__container {
     display: flex;
@@ -17,9 +17,15 @@
     font-style: 2em;
     padding: 10px 20px;
     margin: 2em auto;
-    background-color: $white;
     border-radius: 40px;
-    color: $dark-grey;
+    
+    .dark {
+      @extend %dark;
+    }
+
+    .light {
+      @extend %light;
+    }
   }
 
   .home__bg1 {
@@ -38,4 +44,12 @@
       width: 100%;
     }
   }
+}
+
+.dark {
+  @extend %dark;
+}
+
+.light {
+  @extend %light;
 }

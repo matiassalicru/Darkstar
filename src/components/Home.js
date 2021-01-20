@@ -25,7 +25,7 @@ export const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="home__main">
+      <div className={`home__main ${ui.darkMode ? `dark` : `light`}`}>
         <img
           src={hambMenu}
           alt="menu"
@@ -36,7 +36,7 @@ export const Home = () => {
 
         <div className="home__container">
           <Header />
-          <h1 className="home__title">Nuestros productos</h1>
+          <h1 className={`home__title ${!ui.darkMode ? `dark` : `light`}`}>Nuestros productos</h1>
           <RoundGrid />
         </div>
 

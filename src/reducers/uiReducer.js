@@ -3,6 +3,7 @@ import { types } from "../types/types";
 const initialState = {
   isOpen: false,
   loading: true,
+  darkMode: false,
 };
 
 export const uiReducer = (state = initialState, action) => {
@@ -27,6 +28,16 @@ export const uiReducer = (state = initialState, action) => {
         ...state,
         loading: false,
       };
+    case types.darkModeOn:
+      return {
+        ...state,
+        darkMode: true,
+      };
+    case types.darkModeOff:
+      return {
+        ...state,
+        darkMode: false,
+      }
 
     default:
       return state;
