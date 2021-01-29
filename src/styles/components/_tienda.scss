@@ -5,6 +5,7 @@
 .tienda__loading {
   @extend %main;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   color: white;

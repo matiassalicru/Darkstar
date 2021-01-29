@@ -60,12 +60,12 @@ export const View = () => {
               </div>
             </div>
             <div className="view__add">
-              <h2>{view.description}</h2>
+              <h2 className="view__description">{view.description}</h2>
               <h2>{view.price}</h2>
 
               <button onClick={() => alert("Todavia no hay changuito")} className="btn">Agregar al carrito</button>
-              <h3>{view.availability}</h3>
-              <h2>{view.brand}</h2>
+              <h2>{view.availability}</h2>
+              <h3>{view.brand}</h3>
               <button onClick={() => alert("Esto todavia no esta disponible, gracias vuelva prontos")}className="btn__secundary">Ver carrito</button>
             </div>
           </>
