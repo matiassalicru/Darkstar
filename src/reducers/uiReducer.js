@@ -3,7 +3,7 @@ import { types } from "../types/types";
 const initialState = {
   isOpen: false,
   loading: true,
-  darkMode: false,
+  darkMode: true,
 };
 
 export const uiReducer = (state = initialState, action) => {

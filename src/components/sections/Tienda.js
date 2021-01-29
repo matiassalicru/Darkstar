@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 //Components
 import { Navbar } from "../common/Navbar";
 import { Template } from "../common/Template";
+import { Loading } from "../common/Loading";
 import { ProductGrid } from "../productGrid/ProductGrid";
 
 //Actions
@@ -64,7 +65,9 @@ export const Tienda = ({history}) => {
       <div className="tienda__main">
         <Template />
         {loading ? (
-          <h1 className="tienda__loading">Cargando...</h1>
+          <div className="tienda__loading">
+            <Loading/>
+          </div>
         ) : (
           <ProductGrid data={data} />
         )}

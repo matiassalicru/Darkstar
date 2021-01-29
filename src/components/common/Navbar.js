@@ -23,7 +23,7 @@ export const Navbar = () => {
         <h1 className="nav__title">DARKSTAR</h1>
       </Link>
 
-      <button onClick={toggleDarkmode}>Toggle dark mode</button>
+      <button className="btn" onClick={toggleDarkmode}>DarkMode</button>
     </nav>
   );
 };
