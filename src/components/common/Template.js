@@ -17,14 +17,14 @@ export const Template = () => {
 
   return (
     <>
-      {ui.isOpen ? <Sidebar /> : null}
+      {ui.isSidebarOpen ? <Sidebar /> : null}
+      
       <img
         src={hambMenu}
         alt="menu"
-        className={`home__menu ${ui.isOpen && `noShow`}`}
+        className={`home__menu ${ui.isSidebarOpen && `noShow`}`}
         onClick={openSide}
       />
-      {/* <img src={cart} alt="cart" className="home__cart" /> */}
       <img 
         src={cart}
         className="home__cart"

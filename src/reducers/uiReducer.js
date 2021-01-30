@@ -1,7 +1,8 @@
 import { types } from "../types/types";
 
 const initialState = {
-  isOpen: false,
+  isSidebarOpen: false,
+  isCartOpen: false,
   loading: true,
   darkMode: true,
 };
@@ -11,12 +12,22 @@ export const uiReducer = (state = initialState, action) => {
     case types.openSidebar:
       return {
         ...state,
-        isOpen: true,
+        isSidebarOpen: true,
       };
     case types.closeSidebar:
       return {
         ...state,
-        isOpen: false,
+        isSidebarOpen: false,
+      };
+    case types.openCart:
+      return {
+        ...state,
+        isCartOpen: true,
+      };
+    case types.closeCart:
+      return {
+        ...state,
+        isCartOpen: false,
       };
     case types.isLoading:
       return {
@@ -37,7 +48,7 @@ export const uiReducer = (state = initialState, action) => {
       return {
         ...state,
         darkMode: false,
-      }
+      };
 
     default:
       return state;
