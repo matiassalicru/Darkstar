@@ -1,0 +1,36 @@
+.cart__main {
+  position: fixed;
+  display: flex;
+  flex-direction: row-reverse;
+  right: 0;
+  font-size: 2em;
+  padding: 20px;
+  height: 70%;
+  z-index: 10;
+  border-radius: 0px 0px 0px 10px;
+  margin-top: 10px;
+  color: white;
+  width: 40vw;
+  background-color: transparentize($color: white, $amount: 0);
+
+  .cart__exit {
+    height: 40px;
+    align-self: flex-start;
+    cursor: pointer;
+    justify-self: flex-end;
+
+    i {
+      color: $black;
+      font-size: 2em;
+      z-index: 999;
+    }
+
+    &:hover {
+      filter: drop-shadow(2px 2px 14px $primary);
+    }
+  }
+
+  h5{
+    color: black;
+  }
+}

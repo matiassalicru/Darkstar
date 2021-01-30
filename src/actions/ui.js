@@ -12,6 +12,18 @@ export const openSidebar = () => {
   };
 };
 
+export const openCart = () => {
+  return { 
+    type: types.openCart,
+  };
+}
+
+export const closeCart = () => {
+  return {
+    type: types.closeCart,
+  };
+}
+
 export const isLoading = () => {
   return {
     type: types.isLoading,

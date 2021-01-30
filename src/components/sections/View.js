@@ -12,6 +12,7 @@ import { ProductSlider } from "../productGrid/ProductSlider";
 export const View = () => {
   const dispatch = useDispatch();
   const [thereIsView, setThereIsView] = useState(false);
+  const [cart, setCart] = useState([]);
 
   let data = useSelector((state) => state.data);
   let thereIsData = false;
@@ -42,6 +43,39 @@ export const View = () => {
 
   const view = useSelector((state) => state.view);
 
+
+  const addItem = (item) => {
+
+    if( !item.quantity ) item.quantity = 1;
+
+    alert('anadido')
+    //Create a copy of the cart, avoid overwritting existing state
+    let cartCopy = [...cart];
+
+    //Get the ID of the item
+    let ID = item.id;
+
+    //Check if the item already is in the cart. Return true or false (I think)
+    let existingItem = cartCopy.find((cartItem) => cartItem.id === ID);
+    
+    if (existingItem) {
+      existingItem.quantity += 1; //Update Item.
+    } else {
+      //If it doesn't exist just add it.
+      cartCopy.push(item);
+    }
+
+    //Set the new updated cart
+    setCart(cartCopy);
+    
+    let stringCart = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", stringCart);
+    console.log(cart);
+  };
+  
+
+
+
   return (
     <>
       <Navbar />
@@ -63,7 +97,7 @@ export const View = () => {
               <h2 className="view__description">{view.description}</h2>
               <h2>{view.price}</h2>
 
-              <button onClick={() => alert("Todavia no hay changuito")} className="btn">Agregar al carrito</button>
+              <button onClick={() => addItem(view)} className="btn">Agregar al carrito</button>
               <h2>{view.availability}</h2>
               <h3>{view.brand}</h3>
               <button onClick={() => alert("Esto todavia no esta disponible, gracias vuelva prontos")}className="btn__secundary">Ver carrito</button>
