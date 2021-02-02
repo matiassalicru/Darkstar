@@ -84,7 +84,7 @@ export const Cart = () => {
   };
 
   return (
-    <aside className="cart__main">
+    <aside className="cart__main animate__animated animate__bounceInRight">
       <div className={`cart__exit`} onClick={setCartClosed}>
         <i className="fas fa-times"></i>
       </div>

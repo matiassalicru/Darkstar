@@ -9,7 +9,8 @@
   height: 70%;
   box-sizing: border-box;
   border-radius: 0px 0px 10px 0px;
-  background-color: #00000050;
+  background-color: #fff;
+  color: $black;
   width: 12em;
   z-index: 1;
 
@@ -19,7 +20,7 @@
     cursor: pointer;
     margin-bottom: 5em;
     justify-self: flex-start;
-    color: $white;
+    color: $black;
 
     i {
       font-size: 4em;
@@ -42,7 +43,7 @@
     margin: 10px 0;
 
     a {
-      color: $white;
+      color: $black;
 
       &:hover {
         color: $violet;
