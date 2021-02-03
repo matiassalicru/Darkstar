@@ -29,6 +29,8 @@ body {
 .btn__secundary{
   @extend .btn;
   margin-top: 20px;
+  border: 1px solid $white;
+  color: $white;
   box-shadow: 2px 2px 5px $light-grey;
 }
 

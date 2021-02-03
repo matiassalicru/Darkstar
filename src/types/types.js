@@ -11,5 +11,8 @@ export const types = {
   setData: "[DATA] set Data",
   cleanData: "[DATA] clean Data",
 
+  addToCart: "[CART] add to cart",
+  removeFromCart: "[CART] remove from cart",
+
   setView: "[VIEW] set View",  
 };

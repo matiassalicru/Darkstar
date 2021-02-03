@@ -6,14 +6,15 @@ import { sendToView } from "../../actions/view";
 import { Footer } from "../common/Footer";
 import { Loading } from "../common/Loading";
 import { Navbar } from "../common/Navbar";
-import { Template } from "../common/Template";
+import { TemplateNoWave } from "../common/TemplateNoWave";
 import { ProductSlider } from "../productGrid/ProductSlider";
 import swal from "sweetalert";
+import { addCart } from "../../actions/cart";
+import { openCart } from "../../actions/ui";
 
 export const View = () => {
   const dispatch = useDispatch();
   const [thereIsView, setThereIsView] = useState(false);
-  const [cart, setCart] = useState([]);
 
   let data = useSelector((state) => state.data);
   let thereIsData = false;
@@ -45,43 +46,18 @@ export const View = () => {
   const view = useSelector((state) => state.view);
 
   const addItem = (item) => {
-    if (!item.quantity) item.quantity = 1;
-
-    // alert("anadido");
+    dispatch(addCart(item));
     swal({
-      title: "Thank You!",
-      text: "Item added to the cart!",
-      icon: "success",
-    });
-    //Create a copy of the cart, avoid overwritting existing state
-    let cartCopy = [...cart];
-
-    //Get the ID of the item
-    let ID = item.id;
-
-    //Check if the item already is in the cart. Return true or false (I think)
-    let existingItem = cartCopy.find((cartItem) => cartItem.id === ID);
-
-    if (existingItem) {
-      existingItem.quantity += 1; //Update Item.
-    } else {
-      //If it doesn't exist just add it.
-      cartCopy.push(item);
-    }
-
-    //Set the new updated cart
-    setCart(cartCopy);
-
-    let stringCart = JSON.stringify(cartCopy);
-    localStorage.setItem("cart", stringCart);
-    console.log(cart);
+      title: 'Añadido al carrito',
+      icon: 'success'
+    })
   };
 
   return (
     <>
       <Navbar />
       <div className="view__main">
-        <Template />
+        <TemplateNoWave />
         {thereIsData && thereIsView ? (
           <div className="view__card">
             <section className="view__product">
@@ -96,20 +72,20 @@ export const View = () => {
                 <button onClick={() => addItem(view)} className="btn">
                   Agregar al carrito
                 </button>
-                {/* <h2>{view.availability}</h2> */}
                 <h3>Marca: {view.brand}</h3>
                 <button
-                  onClick={() =>
-                    swal({ title: "This is not ready yet", icon: "error" })
-                  }
-                  className="btn__secundary"
+                  onClick={() => dispatch(  openCart() )}
+                  className="btn"
                 >
                   Ver carrito
                 </button>
               </div>
             </section>
             <div className="view__btnTitle">
-              <button className="btn" onClick={() => window.history.back()}>
+              <button
+                className="btn__secundary"
+                onClick={() => window.history.back()}
+              >
                 Volver
               </button>
             </div>

@@ -8,12 +8,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 3em;
+    margin-bottom: 8em;
 
     button {
-      font-size: 1.2em;
-      border: 2px solid $black;
-      color: $black;
+      font-size: 1.4em;
+      border: 2px solid $white;
+      color: $white;
     }
   }
 
@@ -35,20 +35,16 @@
 
     .view__product {
       display: flex;
-      width: 80vw;
+      width: 70vw;
       justify-content: space-around;
       align-items: center;
-      // padding-bottom: 20px;
-      // background: transparentize($color: $white, $amount: 0.9);
-      // background: darken($color: $light-grey, $amount: 10);
-      background: #ffffff;
+      background: #fcedff;
       border-radius: 20px;
       margin: 1em;
 
       .card__carousel {
         border-radius: 10px;
         margin: 2em;
-        // border: 2px solid $dark-grey;
       }
 
       .view__description {
