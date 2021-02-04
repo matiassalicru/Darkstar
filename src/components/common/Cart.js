@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeCart } from "../../actions/ui";
+import { CartItem } from "./CartItem";
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -16,16 +17,10 @@ export const Cart = () => {
       <div className={`cart__exit`} onClick={setCartClosed}>
         <i className="fas fa-times"></i>
       </div>
-      <h5 style={{ color: "000" }}>
-        {items !== [] && (
-          <>
-            <h2>{items[0].title}</h2>
-            <img src={items[0].images_thumb} alt="" srcset="" />
-            <h2>{items[2].title}</h2>
-            {/* <img src={items[2].images_thumb} alt="" srcset="" /> */}
-          </>
-        )}
-      </h5>
+      <button className="btn">Limpiar Carrito</button>
+      <div className="cart__items">
+        {items !== [] && items.map((item) => <CartItem item={item} />)}
+      </div>
     </aside>
   );
 };

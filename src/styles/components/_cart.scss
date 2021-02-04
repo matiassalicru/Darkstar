@@ -1,8 +1,8 @@
 .cart__main {
   position: fixed;
-  display: flex;
-  flex-direction: row-reverse;
   right: 0;
+  display: flex;
+  flex-direction: column;
   font-size: 2em;
   padding: 20px;
   height: 80%;
@@ -12,12 +12,21 @@
   color: white;
   width: 40vw;
   background-color: $white;
+  overflow: scroll;
+
+  button {
+    color: $black;
+    margin-top: 2.5em;
+    width: 80%;
+    display: flex;
+    align-self: center;
+    border: 1px solid $black;
+  }
 
   .cart__exit {
+    align-self: flex-end;
     height: 40px;
-    align-self: flex-start;
     cursor: pointer;
-    justify-self: flex-end;
 
     i {
       color: $black;
@@ -30,7 +39,10 @@
     }
   }
 
-  h5{
-    color: black;
+  .cart__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
