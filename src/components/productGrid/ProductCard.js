@@ -22,8 +22,8 @@ export const ProductCard = ({data}) => {
             <ProductSlider slideImgs={images_thumb} />
           </div>
 
-          {/* Acá este link que reemplaza la url con el tipo de producto y el producto en sí, quitando espacios y llevando todo a minúscula */}
 
+          {/* Acá este link que reemplaza la url con el tipo de producto y el producto en sí, quitando espacios y llevando todo a minúscula */}
           <Link
             className="card__description"
             to={`/tienda/${type.toLowerCase()}/${title

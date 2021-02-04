@@ -35,7 +35,10 @@ export const cartReducer = (state = initialState, action) => {
       }
 
     case types.removeFromCart:
-      return state.filter((item) => item.id !== action.payload);
+      const newArr = state.items.filter((item) => item.id !== action.payload);
+      return {
+        items: newArr,
+      }
 
     case types.cleanCart:
       return {
