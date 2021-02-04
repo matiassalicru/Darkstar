@@ -13,6 +13,7 @@ export const types = {
 
   addToCart: "[CART] add to cart",
   removeFromCart: "[CART] remove from cart",
+  cleanCart: "[CART] clean the cart",
 
-  setView: "[VIEW] set View",  
+  setView: "[VIEW] set View",
 };

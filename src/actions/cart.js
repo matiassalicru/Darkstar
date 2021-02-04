@@ -13,3 +13,9 @@ export const removeCart = (itemID) => {
     payload: itemID,
   };
 };
+
+export const cleanCart = () => {
+  return {
+    type: types.cleanCart,
+  };
+};

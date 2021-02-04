@@ -27,7 +27,7 @@ export const cartReducer = (state = initialState, action) => {
       } else {
         let stringCart = JSON.stringify(state.items);
         localStorage.setItem("cart", stringCart);
-        
+
         return {
           ...state,
           items: [...state.items, action.payload],
@@ -36,6 +36,11 @@ export const cartReducer = (state = initialState, action) => {
 
     case types.removeFromCart:
       return state.filter((item) => item.id !== action.payload);
+
+    case types.cleanCart:
+      return {
+        items: [],
+      };
 
     default:
       return state;

@@ -33,7 +33,7 @@ export const ProductCard = ({data}) => {
           >
             <h1 className="card__title">{title}</h1>
             <p className="card__price">$ {price}</p>
-            <button className="card__btn">Visitar</button>
+            <button className="card__btn">Ver detalle</button>
           </Link>
         </div>
       ) : null}
