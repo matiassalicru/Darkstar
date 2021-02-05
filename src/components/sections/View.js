@@ -8,7 +8,6 @@ import { Loading } from "../common/Loading";
 import { Navbar } from "../common/Navbar";
 import { TemplateNoWave } from "../common/TemplateNoWave";
 import { ProductSlider } from "../productGrid/ProductSlider";
-import swal from "sweetalert";
 import { addCart } from "../../actions/cart";
 import { openCart } from "../../actions/ui";
 
@@ -47,10 +46,7 @@ export const View = () => {
 
   const addItem = (item) => {
     dispatch(addCart(item));
-    swal({
-      title: 'Añadido al carrito',
-      icon: 'success'
-    })
+    
   };
 
   return (

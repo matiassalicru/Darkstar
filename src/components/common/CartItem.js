@@ -1,13 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../actions/cart";
+import { updateItem } from "../../actions/cart";
 
 export const CartItem = ({ item }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const deleteItem = (itemID) =>{
-    dispatch( removeFromCart(itemID) )
-  }
+  const updateAnItem = (itemID, addOrRemove) => {
+    dispatch(updateItem(itemID, addOrRemove));
+  };
+
   return (
     <div className="cartItem__main">
       <img src={item.images_thumb} alt="item" />
@@ -18,7 +19,20 @@ export const CartItem = ({ item }) => {
             <p> Precio: {item.price} </p>
             <p> Cantidad: {item.quantity} </p>
           </div>
-          <button onClick={() => deleteItem(item.id)} className="btn__secundary">Delete</button>
+          <div className="cartItem__buttons">
+            <button
+              onClick={() => updateAnItem(item.id, "remove")}
+              className="btn__secundary"
+            >
+              Quitar
+            </button>
+            <button
+              onClick={() => updateAnItem(item.id, "add")}
+              className="btn__secundary"
+            >
+              Añadir
+            </button>
+          </div>
         </section>
       </div>
     </div>
