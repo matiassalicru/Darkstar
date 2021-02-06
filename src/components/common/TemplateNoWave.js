@@ -37,7 +37,7 @@ export const TemplateNoWave = () => {
 
       <img
         src={cart}
-        className="home__cart"
+        className="base__cart"
         alt="carrito de compras"
         onClick={setOpenCart}
       />

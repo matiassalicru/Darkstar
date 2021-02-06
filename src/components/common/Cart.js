@@ -20,7 +20,7 @@ export const Cart = () => {
   };
 
   return (
-    <aside className="cart__main animate__animated animate__fadeInRight">
+    <aside className="cart__main animate__animated animate__fadeInRight animate__faster">
       <div className={`cart__exit`} onClick={setCartClosed}>
         <i className="fas fa-times"></i>
       </div>
@@ -28,12 +28,18 @@ export const Cart = () => {
       <div className="cart__items">
         {items.length >= 1 ? (
           <>
-            <Link className="btn" to='/comprar'>Finalizar Pedido</Link>
+            <Link
+              className="btn"
+              to="/comprar"
+              onClick={() => dispatch(closeCart())}
+            >
+              Realizar compra
+            </Link>
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
             <button onClick={cleanCarrito} className="btn">
-              Limpiar Carrito
+              Limpiar
             </button>
           </>
         ) : (

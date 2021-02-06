@@ -11,7 +11,6 @@ body {
 .btn {
   display: flex;
   background: none;
-  box-shadow: 2px 2px 5px violet;
   cursor: pointer;
   border: 1px solid white;
   text-transform: uppercase;
@@ -19,14 +18,15 @@ body {
   padding: 10px;
   color: white;
   border-radius: 10px;
-  transition: all .7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-  &:hover{
-    transform: scale(1.125);
+  &:hover {
+    transform: scale(1.025);
+    box-shadow: 2px 2px 5px violet;
   }
 }
 
-.btn__secundary{
+.btn__secundary {
   @extend .btn;
   margin-top: 20px;
   border: 1px solid $white;
@@ -77,12 +77,13 @@ a {
   }
 }
 
-.home__cart {
+.base__cart {
   position: fixed;
   width: 3.5em;
   top: 6em;
   right: 1.5em;
   cursor: pointer;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:hover {
     filter: drop-shadow(2px 2px 5px $primary);
@@ -130,7 +131,7 @@ a {
   color: $dark-grey;
 }
 
-.loading-animation{
+.loading-animation {
   margin-bottom: 200px;
   padding: 30px;
   border: 5px solid violet;
@@ -143,14 +144,11 @@ a {
   animation-iteration-count: infinite;
 }
 
-@keyframes loading{
-  from{
+@keyframes loading {
+  from {
     transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(760deg);
   }
 }
-
-
-

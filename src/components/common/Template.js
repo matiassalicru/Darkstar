@@ -27,7 +27,7 @@ export const Template = () => {
   return (
     <>
       {ui.isSidebarOpen ? <Sidebar /> : null}
-      {ui.isCartOpen ? <Cart/> : null}
+      {ui.isCartOpen ? <Cart /> : null}
 
       <img
         src={hambMenu}
@@ -38,7 +38,7 @@ export const Template = () => {
 
       <img
         src={cart}
-        className="home__cart"
+        className="base__cart"
         alt="carrito de compras"
         onClick={setOpenCart}
       />
