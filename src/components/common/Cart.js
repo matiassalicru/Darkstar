@@ -5,6 +5,7 @@ import { closeCart } from "../../actions/ui";
 import { CartItem } from "./CartItem";
 
 import emptyBox from "../../Assets/emptyBox.svg";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const Cart = () => {
       <div className="cart__items">
         {items.length >= 1 ? (
           <>
+            <Link className="btn" to='/comprar'>Finalizar Pedido</Link>
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
