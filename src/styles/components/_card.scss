@@ -123,13 +123,14 @@
 }
 
 .card__btn {
-  background: none;
-  border: 1px solid $dark-grey;
+  background: $primary;
+  border: 1px solid $light-grey;
   border-radius: 10px;
   margin-bottom: 5px;
   width: 50%;
   height: 30px;
   cursor: pointer;
+  color: $white;
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &:hover {

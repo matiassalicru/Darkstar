@@ -18,7 +18,7 @@
   .link {
     position: absolute;
     left: 10px;
-    top: 20px;
+    top: 30px;
   }
 }
 
@@ -26,13 +26,16 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 4em;
+  box-sizing: border-box;
 
   .comprar__items {
     display: flex;
     flex-direction: column;
+    margin: 0 0 3em 0;
 
     .comprar__item {
       display: flex;
@@ -43,7 +46,6 @@
       padding-right: 10px;
       box-sizing: border-box;
       border: 1px solid $light-grey;
-      // border-radius: 0 20px 20px 0;
       margin: 0.5em 0;
 
       .item__description {
@@ -52,7 +54,8 @@
         align-items: flex-end;
         padding: 0 2em;
 
-        h2,p  {
+        h2,
+        p {
           margin: 2px;
         }
       }
@@ -96,7 +99,6 @@
     }
   }
 
-  
   .comprar__emptyCart {
     display: flex;
     flex-direction: column;
@@ -106,12 +108,12 @@
     height: 100%;
     margin-bottom: 10em;
 
-    h1{
+    h1 {
       font-size: 2em;
     }
 
-    img{
-    filter: drop-shadow(0 0 0.2rem $primary);
+    img {
+      filter: drop-shadow(0 0 0.2rem $primary);
       width: 100%;
     }
   }

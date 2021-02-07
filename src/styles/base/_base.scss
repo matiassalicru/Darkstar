@@ -12,9 +12,10 @@ body {
   display: flex;
   background: none;
   cursor: pointer;
-  border: 1px solid white;
+  border: 1px solid $dark-grey;
   text-transform: uppercase;
-  font-weight: 600;
+  background-color: $primary;
+  font-weight: 500;
   padding: 10px;
   color: white;
   border-radius: 10px;

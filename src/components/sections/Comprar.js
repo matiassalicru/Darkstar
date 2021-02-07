@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Footer } from "../common/Footer";
@@ -12,11 +12,24 @@ import emailjs from "emailjs-com";
 export const Comprar = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.items);
+  const [pedido, setPedido] = useState("");
 
-  const items = cart.map(i => i);
-  console.log(items);
+  const joins = []; // Crea un array vacío
+  // const precioFinal = 
+
+  for (let i = 0; i < cart.length; i++) {
+    joins.push(cart[i].title, "cantidad:" + cart[i].price); //Mete los objetos del cart en un array
+    // precioFinal
+  }
+
+  const newJoin = joins.join(" <br/> "); //Junta los items de array en un string separados por un <br/> para que cree una nueva linea luego de cada item.
 
   const [values, handleInputChange] = useForm({});
+
+  useEffect(() => {
+    setPedido(newJoin); //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
+    console.log(newJoin);
+  }, []);
 
   const { name, email, phone, localidad } = values;
 
@@ -64,7 +77,6 @@ export const Comprar = () => {
             {cart.length >= 1 ? (
               cart.map((item) => (
                 <div className="comprar__item" key={item.id}>
-                  {/* <h2>Tus productos</h2> */}
                   <img
                     className="item__image"
                     src={item.images_thumb}
@@ -114,7 +126,14 @@ export const Comprar = () => {
                 onChange={handleInputChange}
               />
               <label>Provincia</label>
-              <select name="user_provincia" onChange={handleInputChange}>
+              <select
+                name="user_provincia"
+                onChange={handleInputChange}
+                defaultValue="empty"
+              >
+                <option disabled value="empty">
+                  -- Selecciona una --
+                </option>
                 <option value="Córdoba">Córdoba</option>
                 <option value="Catamarca">Catamarca</option>
                 <option value="Buenos Aires">Buenos Aires</option>
@@ -126,7 +145,14 @@ export const Comprar = () => {
                 value={localidad}
                 onChange={handleInputChange}
               />
-              
+              <input
+                type="text"
+                onChange={handleInputChange}
+                name="user_pedido"
+                style={{ display: "none" }}
+                value={pedido}
+              />
+
               <input type="submit" className="btn" value="Enviar pedido" />
             </form>
           ) : null}
