@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import header1 from '../../Assets/carousel/Banner-1.png';
 import header2 from '../../Assets/carousel/Banner-2.png';
 import header3 from "../../Assets/carousel/Banner-3.png";
+import { HomeSwiper } from "../common/HomeSwiper";
 
 
 
@@ -21,7 +22,7 @@ export const Header = () => {
 
   return (
     <div className="header__slider">
-      {slideImgs.map((img, index) => {
+      {/* {slideImgs.map((img, index) => {
         return (
           <div
             key={index}
@@ -38,7 +39,9 @@ export const Header = () => {
       </button>
       <button onClick={goRight} id="arrow-right">
         <i className="fas fa-arrow-right"></i>
-      </button>
+      </button> */}
+
+      <HomeSwiper data={slideImgs}/>
     </div>
   );
 };

@@ -11,7 +11,7 @@
   height: 5em;
   background-color: $primary;
   z-index: 999;
-  box-shadow: 0 2px 5px $black;
+  box-shadow: 0 2px 5px $white;
 
   a {
     width: 300px;
@@ -39,6 +39,56 @@
 
     &:hover {
       filter: drop-shadow(2px 2px 1px $black);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav__main {
+    height: 6em;
+    justify-content: center;
+    min-width: 100vw;
+    width: 100vw;
+    z-index: 100;
+    box-shadow: 0 2px 5px $black;
+
+    a {
+      width: 230px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .base__navMenu {
+      display: block;
+      position: fixed;
+      align-self: center;
+      width: 2.2em;
+      left: 1.5em;
+      z-index: 100;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      filter: invert(100%);
+
+      &:hover {
+        filter: drop-shadow(2px 2px 5px $black);
+      }
+    }
+
+    .base__navCart {
+      display: block;
+      position: fixed;
+      width: 2.5em;
+      align-self: center;
+      right: 1.5em;
+      cursor: pointer;
+      transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: invert(100%);
+
+      &:hover {
+        filter: drop-shadow(2px 2px 5px $primary);
+      }
     }
   }
 }

@@ -87,3 +87,9 @@
 .collar {
   background-image: url("../../Assets/logos/neck.jpeg");
 }
+
+@media screen and (max-width: 480px){
+  .roundGrid__main{
+    display: none;
+  }
+}
