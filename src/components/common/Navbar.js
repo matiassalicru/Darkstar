@@ -5,22 +5,35 @@ import { cleanData } from "../../actions/data";
 
 // Images/Logos/Assets
 import hambMenu from "../../Assets/hambMenu.svg";
-import cart from "../../Assets/cart.svg";
+import cartMenu from "../../Assets/cart.svg";
 import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
 
 //Actions
-import { openCart, openSidebar } from "../../actions/ui";
+import {
+  closeCart,
+  closeSidebar,
+  openCart,
+  openSidebar,
+} from "../../actions/ui";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
 
-  const openSide = () => {
-    dispatch(openSidebar());
+  const toggleSidebar = () => {
+    if (ui.isSidebarOpen) {
+      dispatch(closeSidebar());
+    } else {
+      dispatch(openSidebar());
+    }
   };
 
-  const setOpenCart = () => {
-    dispatch(openCart());
+  const toggleCart = () => {
+    if (ui.isCartOpen) {
+      dispatch(closeCart());
+    } else {
+      dispatch(openCart());
+    }
   };
 
   return (
@@ -28,8 +41,10 @@ export const Navbar = () => {
       <img
         src={hambMenu}
         alt="menu"
-        className={`base__navMenu ${ui.isSidebarOpen && `noShow`}`}
-        onClick={openSide}
+        className={`${
+          ui.isSidebarOpen ? `nav__openNavSidebar` : `nav__navSidebar`
+        }`}
+        onClick={toggleSidebar}
       />
 
       <Link to="/" onClick={() => dispatch(cleanData())}>
@@ -37,10 +52,10 @@ export const Navbar = () => {
       </Link>
 
       <img
-        src={cart}
-        className="base__navCart"
+        src={cartMenu}
+        className={`${ui.isCartOpen ? `nav__openNavCart` : `nav__navCart`}`}
         alt="carrito de compras"
-        onClick={setOpenCart}
+        onClick={toggleCart}
       />
     </nav>
   );

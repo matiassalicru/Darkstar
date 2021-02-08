@@ -1,25 +1,26 @@
 .header__slider {
   position: relative;
   width: 60%;
-  height: 50vh;
+  height: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   overflow: hidden;
-  // border-radius: 10px;
+  border-radius: 50px;
+
   border: 1em solid #00000010;
-  // box-shadow: 2px 2px 15px $primary;
 
   .header__slide {
     min-width: 100%;
-    height: 100%;
+    max-height: 50%;
     color: $white;
     transition: all 0.5s;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
   }
 
   %btn-styles {
@@ -57,10 +58,14 @@
 .header__img-carousel {
   width: 100%;
   height: auto;
+  border-radius: 20px;
 }
 
-@media screen and (max-width: 480px){
-  .header__slider{
-    display: none;
+@media screen and (max-width: 480px) {
+  .header__slider {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0 0 15px 15px;
   }
 }

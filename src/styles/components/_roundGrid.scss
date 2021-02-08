@@ -1,7 +1,7 @@
 .roundGrid__main {
   display: flex;
   height: 200px;
-  width: 80%;
+  width: 100%;
   box-sizing: border-box;
   justify-content: center;
   margin: 4em 0;
@@ -13,7 +13,7 @@
   .roundGrid__card {
     position: relative;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -23,13 +23,13 @@
     min-height: 200px;
     background-color: #30303090;
     opacity: 1;
-    background-position: center;
-    background-size: cover;
+    // background-position: center;
+    // background-size: cover;
     margin: 20px;
     border: 2px solid $dark-grey;
     border-radius: 50%;
     cursor: pointer;
-    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     .roundGrid__img {
       position: absolute;
@@ -59,7 +59,7 @@
       font-size: 1.3em;
     }
 
-    &:hover{
+    &:hover {
       font-size: 1.8em;
       font-weight: 600;
       color: $black;
@@ -88,8 +88,34 @@
   background-image: url("../../Assets/logos/neck.jpeg");
 }
 
-@media screen and (max-width: 480px){
-  .roundGrid__main{
-    display: none;
+@media screen and (max-width: 480px) {
+  .roundGrid__main {
+    height: 100%;
+    max-width: 100vw;
+    margin: 0 0 3em 0;
+    align-items: center;
+    justify-content: center;
+    // position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .roundGrid__card {
+      min-width: 150px;
+      min-height: 150px;
+      flex-wrap: nowrap;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .roundGrid__main {
+    margin-bottom: 0;
+    .roundGrid__card {
+      min-width: 120px;
+      min-height: 120px;
+    }
   }
 }

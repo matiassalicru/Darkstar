@@ -33,6 +33,41 @@
   }
 }
 
-@media screen and (max-width: 480px){
-  
+@media screen and (max-width: 480px) {
+  .footer__main {
+    width: 100%;
+
+    .footer__list {
+      flex-wrap: nowrap;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+
+      .footer__list-item {
+        box-sizing: border-box;
+        margin: 0 10px;
+        a {
+          font-size: 1em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          flex-wrap: nowrap;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer__main {
+    height: 70px;
+    .footer__list {
+      .footer__list-item {
+        margin: 0 5px;
+      }
+    }
+  }
 }

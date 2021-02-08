@@ -29,8 +29,6 @@
     }
   }
 
- 
-
   .home__bg1 {
     position: absolute;
     width: 100%;
@@ -57,9 +55,21 @@
   @extend %light;
 }
 
-@media screen and (max-width: 480px){
-  .home__main{
-    // display: none;
+@media screen and (max-width: 480px) {
+  .home__main {
+    margin-top: 2.2em;
   }
-  
+}
+
+@media screen and (max-width: 375px) {
+  .home__main {
+    overflow: hidden;
+    .home__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.4em;
+    }
+  }
 }

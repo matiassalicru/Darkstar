@@ -6,10 +6,8 @@ import { Header } from "./header/Header";
 import { RoundGrid } from "./roundGrid/RoundGrid";
 import { Footer } from "./common/Footer";
 import { Template } from "./common/Template";
-import { HomeSwiper } from "./common/HomeSwiper";
 
 export const Home = () => {
-
   //Trae el state ui desde el store de redux.
   const { ui } = useSelector((state) => state);
 
@@ -17,16 +15,16 @@ export const Home = () => {
     <>
       <Navbar />
       <div className="home__main">
-      <Template />
+        <Template />
         <div className="home__container">
           <Header />
-          
+
           <h1 className={`home__title ${!ui.darkMode ? `dark` : `light`}`}>
             Nuestros productos
           </h1>
           <RoundGrid />
         </div>
-      <Footer />
+        <Footer />
       </div>
     </>
   );

@@ -12,7 +12,7 @@
   background-color: #fff;
   color: $black;
   width: 12em;
-  z-index: 1;
+  z-index: 10;
 
   .sidebar__exit {
     height: 40px;
@@ -56,6 +56,28 @@
   }
 }
 
-@media screen and (max-width: 480px){
-  
+@media screen and (max-width: 480px) {
+  .sidebar__main {
+    position: fixed;
+    top: 6em;
+    box-shadow: 2px 2px 5px 1px $dark-grey;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .sidebar__main {
+    padding: 20px;
+    height: 22em;
+
+    .sidebar__exit {
+      margin-bottom: 2em;
+      font-size: 0.8em;
+    }
+
+    .sidebar__list {
+      .sidebar__list-item {
+        font-size: 1.3em;
+      }
+    }
+  }
 }
