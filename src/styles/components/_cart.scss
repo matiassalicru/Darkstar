@@ -16,6 +16,9 @@
   overflow-x: hidden;
 
   a {
+    position: fixed;
+    left: 15%;
+    top: 20px;
     color: black;
     margin-top: 0.5em;
     width: 50%;
@@ -83,7 +86,6 @@
 
 @media screen and (max-width: 480px) {
   .cart__main {
-    position: fixed;
     top: 3em;
     display: flex;
     flex-direction: column;
@@ -92,14 +94,19 @@
     height: 60vh;
     z-index: 10;
     border: 1px solid $black;
-    border-radius: 0px 0px 0px 10px;
     box-shadow: -2px 2px 5px 1px $dark-grey;
     margin-top: 0px;
     color: white;
-    width: 8em;
+    width: 10em;
     background-color: $white;
     overflow: auto;
     overflow-x: hidden;
+
+    a{
+      text-align: center;
+      font-size: .5em;
+      width: fit-content;
+    }
   }
 }
 

@@ -19,12 +19,12 @@
   }
 
   img {
-    max-height: 100%;
+    max-height: 85%;
     max-width: 90px;
     position: absolute;
-    border-radius: 10px 0px 0px 10px;
-    border: 1px solid $light-grey;
-    border-left: 0px;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 10px;
+    border: 2px solid $black;
     left: 0;
   }
 
@@ -66,7 +66,7 @@
           text-transform: capitalize;
           margin: 0.1em 0;
           border: 2px solid $light-grey;
-          color: $dark-grey;  
+          color: $dark-grey;
 
           &:hover {
             box-shadow: 2px 2px 2px $primary;
@@ -90,6 +90,98 @@
   }
 }
 
-@media screen and (max-width: 480px){
-  
+@media screen and (max-width: 480px) {
+  .cartItem__main {
+    min-width: 100%;
+    flex-wrap: wrap;
+    padding: 0;
+
+    a {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .cartItem__description {
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1em;
+      color: $black;
+      margin-left: 100px;
+      width: 100%;
+
+      .cartItem__title {
+        font-size: 0.5em;
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 0;
+      }
+
+      .cartItem__subdescription {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+
+        p {
+          font-weight: 600;
+          font-style: italic;
+          font-size: 0.4em;
+        }
+
+        .cartItem__buttons {
+          display: flex;
+          flex-direction: row;
+          button {
+            width: 100%;
+            text-transform: capitalize;
+            margin: 0.1em .2em;
+            border: 2px solid $light-grey;
+            color: $dark-grey;
+
+            &:hover {
+              box-shadow: 2px 2px 2px $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cartItem__title {
+    text-align: center;
+    font-size: 0.4em;
+  }
+
+  .cartItem__subdescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+
+    p {
+      font-weight: 600;
+      font-style: italic;
+      font-size: 0.4em;
+    }
+
+    .cartItem__buttons {
+      display: flex;
+      margin: 0.4em 0;
+      button {
+        width: 100%;
+        text-transform: capitalize;
+        margin: 0.2em 0;
+        box-sizing: border-box;
+        border: 2px solid $light-grey;
+        color: $dark-grey;
+
+        &:hover {
+          box-shadow: 2px 2px 2px $primary;
+        }
+      }
+    }
+  }
 }

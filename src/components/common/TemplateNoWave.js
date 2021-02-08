@@ -31,7 +31,7 @@ export const TemplateNoWave = () => {
       <img
         src={hambMenu}
         alt="menu"
-        className={`home__menu ${ui.isSidebarOpen && `noShow`}`}
+        className={`base__menu ${ui.isSidebarOpen && `noShow`}`}
         onClick={openSide}
       />
 

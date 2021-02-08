@@ -8,7 +8,6 @@ import SwiperCore, {
   EffectFade,
   Zoom,
   Autoplay,
-  EffectCoverflow,
 } from "swiper";
 
 //Import Swiper styles
@@ -21,7 +20,6 @@ SwiperCore.use([
   EffectFade,
   Zoom,
   Autoplay,
-  EffectCoverflow,
 ]);
 
 export const ProductGrid = ({ data }) => {
@@ -36,7 +34,6 @@ export const ProductGrid = ({ data }) => {
       {width320 <= 500 ? (
         <article className="grid__swiper">
           <Swiper
-            // effectcoverflow="true"
             spaceBetween={0}
             slidesPerView={1.5}
             slidesPerGroupSkip={1}
@@ -47,7 +44,7 @@ export const ProductGrid = ({ data }) => {
             {data.map((item, i) => (
               <SwiperSlide key={i}>
                 <article className="grid__card-container">
-                    <ProductCard data={item} />;
+                    <ProductCard data={item} />
                 </article>
               </SwiperSlide>
             ))}

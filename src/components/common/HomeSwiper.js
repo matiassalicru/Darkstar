@@ -23,7 +23,7 @@ SwiperCore.use([
 ]);
 
 export const HomeSwiper = ({ data }) => {
-  console.log(data);
+  
   return (
     <>
       <Swiper
@@ -38,8 +38,8 @@ export const HomeSwiper = ({ data }) => {
           disableOnInteraction: false,
           waitForTransition: true,
         }}
-        onSlideChange={() => console.log("slide changed")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide changed")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         {data.map((image, index) => (
           <SwiperSlide key={index}>

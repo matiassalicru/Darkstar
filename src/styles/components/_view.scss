@@ -12,8 +12,6 @@
 
     button {
       font-size: 1.4em;
-      // border: 2px solid $white;
-      // color: $white;
     }
   }
 
@@ -75,7 +73,25 @@
   }
 }
 
+@media screen and (max-width: 480px) {
+  .view__main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6em;
+    min-width: 100%;
 
-@media screen and (max-width: 480px){
-  
+    .view__card {
+      flex-direction: column;
+      min-width: 100%;
+
+      .view__product {
+        flex-direction: column;
+        min-width: 100%;
+        .view__description{
+          padding: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
