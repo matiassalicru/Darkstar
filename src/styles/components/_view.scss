@@ -59,8 +59,6 @@
         }
 
         button {
-          // color: $black;
-          // border: 1px solid $dark-grey !important;
           font-size: 1.1em;
         }
 
@@ -75,21 +73,95 @@
 
 @media screen and (max-width: 480px) {
   .view__main {
-    display: flex;
-    flex-direction: column;
-    margin-top: 6em;
-    min-width: 100%;
-
-    .view__card {
+    .view__cardMobile {
+      margin-top: 3em;
+      margin-bottom: 5em;
+      display: flex;
       flex-direction: column;
-      min-width: 100%;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      color: $white;
+      padding: 0 20px;
+      box-sizing: border-box;
 
-      .view__product {
-        flex-direction: column;
-        min-width: 100%;
-        .view__description{
-          padding: 20px;
-          text-align: center;
+      .view__headerMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+
+        .view__backButtonMobile {
+          left: 0;
+          top: 5px;
+          position: absolute;
+          background: $primary;
+          border: none;
+          border-radius: 50%;
+          padding: 10px;
+        }
+      }
+
+      hr {
+        width: 100%;
+        border: 2px solid $black;
+      }
+
+      .view__typeMobile {
+        font-size: 1.5em;
+        background-color: $primary;
+        padding: 10px;
+
+        border-radius: 25px;
+        width: fit-content;
+      }
+
+      .view__swiperMobile {
+        width: 100%;
+        // background-color: white;
+        margin: 0 50px;
+
+        .view__imageSliderMobile {
+          width: 200px;
+          border-radius: 10px;
+        }
+      }
+
+      .view__descriptionMobile {
+        .view__titleMobile {
+          margin: 0;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        .view__precioMobile {
+          font-size: 2em;
+          color: darken($primary, 20%);
+        }
+
+        .view__paymentMobile {
+          display: flex;
+          align-items: center;
+          width: fit-content;
+          margin-bottom: 20px;
+
+          .view__paymentImgMobile {
+            width: 48px;
+            height: 48px;
+          }
+
+          .view__paymentDescription {
+            margin-left: 5px;
+            font-size: 0.8em;
+            align-self: flex-start;
+
+            span {
+              color: darken($primary, 20%);
+            }
+          }
         }
       }
     }

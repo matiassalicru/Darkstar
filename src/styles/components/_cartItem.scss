@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   max-height: 10em;
+  min-height: 100px;
   height: 3.5em;
   max-width: 100%;
   min-width: 400px;
@@ -31,7 +32,6 @@
   .cartItem__description {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: flex-start;
     font-size: 0.5em;
     color: $black;
@@ -134,7 +134,7 @@
           button {
             width: 100%;
             text-transform: capitalize;
-            margin: 0.1em .2em;
+            margin: 0.1em 0.2em;
             border: 2px solid $light-grey;
             color: $dark-grey;
 
@@ -149,6 +149,9 @@
 }
 
 @media screen and (max-width: 320px) {
+  .cartItem__main {
+    min-height: 100px;
+  }
   .cartItem__title {
     text-align: center;
     font-size: 0.4em;

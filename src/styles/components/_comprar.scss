@@ -5,10 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // margin-top: 4.5em;
   color: $white;
-  height: 100%;
-  // padding-bottom: 5em;
 
   .comprar__title {
     font-size: 3em;
@@ -26,10 +23,9 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 4em;
+  margin-bottom: 7em;
   box-sizing: border-box;
 
   .comprar__items {
@@ -37,6 +33,17 @@
     flex-direction: column;
     margin: 0 0 3em 0;
 
+    .comprar__tusProductosTitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      font-size: 1.5em;
+      text-align: center;
+      background: $light-grey;
+      color: $black;
+      height: 40px;
+    }
     .comprar__item {
       display: flex;
       align-items: center;
@@ -81,6 +88,7 @@
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       border-radius: 5px;
       border: none;
+      padding: 5px;
 
       &:last-child {
         margin-top: 1.5em;
@@ -119,6 +127,95 @@
   }
 }
 
-@media screen and (max-width: 480px){
-  
+@media screen and (max-width: 480px) {
+  .comprar__nav {
+    position: fixed;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 5em;
+    background-color: $primary;
+    z-index: 999;
+    box-shadow: 0 2px 5px $white;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      .nav__logo {
+        width: 75%;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover {
+          filter: drop-shadow(2px 2px 1px $black);
+        }
+      }
+    }
+  }
+
+  .comprar__main {
+    .comprar__title {
+      font-size: 2em;
+      margin-top: 4em;
+    }
+
+    .link {
+      top: 4em;
+      left: 1.5em;
+    }
+  }
+
+  .comprar__container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: fit-content;
+
+    .comprar__items {
+      max-width: 100%;
+
+      .comprar__item {
+        min-width: 300px;
+        width: fit-content;
+        border-radius: 20px;
+        img {
+          border-radius: 20px 0 0 20px;
+        }
+      }
+    }
+
+    .comprar__form {
+      width: fit-content;
+      // align-items: center;
+      justify-content: center;
+      margin: auto;
+      margin-bottom: 50px;
+
+      input {
+        &:last-child {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .comprar__items {
+    max-width: 100%;
+
+    .comprar__item {
+      max-width: 300px;
+      border-radius: 20px;
+      img {
+        border-radius: 20px 0 0 20px;
+      }
+    }
+
+    .item__description {
+      font-size: 0.8em;
+    }
+  }
 }

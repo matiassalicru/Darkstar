@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Footer } from "../common/Footer";
-import { Navbar } from "../common/Navbar";
 import { useForm } from "../../hooks/useForm/useForm";
 import swal from "sweetalert";
 import { updateItem } from "../../actions/cart";
 import emptyBox from "../../Assets/emptyBox.svg";
 import emailjs from "emailjs-com";
+import { cleanData } from "../../actions/data";
+import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
+
 
 export const Comprar = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ export const Comprar = () => {
   const [pedido, setPedido] = useState("");
 
   const joins = []; // Crea un array vacío
-  // const precioFinal = 
+  // const precioFinal =
 
   for (let i = 0; i < cart.length; i++) {
     joins.push(cart[i].title, "cantidad:" + cart[i].price); //Mete los objetos del cart en un array
@@ -28,8 +30,7 @@ export const Comprar = () => {
 
   useEffect(() => {
     setPedido(newJoin); //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
-    console.log(newJoin);
-  }, []);
+  }, [newJoin]);
 
   const { name, email, phone, localidad } = values;
 
@@ -65,7 +66,11 @@ export const Comprar = () => {
 
   return (
     <>
-      <Navbar />
+      <nav className="comprar__nav">
+        <Link to="/" onClick={() => dispatch(cleanData())}>
+          <img className="nav__logo" src={logoDarkstar} alt="Darkstar" />
+        </Link>
+      </nav>
       <section className="comprar__main">
         <h1 className="comprar__title">Finalizar compra</h1>
 
@@ -74,6 +79,7 @@ export const Comprar = () => {
         </Link>
         <div className="comprar__container">
           <section className="comprar__items">
+            <h1 className="comprar__tusProductosTitle">Tus productos</h1>
             {cart.length >= 1 ? (
               cart.map((item) => (
                 <div className="comprar__item" key={item.id}>
@@ -108,6 +114,7 @@ export const Comprar = () => {
               <input
                 type="text"
                 name="user_name"
+                placeholder="Escribe tu nombre.."
                 value={name}
                 onChange={handleInputChange}
               />
@@ -115,6 +122,7 @@ export const Comprar = () => {
               <input
                 type="email"
                 name="user_email"
+                placeholder="email@email.com"
                 value={email}
                 onChange={handleInputChange}
               />
@@ -155,7 +163,9 @@ export const Comprar = () => {
 
               <input type="submit" className="btn" value="Enviar pedido" />
             </form>
-          ) : null}
+          ) : (
+            <> </>
+          )}
         </div>
         <Footer />
       </section>

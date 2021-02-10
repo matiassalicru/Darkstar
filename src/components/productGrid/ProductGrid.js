@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ProductCard } from "./ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,25 +13,16 @@ import SwiperCore, {
 //Import Swiper styles
 import "swiper/swiper-bundle.css";
 import "swiper/swiper.scss";
+import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
 
-SwiperCore.use([
-  Navigation,
-  Pagination,
-  EffectFade,
-  Zoom,
-  Autoplay,
-]);
+SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
 export const ProductGrid = ({ data }) => {
-  const [width320, setWidth320] = useState(0);
-
-  useEffect(() => {
-    setWidth320(window.visualViewport.width);
-  }, []);
+  const { width } = useWindowDimensions();
 
   return (
     <section className="grid__main">
-      {width320 <= 500 ? (
+      {width <= 500 ? (
         <article className="grid__swiper">
           <Swiper
             spaceBetween={0}
@@ -44,7 +35,7 @@ export const ProductGrid = ({ data }) => {
             {data.map((item, i) => (
               <SwiperSlide key={i}>
                 <article className="grid__card-container">
-                    <ProductCard data={item} />
+                  <ProductCard data={item} />
                 </article>
               </SwiperSlide>
             ))}

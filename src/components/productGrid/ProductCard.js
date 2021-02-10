@@ -17,8 +17,8 @@ export const ProductCard = ({ data }) => {
     dispatch(sendToView(data));
   };
 
-  const addToCart = () => {
-    dispatch(addCart());
+  const addToCart = (item) => {
+    dispatch(addCart(item));
   };
 
   return (
@@ -30,24 +30,26 @@ export const ProductCard = ({ data }) => {
           </div>
 
           {/* Acá este link que reemplaza la url con el tipo de producto y el producto en sí, quitando espacios y llevando todo a minúscula */}
-          <Link
-            className="card__description"
-            to={`/tienda/${type.toLowerCase()}/${title
-              .replace(/\s/g, "")
-              .toLowerCase()}`}
-            onClick={sendTo}
-          >
+          <div className="card__description">
             <h1 className="card__title">{title}</h1>
             <p className="card__price">$ {price}</p>
             <div className="card__buttons">
-              <button className="card__btn" onClick={addToCart}>
+              {/* Añade el item al carrito directamente */}
+              <button className="card__btn" onClick={() => addToCart(data)}>
                 Comprar
               </button>
-              <button className="card__btn">
-                <img src={eye} alt="detalles" />
-              </button>
+              <Link
+                to={`/tienda/${type.toLowerCase()}/${title
+                  .replace(/\s/g, "")
+                  .toLowerCase()}`}
+                onClick={sendTo}
+              >
+                <button className="card__btn">
+                  <img src={eye} alt="detalles" />
+                </button>
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       ) : null}
     </>
