@@ -19,6 +19,8 @@ export const Cart = () => {
     dispatch(cleanCart());
   };
 
+  
+
   return (
     <aside className="cart__main animate__animated animate__fadeInRight animate__faster">
       <div className={`cart__exit`} onClick={setCartClosed}>
@@ -35,12 +37,14 @@ export const Cart = () => {
             >
               Realizar compra
             </Link>
+            <button onClick={cleanCarrito} className="btn cart__cleanBtn">
+              Limpiar
+            </button>
+            {/* <div className="cart__cartItems"> */}
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
-            <button onClick={cleanCarrito} className="btn">
-              Limpiar
-            </button>
+            {/* </div> */}
           </>
         ) : (
           <section className="cart__emptyCart">

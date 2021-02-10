@@ -1,0 +1,31 @@
+.productCart__main {
+  @extend %main;
+  color: $dark-grey;
+  align-items: center;
+  padding-top: 2em;
+  background: lighten($color: $light-grey, $amount: 10);
+
+  button {
+    margin-top: 2em;
+    border: 1px solid $white;
+    box-shadow: 2px 2px 6px $dark-grey;
+  }
+
+  .productCart__title {
+    background: $primary;
+    padding: 5px 0;
+    width: 70%;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .productCart__card {
+    width: 80%;
+  }
+
+  footer {
+    // width: 100%;
+    align-self: flex-start;
+    margin-top: 5em;
+  }
+}

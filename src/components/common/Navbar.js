@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { cleanData } from "../../actions/data";
 
 // Images/Logos/Assets
@@ -19,6 +19,8 @@ import {
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
+  let history = useHistory();
+
 
   const toggleSidebar = () => {
     if (ui.isSidebarOpen) {
@@ -33,6 +35,14 @@ export const Navbar = () => {
       dispatch(closeCart());
     } else {
       dispatch(openCart());
+    }
+  };
+  
+  const enterCart = () => {
+    if (navigator.userAgent.includes('Mac OS')) {
+      history.push('/productCart')
+    } else {
+      toggleCart();
     }
   };
 
@@ -55,7 +65,7 @@ export const Navbar = () => {
         src={cartMenu}
         className={`${ui.isCartOpen ? `nav__openNavCart` : `nav__navCart`}`}
         alt="carrito de compras"
-        onClick={toggleCart}
+        onClick={enterCart}
       />
     </nav>
   );
