@@ -15,11 +15,13 @@ import {
   openCart,
   openSidebar,
 } from "../../actions/ui";
+import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
   let history = useHistory();
+  const {width } = useWindowDimensions();
 
 
   const toggleSidebar = () => {
@@ -39,7 +41,7 @@ export const Navbar = () => {
   };
   
   const enterCart = () => {
-    if (navigator.userAgent.includes('Mac OS')) {
+    if (width <= 330) {
       history.push('/productCart')
     } else {
       toggleCart();
@@ -60,6 +62,7 @@ export const Navbar = () => {
       <Link to="/" onClick={() => dispatch(cleanData())}>
         <img className="nav__logo" src={logoDarkstar} alt="Darkstar" />
       </Link>
+
 
       <img
         src={cartMenu}

@@ -15,7 +15,7 @@ body {
   background-color: $primary;
   font-weight: 500;
   padding: 10px;
-  color: white;
+  color: $dark-grey;
   border-radius: 10px;
   transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 
@@ -111,6 +111,22 @@ a {
     box-sizing: border-box;
     bottom: -0px;
     width: 100%;
+  }
+}
+
+.base__backBtn {
+  position: fixed;
+  top: 9em;
+  left: 15px;
+  background: $primary;
+  border: 1px solid $dark-grey;
+  border-radius: 50%;
+  height: 45px;
+  z-index: 100;
+  width: 45px;
+
+  .base__arrow {
+    width: 24px;
   }
 }
 

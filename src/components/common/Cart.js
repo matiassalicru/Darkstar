@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 export const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
+  const total = useSelector(state => state.prices.total);
 
   const setCartClosed = () => {
     dispatch(closeCart());
@@ -18,8 +19,6 @@ export const Cart = () => {
   const cleanCarrito = () => {
     dispatch(cleanCart());
   };
-
-  
 
   return (
     <aside className="cart__main animate__animated animate__fadeInRight animate__faster">
@@ -37,14 +36,13 @@ export const Cart = () => {
             >
               Realizar compra
             </Link>
+            <p>Total: {total}</p>
             <button onClick={cleanCarrito} className="btn cart__cleanBtn">
               Limpiar
             </button>
-            {/* <div className="cart__cartItems"> */}
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
-            {/* </div> */}
           </>
         ) : (
           <section className="cart__emptyCart">

@@ -45,8 +45,8 @@ export const ProductGrid = ({ data }) => {
         <>
           <h2 className="grid__title">{data.length > 0 && data[0].type}</h2>
           <article className="grid__card-container">
-            {data.map((data) => {
-              return <ProductCard data={data} key={data.id} />;
+            {data.map((item) => {
+              return <ProductCard item={item} key={item.id} />;
             })}
           </article>
         </>

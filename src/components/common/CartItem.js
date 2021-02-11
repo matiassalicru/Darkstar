@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../actions/cart";
+import { minusPrices } from "../../actions/prices";
 
 export const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const updateAnItem = (itemID, addOrRemove) => {
     dispatch(updateItem(itemID, addOrRemove));
+    dispatch( minusPrices(item.price) );
   };
 
   return (

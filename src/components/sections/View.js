@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { fetchData } from "../../actions/data";
 import { sendToView } from "../../actions/view";
 import { Footer } from "../common/Footer";
@@ -34,11 +34,10 @@ import "swiper/swiper.scss";
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
 export const View = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [thereIsView, setThereIsView] = useState(false);
-  const { width, height } = useWindowDimensions();
-
-  console.log(width, height);
+  const { width } = useWindowDimensions();
 
   let data = useSelector((state) => state.data);
   let thereIsData = false;
@@ -81,6 +80,14 @@ export const View = () => {
         {thereIsData && thereIsView ? (
           width > 480 ? (
             <section className="view__card animate__animated animate__bounceInLeft">
+              <div className="view__btnTitle">
+                <button
+                  className="btn__secundary"
+                  onClick={() => history.goBack()}
+                >
+                  <img src={arrow} alt="volver atras" className='base__arrow'/>
+                </button>
+              </div>
               <section className="view__product">
                 <div className="card__carousel">
                   <ProductSlider slideImgs={view.images_big} />
@@ -90,7 +97,8 @@ export const View = () => {
                   <h2 className="view__description__title">
                     {view.description}
                   </h2>
-                  <h2>${view.price}</h2>
+                  <hr />
+                  <h2>Precio ${view.price}</h2>
 
                   <button onClick={() => addItem(view)} className="btn">
                     Agregar al carrito
@@ -101,44 +109,45 @@ export const View = () => {
                   </button>
                 </div>
               </section>
-              <div className="view__btnTitle">
-                <button
-                  className="btn__secundary"
-                  onClick={() => window.history.back()}
-                >
-                  Volver
-                </button>
-              </div>
             </section>
           ) : (
             <section className="view__cardMobile">
+              <button
+                className="base__backBtn"
+                onClick={() => window.history.back()}
+              >
+                <img src={arrow} alt="arrow" className="base__arrow" />
+              </button>
               <div className="view__headerMobile">
-                <button
-                  className="view__backButtonMobile"
-                  onClick={() => window.history.back()}
-                >
-                  <img src={arrow} alt="arrow" />
-                </button>
                 <h1 className="view__typeMobile">{view.type}</h1>
               </div>
               <div className="view__swiperMobile">
-                <Swiper
-                  spaceBetween={60}
-                  slidesPerView={1.5}
-                  pagination={{ clickable: true }}
-                  onSlideChange={() => console.log("slide changed")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                >
-                  {view.images_big.map((item, i) => (
-                    <SwiperSlide zoom key={i}>
-                      <img
-                        className="view__imageSliderMobile"
-                        src={item}
-                        alt="accesories"
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                {view.images_big.length > 1 ? (
+                  <Swiper
+                    spaceBetween={60}
+                    slidesPerView={1.4}
+                    zoom={true}
+                    pagination={{ clickable: true }}
+                  >
+                    {view.images_big.map((item, i) => (
+                      <SwiperSlide key={i}>
+                        <img
+                          className="view__imageSliderMobile"
+                          src={item}
+                          alt="accesories"
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                ) : (
+                  <div className="view__imageNoSlider">
+                    <img
+                      src={view.images_big[0]}
+                      alt="Accesorios"
+                      className="view__imageSliderMobile"
+                    />
+                  </div>
+                )}
               </div>
               <hr />
               <div className="view__descriptionMobile">

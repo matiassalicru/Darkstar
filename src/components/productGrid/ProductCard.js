@@ -7,19 +7,23 @@ import { ProductSlider } from "./ProductSlider";
 //Images imports
 import eye from "../../Assets/eye.png";
 import { addCart } from "../../actions/cart";
+import { sumPrices } from "../../actions/prices";
 
-export const ProductCard = ({ data }) => {
+export const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
 
-  const { images_thumb, title, price, type } = data;
+  const { images_thumb, title, price, type } = item;
 
   const sendTo = () => {
-    dispatch(sendToView(data));
+    dispatch(sendToView(item));
   };
 
   const addToCart = (item) => {
     dispatch(addCart(item));
+    dispatch(sumPrices(item.price))
+    console.log(parseInt(item.price));
   };
+
 
   return (
     <>
@@ -35,7 +39,7 @@ export const ProductCard = ({ data }) => {
             <p className="card__price">$ {price}</p>
             <div className="card__buttons">
               {/* Añade el item al carrito directamente */}
-              <button className="card__btn" onClick={() => addToCart(data)}>
+              <button className="card__btn" onClick={() => addToCart(item)}>
                 Comprar
               </button>
               <Link

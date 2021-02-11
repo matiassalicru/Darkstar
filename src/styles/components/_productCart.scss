@@ -2,10 +2,11 @@
   @extend %main;
   color: $dark-grey;
   align-items: center;
-  padding-top: 2em;
+  margin-top: 3em;
   background: lighten($color: $light-grey, $amount: 10);
+  position: relative;
 
-  button {
+  .productCart__buyBTN {
     margin-top: 2em;
     border: 1px solid $white;
     box-shadow: 2px 2px 6px $dark-grey;
@@ -15,10 +16,11 @@
     background: $primary;
     padding: 5px 0;
     width: 70%;
+    margin-top: 4em;
     border-radius: 20px;
     text-align: center;
   }
-  
+
   .productCart__card {
     width: 80%;
   }

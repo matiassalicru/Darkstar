@@ -12,9 +12,11 @@ export const types = {
   cleanData: "[DATA] clean Data",
 
   addToCart: "[CART] add to cart",
-  removeFromCart: "[CART] remove from cart",
-  updateCart: "[CART] update to add one more item",
+  updateCart: "[CART] update to add or remove one item",
   cleanCart: "[CART] clean the cart",
+
+  sumTotal: "[PRICES] sum the total",
+  minusTotal: "[PRICES] minus from the total",
 
   setView: "[VIEW] set View",
 };

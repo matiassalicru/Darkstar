@@ -96,13 +96,11 @@
     box-shadow: -2px 2px 5px 1px $dark-grey;
     margin-top: 0px;
     color: white;
-    // width: 10em;
+    width: 10em;
     height: 100%;
-    // -webkit-overflow-scrolling: touch;
     background-color: $white;
     white-space: nowrap;
     overflow: scroll;
-    -webkit-overflow-scrolling: touch;
 
     a {
       text-align: center;
@@ -114,7 +112,6 @@
       position: relative;
       padding-bottom: 20px;
       .cart__cleanBtn {
-        // text-align: center;
         width: 100%;
         align-self: flex-start;
       }
@@ -123,45 +120,27 @@
 }
 
 @media screen and (max-width: 320px) {
-  .cart__main {
-    width: 8em;
-    overflow-y: scroll;
-    overflow-x: hidden;
+  .cart__emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    margin-bottom: 0;
 
-    .cart__exit {
-      i {
-        font-size: 1.8em;
-      }
+    h3 {
+      font-size: 1em;
+      text-align: center;
     }
-    .cart__items {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      color: $black;
-      overflow-x: hidden;
-      overflow-y: scroll;
-      height: 100%;
-      // overflow-y: hidden;
 
-      // margin-top: 1em;
-      // overflow-x: hidden;
+    img {
+      width: 50%;
+    }
 
-      // .cart__cartItems {
-      //   width: 400px;
-      //   height: max-content;
-      //   overflow-y: auto;
-      //   // display: flex;
-      //   // flex-direction: column;
-      //   // align-items: center;
-      //   // justify-content: flex-start;
-      // }
-
-      .cart__emptyCart {
-        margin-top: 0;
-        align-self: center;
-        text-align: center;
-      }
+    button {
+      text-transform: none;
+      color: $dark-grey;
+      border: 1px solid $black !important;
     }
   }
 }
