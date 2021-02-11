@@ -19,6 +19,37 @@
   }
 }
 
+.comprar__nav {
+  position: fixed;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 5em;
+  background-color: $primary;
+  z-index: 999;
+  box-shadow: 0 2px 5px $white;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+
+    .nav__logo {
+      width: 75%;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      &:hover {
+        filter: drop-shadow(2px 2px 1px $black);
+      }
+    }
+  }
+}
+
 .comprar__container {
   display: flex;
   flex-direction: row;

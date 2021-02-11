@@ -2,7 +2,6 @@ import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { cartReducer } from "../reducers/cartReducer";
 import { dataReducer } from "../reducers/dataReducer";
-import { pricesReducer } from "../reducers/pricesReducer";
 import { uiReducer } from "../reducers/uiReducer";
 import { viewReducer } from "../reducers/viewReducer";
 
@@ -31,7 +30,6 @@ const reducers = combineReducers({
   data: dataReducer,
   view: viewReducer,
   cart: cartReducer,
-  prices: pricesReducer,
 });
 
 const composeEnhancers =

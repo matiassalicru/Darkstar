@@ -7,7 +7,6 @@ import { ProductSlider } from "./ProductSlider";
 //Images imports
 import eye from "../../Assets/eye.png";
 import { addCart } from "../../actions/cart";
-import { sumPrices } from "../../actions/prices";
 
 export const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
@@ -20,8 +19,6 @@ export const ProductCard = ({ item }) => {
 
   const addToCart = (item) => {
     dispatch(addCart(item));
-    dispatch(sumPrices(item.price))
-    console.log(parseInt(item.price));
   };
 
 

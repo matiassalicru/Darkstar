@@ -35,7 +35,7 @@ export const ProductGrid = ({ data }) => {
             {data.map((item, i) => (
               <SwiperSlide key={i}>
                 <article className="grid__card-container">
-                  <ProductCard data={item} />
+                  <ProductCard item={item} />
                 </article>
               </SwiperSlide>
             ))}

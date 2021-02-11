@@ -41,7 +41,7 @@ export const Navbar = () => {
   };
   
   const enterCart = () => {
-    if (width <= 330) {
+    if (width <= 350) {
       history.push('/productCart')
     } else {
       toggleCart();

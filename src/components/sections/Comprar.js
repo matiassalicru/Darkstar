@@ -10,18 +10,16 @@ import emailjs from "emailjs-com";
 import { cleanData } from "../../actions/data";
 import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
 
-
 export const Comprar = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.items);
+  const total = useSelector((state) => state.cart.total);
   const [pedido, setPedido] = useState("");
 
   const joins = []; // Crea un array vacío
-  // const precioFinal =
 
   for (let i = 0; i < cart.length; i++) {
-    joins.push(cart[i].title, "cantidad:" + cart[i].price); //Mete los objetos del cart en un array
-    // precioFinal
+    joins.push("Producto: ", cart[i].title, "Cantidad: " + cart[i].quantity); //Mete los objetos del cart en un array
   }
 
   const newJoin = joins.join(" <br/> "); //Junta los items de array en un string separados por un <br/> para que cree una nueva linea luego de cada item.
@@ -60,8 +58,8 @@ export const Comprar = () => {
       });
   };
 
-  const removeItem = (itemID, action) => {
-    dispatch(updateItem(itemID, action));
+  const removeItem = (item, action) => {
+    dispatch(updateItem(item, action));
   };
 
   return (
@@ -94,7 +92,7 @@ export const Comprar = () => {
                     <p> {item.price} </p>
                     <button
                       className="btn"
-                      onClick={() => removeItem(item.id, "remove")}
+                      onClick={() => removeItem(item, "remove")}
                     >
                       Quitar
                     </button>
@@ -159,6 +157,13 @@ export const Comprar = () => {
                 name="user_pedido"
                 style={{ display: "none" }}
                 value={pedido}
+              />
+              <input
+                type="text"
+                onChange={handleInputChange}
+                name="user_total"
+                style={{ display: "none" }}
+                value={total}
               />
 
               <input type="submit" className="btn" value="Enviar pedido" />

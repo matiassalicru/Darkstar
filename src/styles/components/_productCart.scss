@@ -6,6 +6,33 @@
   background: lighten($color: $light-grey, $amount: 10);
   position: relative;
 
+  .link {
+    margin: 1em 0;
+  }
+
+  button:nth-last-child(2) {
+    margin: 2em;
+  }
+
+  .productCart__mediosDePago{
+    padding: 0 20px;
+    font-size: .6em;
+
+    span{
+      color: darken($color: $primary, $amount: 40);
+    }
+  }
+
+  h2{
+    margin: 0 auto;
+  }
+
+  small{
+    padding: 0 20px;
+    font-size: .5em;
+    margin: 0 0 10px 0;
+  }
+
   .productCart__buyBTN {
     margin-top: 2em;
     border: 1px solid $white;
