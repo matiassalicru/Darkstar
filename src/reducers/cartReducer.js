@@ -10,6 +10,10 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     //Case para añadir item al carrito
     case types.addToCart:
+      if( state.items.length === 0 ) {
+        console.log('cero items ahora total cero');
+        state.total = 0
+      }
       // Agarro el precio, la cantidad y calculo el precio final del item
       const precio = parseInt(action.payload.price);
       const cantidad = parseInt(action.payload.quantity);
@@ -57,21 +61,24 @@ export const cartReducer = (state = initialState, action) => {
       };
 
     case types.updateCart:
+      console.log(action.payload);
       const itemToUpdate = state.items.find(
         (cartItem) => cartItem.id === action.payload.item.id
       );
+
       const precioItemToUpdate = parseInt(itemToUpdate.price);
+      let cantidadItemToUpdate = parseInt(itemToUpdate.quantity);
 
       if (action.payload.addOrRemove === "add") {
         if (itemToUpdate.quantity >= 5) {
           swal("No puedes agregar más de 5 items", "", "error");
         } else {
-          itemToUpdate.quantity += 1;
+          itemToUpdate.quantity = cantidadItemToUpdate + 1;
           state.total += precioItemToUpdate;
         }
       } else if (action.payload.addOrRemove === "remove") {
         // Si la cantidad es igual o menor a 1 se elimina el item del carrito.
-        if (itemToUpdate.quantity <= 1) {
+        if (cantidadItemToUpdate <= 1) {
           const newArr = state.items.filter(
             (item) => item.id !== action.payload.item.id
           );
@@ -83,7 +90,7 @@ export const cartReducer = (state = initialState, action) => {
           };
         } else {
           // resta en 1 la cantidad del mismo item, y resta el valor del precio del total.
-          itemToUpdate.quantity -= 1;
+          itemToUpdate.quantity = cantidadItemToUpdate - 1;
           state.total -= precioItemToUpdate;
         }
       }

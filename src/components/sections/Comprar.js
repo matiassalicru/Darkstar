@@ -58,7 +58,7 @@ export const Comprar = () => {
       });
   };
 
-  const removeItem = (item, action) => {
+  const update = (item, action) => {
     dispatch(updateItem(item, action));
   };
 
@@ -90,12 +90,20 @@ export const Comprar = () => {
                     <h2 className="item__title">{item.title}</h2>
                     <p>Cantidad: {item.quantity}</p>
                     <p> {item.price} </p>
-                    <button
-                      className="btn"
-                      onClick={() => removeItem(item, "remove")}
-                    >
-                      Quitar
-                    </button>
+                    <div className="item__buttons">
+                      <button
+                        className="btn"
+                        onClick={() => update(item, "add")}
+                      >
+                        Añadir
+                      </button>
+                      <button
+                        className="btn"
+                        onClick={() => update(item, "remove")}
+                      >
+                        Quitar
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))
