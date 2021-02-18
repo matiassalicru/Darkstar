@@ -1,6 +1,8 @@
 import { types } from "../types/types";
 
-export const dataReducer = (state = [], action) => {
+const initialState = [];
+
+export const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.setData:
       return action.payload;

@@ -1,0 +1,28 @@
+.pagination__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+
+  .pagination__list-item {
+    border: 2px solid white;
+    box-shadow: 2px 2px 5px 3px $light-grey;
+    color: $white;
+    cursor: pointer;
+    font-size: 2em;
+    margin: 0 20px;
+    padding: 10px 20px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

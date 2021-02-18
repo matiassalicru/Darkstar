@@ -1,14 +1,9 @@
 import React from "react";
 import { ProductCard } from "./ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "../pagination/Pagination";
 
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  EffectFade,
-  Zoom,
-  Autoplay,
-} from "swiper";
+import SwiperCore, { Navigation, EffectFade, Zoom, Autoplay } from "swiper";
 
 //Import Swiper styles
 import "swiper/swiper-bundle.css";
@@ -17,7 +12,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimens
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
-export const ProductGrid = ({ data }) => {
+export const ProductGrid = ({ data, postsPerPage, totalPosts, paginate }) => {
   const { width } = useWindowDimensions();
 
   return (
@@ -48,6 +43,11 @@ export const ProductGrid = ({ data }) => {
             {data.map((item) => {
               return <ProductCard item={item} key={item.id} />;
             })}
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={totalPosts}
+              paginate={paginate}
+            />
           </article>
         </>
       )}

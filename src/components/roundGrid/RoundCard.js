@@ -7,7 +7,9 @@ export const RoundCard = ({ title, bg }) => {
   const dispatch = useDispatch();
 
   const bringData = () => {
+    console.log(title);
     dispatch(fetchData(title.toLowerCase()));
+
   };
 
   return (

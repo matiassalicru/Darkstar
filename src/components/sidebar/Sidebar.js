@@ -6,16 +6,16 @@ import { cleanData, fetchData } from "../../actions/data";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
-  
+
   const cSidebar = () => {
     dispatch(closeSidebar());
   };
 
   const getData = (product) => {
-    dispatch( cleanData() );
-    dispatch( isLoading() );
-    dispatch( fetchData(product) );
-  }
+    dispatch(cleanData());
+    dispatch(isLoading());
+    dispatch(fetchData(product));
+  };
 
   return (
     <aside className="sidebar__main  animate__animated animate__backInLeft animate__faster">
@@ -65,15 +65,6 @@ export const Sidebar = () => {
             onClick={cSidebar}
           >
             Varios
-          </Link>
-        </li>
-        <li className="sidebar__list-item" onClick={() => getData("colores")}>
-          <Link
-            to="/tienda/colores"
-            className="sidebar__linkTo"
-            onClick={cSidebar}
-          >
-            Colores
           </Link>
         </li>
       </ul>

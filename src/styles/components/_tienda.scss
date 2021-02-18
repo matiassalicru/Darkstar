@@ -1,5 +1,6 @@
 .tienda__main {
       @extend %main;
+      position: relative;
 }
 
 .tienda__loading {

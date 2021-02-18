@@ -30,6 +30,7 @@ import SwiperCore, {
 //Import Swiper styles
 import "swiper/swiper-bundle.css";
 import "swiper/swiper.scss";
+import swal from "sweetalert";
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
@@ -68,8 +69,38 @@ export const View = () => {
 
   const view = useSelector((state) => state.view);
 
+  const cart = useSelector((state) => state.cart.items);
+
+  let existingItem = cart.find((cartItem) => {
+    return cartItem.id === view.id;
+  });
+
   const addItem = (item) => {
-    dispatch(addCart(item));
+    if (existingItem) {
+      swal({
+        title: "Este accesorio ya se encuentra en tu carrito",
+        text: "Si queres una unidad más agregala desde el carrito",
+        icon: "warning",
+        buttons: {
+          openCart: "Ver Carrito",
+          accept: "Aceptar",
+        },
+      }).then((value) => {
+        switch (value) {
+          case "openCart":
+            dispatch(openCart());
+            break;
+            
+          case "accept":
+            break;
+
+          default:
+            break;
+        }
+      });
+    } else {
+      dispatch(addCart(item));
+    }
   };
 
   return (
@@ -85,7 +116,7 @@ export const View = () => {
                   className="btn__secundary"
                   onClick={() => history.goBack()}
                 >
-                  <img src={arrow} alt="volver atras" className='base__arrow'/>
+                  <img src={arrow} alt="volver atras" className="base__arrow" />
                 </button>
               </div>
               <section className="view__product">
@@ -103,7 +134,9 @@ export const View = () => {
                   <button onClick={() => addItem(view)} className="btn">
                     Agregar al carrito
                   </button>
+
                   <h3>Marca: {view.brand}</h3>
+
                   <button onClick={() => dispatch(openCart())} className="btn">
                     Ver carrito
                   </button>

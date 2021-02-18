@@ -10,58 +10,35 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     //Case para añadir item al carrito
     case types.addToCart:
-      if( state.items.length === 0 ) {
-        console.log('cero items ahora total cero');
-        state.total = 0
+      if (state.items.length === 0) {
+        state.total = 0;
       }
+
       // Agarro el precio, la cantidad y calculo el precio final del item
       const precio = parseInt(action.payload.price);
       const cantidad = parseInt(action.payload.quantity);
+
+      swal({
+        title: "Añadido al carrito",
+        icon: "success",
+      });
       const precioFinal = state.total + precio * cantidad;
 
-      //Verifica si el item que quiero comprar ya está en el carrito
-      let existingItem = state.items.find((cartItem) => {
-        return cartItem.id === action.payload.id;
-      });
+      return {
+        ...state,
+        total: precioFinal,
+        items: [...state.items, action.payload],
+      };
 
-      //Si el item a agregar ya se encuentra entonces le suma en 1 la cantidad a ese item
-      if (existingItem) {
-        //Si la cantidad es igual a 5 que no permita agregar más del mismo item
-        if (existingItem.quantity >= 5) {
-          swal("No puedes agregar más de 5 items", "", "error");
-        } else {
-          swal({
-            title: "Añadido al carrito",
-            icon: "success",
-          });
-        }
-        return {
-          ...state,
-          total: precioFinal,
-          items: [...state.items],
-        };
-      } else {
-        swal({
-          title: "Añadido al carrito",
-          icon: "success",
-        });
-
-        return {
-          ...state,
-          total: precioFinal,
-          items: [...state.items, action.payload],
-        };
-      }
-
-      //Limpia el carrito dejando el array de items vacío y el total en 0
+    //Limpia el carrito dejando el array de items vacío y el total en 0
     case types.cleanCart:
       return {
         items: [],
         total: 0,
       };
 
+    //Actualiza el carrito
     case types.updateCart:
-      console.log(action.payload);
       const itemToUpdate = state.items.find(
         (cartItem) => cartItem.id === action.payload.item.id
       );
@@ -82,6 +59,7 @@ export const cartReducer = (state = initialState, action) => {
           const newArr = state.items.filter(
             (item) => item.id !== action.payload.item.id
           );
+
           //Resta del total el valor del item a eliminar
           state.total -= precioItemToUpdate;
           return {

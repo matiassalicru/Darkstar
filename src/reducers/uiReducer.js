@@ -3,7 +3,7 @@ import { types } from "../types/types";
 const initialState = {
   isSidebarOpen: false,
   isCartOpen: false,
-  loading: true,
+  loading: false,
   darkMode: true,
 };
 

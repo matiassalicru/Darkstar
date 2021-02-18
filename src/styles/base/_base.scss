@@ -176,6 +176,29 @@ a {
   }
 }
 
+.base__backContainer {
+  position: fixed;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 5rem;
+  top: 10rem;
+  z-index: 5;
+  border-radius: 20px;
+  height: 50px;
+  width: 60px;
+  background: $primary;
+  box-shadow: 2px 2px 5px $black;
+  border: none;
+  animation: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover{
+    transform: scale(1.025);
+  }
+}
+
 @media screen and (max-width: 480px) {
   .base__menu {
     display: none;
