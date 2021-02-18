@@ -12,7 +12,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimens
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
-export const ProductGrid = ({ data, postsPerPage, totalPosts, paginate }) => {
+export const ProductGrid = ({swiperData, data, postsPerPage, totalPosts, paginate }) => {
   const { width } = useWindowDimensions();
 
   return (
@@ -27,7 +27,7 @@ export const ProductGrid = ({ data, postsPerPage, totalPosts, paginate }) => {
             onSlideChange={() => console.log("slide changed")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {data.map((item, i) => (
+            {swiperData.map((item, i) => (
               <SwiperSlide key={i}>
                 <article className="grid__card-container">
                   <ProductCard item={item} />

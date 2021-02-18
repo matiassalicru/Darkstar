@@ -71,6 +71,7 @@ export const Tienda = () => {
         ) : (
           <>
             <ProductGrid
+              swiperData={data}
               data={currentData}
               postsPerPage={postsPerPage}
               totalPosts={data.length}

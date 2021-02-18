@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Footer } from "../common/Footer";
 import { useForm } from "../../hooks/useForm/useForm";
 import swal from "sweetalert";
@@ -11,6 +11,7 @@ import { cleanData } from "../../actions/data";
 import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
 
 export const Comprar = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
@@ -79,42 +80,52 @@ export const Comprar = () => {
           <section className="comprar__items">
             <h1 className="comprar__tusProductosTitle">Tus productos</h1>
             {cart.length >= 1 ? (
-              cart.map((item) => (
-                <div className="comprar__item" key={item.id}>
-                  <img
-                    className="item__image"
-                    src={item.images_thumb}
-                    alt="producto"
-                  />
-                  <div className="item__description">
-                    <h2 className="item__title">{item.title}</h2>
-                    <p>Cantidad: {item.quantity}</p>
-                    <p> {item.price} </p>
-                    <div className="item__buttons">
-                      <button
-                        className="btn"
-                        onClick={() => update(item, "add")}
-                      >
-                        Añadir
-                      </button>
-                      <button
-                        className="btn"
-                        onClick={() => update(item, "remove")}
-                      >
-                        Quitar
-                      </button>
+              <>
+                <h1 className="comprar__subtotal">Subtotal: ${total}</h1>
+
+                {cart.map((item) => (
+                  <div className="comprar__item" key={item.id}>
+                    <img
+                      className="item__image"
+                      src={item.images_thumb}
+                      alt="producto"
+                    />
+                    <div className="item__description">
+                      <h2 className="item__title">{item.title}</h2>
+                      <p>Cantidad: {item.quantity}</p>
+                      <p> {item.price} </p>
+                      <div className="item__buttons">
+                        <button
+                          className="btn"
+                          onClick={() => update(item, "add")}
+                        >
+                          Añadir
+                        </button>
+                        <button
+                          className="btn"
+                          onClick={() => update(item, "remove")}
+                        >
+                          Quitar
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
+                ))}
+              </>
             ) : (
               <section className="comprar__emptyCart">
                 <h1>Tu carrito está vacío 😭</h1>
                 <img src={emptyBox} alt="carrito vacio" />
+                <button
+                  className="btn"
+                  onClick={() => history.push("/tienda/aros")}
+                >
+                  Empezá a añadir accesorios a tu carrito!
+                </button>
               </section>
             )}
           </section>
-          {cart.length >= 1 ? (
+          {cart.length >= 1 && (
             <form action="POST" className="comprar__form" onSubmit={sendForm}>
               <label>Nombre y Apellido</label>
               <input
@@ -176,8 +187,6 @@ export const Comprar = () => {
 
               <input type="submit" className="btn" value="Enviar pedido" />
             </form>
-          ) : (
-            <> </>
           )}
         </div>
         <Footer />

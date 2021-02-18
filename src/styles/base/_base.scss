@@ -192,15 +192,23 @@ a {
   background: $primary;
   box-shadow: 2px 2px 5px $black;
   border: none;
-  animation: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  &:hover{
+  &:hover {
     transform: scale(1.025);
   }
 }
 
 @media screen and (max-width: 480px) {
   .base__menu {
+    display: none;
+  }
+
+  .base__backBtn {
+    display: none;
+  }
+
+  .base__backContainer {
     display: none;
   }
 
