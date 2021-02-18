@@ -6,7 +6,6 @@ import { Navbar } from "../common/Navbar";
 import { Template } from "../common/Template";
 import { Loading } from "../common/Loading";
 import { ProductGrid } from "../productGrid/ProductGrid";
-import { Pagination } from "../pagination/Pagination";
 
 //Actions
 import { fetchData } from "../../actions/data";
@@ -17,7 +16,7 @@ export const Tienda = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(15);
+  const [postsPerPage] = useState(15);
   const params = useParams();
   const { tipo } = params;
 
