@@ -52,6 +52,7 @@ export const cartReducer = (state = initialState, action) => {
         } else {
           itemToUpdate.quantity = cantidadItemToUpdate + 1;
           state.total += precioItemToUpdate;
+          swal("Añadiste una unidad más! :D", "", "success");
         }
       } else if (action.payload.addOrRemove === "remove") {
         // Si la cantidad es igual o menor a 1 se elimina el item del carrito.

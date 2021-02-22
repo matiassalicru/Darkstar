@@ -93,7 +93,7 @@ export const Comprar = () => {
                     <div className="item__description">
                       <h2 className="item__title">{item.title}</h2>
                       <p>Cantidad: {item.quantity}</p>
-                      <p> {item.price} </p>
+                      <p> Precio: $ {item.price} </p>
                       <div className="item__buttons">
                         <button
                           className="btn"

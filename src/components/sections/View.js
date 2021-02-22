@@ -114,7 +114,11 @@ export const View = () => {
               <div className="view__btnTitle">
                 <button
                   className="btn__secundary"
-                  onClick={() => history.goBack()}
+                  onClick={() =>{
+                    console.log(view.type);
+                    history.replace(`/tienda/${view.type.toLowerCase()}`)
+                  }
+                  }
                 >
                   <img src={arrow} alt="volver atras" className="base__arrow" />
                 </button>

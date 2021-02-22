@@ -15,8 +15,6 @@ import { Backbtn } from "../common/Backbtn";
 export const Tienda = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(15);
   const params = useParams();
   const { tipo } = params;
 
@@ -48,14 +46,8 @@ export const Tienda = () => {
   }, [loading, dispatch, data, tipo, url]);
 
   // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentData = data.slice(indexOfFirstPost, indexOfLastPost);
 
   //Change Page
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   return (
     <>
@@ -69,13 +61,7 @@ export const Tienda = () => {
           </div>
         ) : (
           <>
-            <ProductGrid
-              swiperData={data}
-              data={currentData}
-              postsPerPage={postsPerPage}
-              totalPosts={data.length}
-              paginate={paginate}
-            />
+            <ProductGrid swiperData={data} data={data} />
           </>
         )}
       </div>

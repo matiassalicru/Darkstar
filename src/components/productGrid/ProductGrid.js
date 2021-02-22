@@ -1,7 +1,7 @@
-import React from "react";
-import { ProductCard } from "./ProductCard";
+import React, { useState, Suspense, lazy } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "../pagination/Pagination";
+// import ProductCard from "./ProductCard";
 
 import SwiperCore, { Navigation, EffectFade, Zoom, Autoplay } from "swiper";
 
@@ -9,24 +9,43 @@ import SwiperCore, { Navigation, EffectFade, Zoom, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/swiper.scss";
 import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
+import ReactPaginate from "react-paginate";
+import { Loading } from "../common/Loading";
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
-export const ProductGrid = ({swiperData, data, postsPerPage, totalPosts, paginate }) => {
+const ProductCard = lazy(() => import("./ProductCard"));
+export const ProductGrid = ({ swiperData, data }) => {
   const { width } = useWindowDimensions();
+  const [cards] = useState(data);
+  const [pageNumber, setpageNumber] = useState(0);
+
+  const cardsPerPage = 10;
+  const pagesVisited = pageNumber * cardsPerPage;
+
+  const displayCards = cards
+    .slice(pagesVisited, pagesVisited + cardsPerPage)
+    .map((card) => {
+      return (
+        <Suspense fallback={<Loading />} key={card.id}>
+          <ProductCard item={card} />
+        </Suspense>
+      );
+    });
+
+  const pageCount = Math.ceil(cards.length / cardsPerPage);
+
+  const changePage = ({ selected }) => {
+    setpageNumber(selected);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
 
   return (
     <section className="grid__main">
       {width <= 500 ? (
         <article className="grid__swiper">
-          <Swiper
-            spaceBetween={0}
-            slidesPerView={1.5}
-            slidesPerGroupSkip={1}
-            pagination={{ clickable: true }}
-            onSlideChange={() => console.log("slide changed")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
+          <Swiper spaceBetween={0} slidesPerView={1.5} slidesPerGroupSkip={1}>
             {swiperData.map((item, i) => (
               <SwiperSlide key={i}>
                 <article className="grid__card-container">
@@ -40,13 +59,18 @@ export const ProductGrid = ({swiperData, data, postsPerPage, totalPosts, paginat
         <>
           <h2 className="grid__title">{data.length > 0 && data[0].type}</h2>
           <article className="grid__card-container">
-            {data.map((item) => {
-              return <ProductCard item={item} key={item.id} />;
-            })}
-            <Pagination
-              postsPerPage={postsPerPage}
-              totalPosts={totalPosts}
-              paginate={paginate}
+            {displayCards}
+            <ReactPaginate
+              previousLabel={"Atras"}
+              nextLabel={"Siguiente"}
+              pageCount={pageCount}
+              onPageChange={changePage}
+              nextClassName={"paginate__next"}
+              activeClassName={"paginate__active"}
+              previousClassName={"paginate__prev"}
+              containerClassName={"paginate__container"}
+              pageClassName={"paginate__page"}
+              pageLinkClassName={"paginate__link"}
             />
           </article>
         </>
