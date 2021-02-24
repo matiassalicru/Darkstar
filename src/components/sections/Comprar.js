@@ -20,7 +20,9 @@ export const Comprar = () => {
   const joins = []; // Crea un array vacío
 
   for (let i = 0; i < cart.length; i++) {
-    joins.push(`Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity}`); //Mete los objetos del cart en un array
+    joins.push(
+      `Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity}`
+    ); //Mete los objetos del cart en un array
   }
 
   const newJoin = joins.join(" <br/> "); //Junta los items de array en un string separados por un <br/> para que cree una nueva linea luego de cada item.
@@ -42,7 +44,7 @@ export const Comprar = () => {
       text:
         "Estate atento que pronto te va a llegar un mail confirmando tú pedido",
       icon: "info",
-      className: "sweetAlert"
+      className: "sweetAlert",
     });
 
     emailjs
@@ -192,6 +194,22 @@ export const Comprar = () => {
                 style={{ display: "none" }}
                 value={total}
               />
+
+              <label>Método de pago preferido</label>
+              <select
+                name="user_pago"
+                onChange={handleInputChange}
+                required
+                defaultValue="empty"
+              >
+                <option disabled value="empty">
+                  -- Selecciona un método --
+                </option>
+                <option value="Transferencia">Transferencia</option>
+                <option value="Efectivo">
+                  Efectivo (Rapipago/Pago fácil)
+                </option>
+              </select>
 
               <input
                 type="submit"
