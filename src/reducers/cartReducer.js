@@ -20,7 +20,8 @@ export const cartReducer = (state = initialState, action) => {
 
       swal({
         title: "Añadido al carrito",
-        icon: "success",
+        icon: "warning",
+        className: "sweetAlert",
       });
       const precioFinal = state.total + precio * cantidad;
 
@@ -48,11 +49,19 @@ export const cartReducer = (state = initialState, action) => {
 
       if (action.payload.addOrRemove === "add") {
         if (itemToUpdate.quantity >= 5) {
-          swal("No puedes agregar más de 5 items", "", "error");
+          swal({
+            title: "No puedes agregar más de 5 items",
+            className: "sweetAlert",
+            icon: "error",
+          });
         } else {
           itemToUpdate.quantity = cantidadItemToUpdate + 1;
           state.total += precioItemToUpdate;
-          swal("Añadiste una unidad más! :D", "", "success");
+          swal({
+            title: "Añadiste una unidad más! :D",
+            className: "sweetAlert",
+            icon: "info",
+          });
         }
       } else if (action.payload.addOrRemove === "remove") {
         // Si la cantidad es igual o menor a 1 se elimina el item del carrito.

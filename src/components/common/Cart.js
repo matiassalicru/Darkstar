@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { cleanCart } from "../../actions/cart";
 import { closeCart } from "../../actions/ui";
 import { CartItem } from "./CartItem";
 
@@ -15,10 +14,6 @@ export const Cart = () => {
   const setCartClosed = () => {
     dispatch(closeCart());
   };
-
-  // const cleanCarrito = () => {
-  //   dispatch(cleanCart());
-  // };
 
   return (
     <aside className="cart__main animate__animated animate__fadeInRight animate__faster">
@@ -37,9 +32,6 @@ export const Cart = () => {
               Realizar compra
             </Link>
             <div className="">
-              {/* <button onClick={cleanCarrito} className="btn cart__cleanBtn">
-                Limpiar
-              </button> */}
             </div>
             <p className="cart__total">Tú compra: ${total} ARS</p>
             {items.map((item) => (

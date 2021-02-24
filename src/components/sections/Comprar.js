@@ -41,7 +41,8 @@ export const Comprar = () => {
       title: "Recibimos tú pedido",
       text:
         "Estate atento que pronto te va a llegar un mail confirmando tú pedido",
-      icon: "success",
+      icon: "info",
+      className: "sweetAlert"
     });
 
     emailjs
@@ -133,6 +134,7 @@ export const Comprar = () => {
                 name="user_name"
                 placeholder="Escribe tu nombre.."
                 value={name}
+                required
                 onChange={handleInputChange}
               />
               <label>Email</label>
@@ -141,12 +143,14 @@ export const Comprar = () => {
                 name="user_email"
                 placeholder="email@email.com"
                 value={email}
+                required
                 onChange={handleInputChange}
               />
               <label>Número de Teléfono</label>
               <input
                 type="phone"
                 name="user_phone"
+                required
                 value={phone}
                 onChange={handleInputChange}
               />
@@ -154,6 +158,7 @@ export const Comprar = () => {
               <select
                 name="user_provincia"
                 onChange={handleInputChange}
+                required
                 defaultValue="empty"
               >
                 <option disabled value="empty">
@@ -166,6 +171,7 @@ export const Comprar = () => {
               <label>Localidad</label>
               <input
                 type="text"
+                required
                 name="user_localidad"
                 value={localidad}
                 onChange={handleInputChange}
@@ -174,6 +180,7 @@ export const Comprar = () => {
                 type="text"
                 onChange={handleInputChange}
                 name="user_pedido"
+                required
                 style={{ display: "none" }}
                 value={pedido}
               />
@@ -181,11 +188,17 @@ export const Comprar = () => {
                 type="text"
                 onChange={handleInputChange}
                 name="user_total"
+                required
                 style={{ display: "none" }}
                 value={total}
               />
 
-              <input type="submit" className="btn" value="Enviar pedido" />
+              <input
+                type="submit"
+                required
+                className="btn"
+                value="Enviar pedido"
+              />
             </form>
           )}
         </div>

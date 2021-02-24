@@ -85,6 +85,7 @@ export const View = () => {
           openCart: "Ver Carrito",
           accept: "Aceptar",
         },
+        className: "sweetAlert",
       }).then((value) => {
         switch (value) {
           case "openCart":
