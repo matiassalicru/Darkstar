@@ -39,11 +39,11 @@
       max-height: 200px;
       background-size: cover;
 
-      transition: all 0.5s ease;
+      // transition: all 0.5s ease;
 
       &:hover {
         box-shadow: 6px 8px 10px $white;
-        opacity: 0.4;
+        // opacity: 0.4;
       }
     }
 
@@ -51,13 +51,14 @@
       color: white;
       z-index: 999;
       opacity: 1;
-      transition: all 0.5s;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       pointer-events: none;
-      font-size: 1.3em;
+      font-size: 1.8em;
+      filter: drop-shadow(3px 3px black);
     }
 
     &:hover {
-      font-size: 1.8em;
+      font-size: 1.5em;
       font-weight: 600;
       color: $black;
       filter: drop-shadow(2px 2px 5px $white);
@@ -65,24 +66,20 @@
   }
 }
 
-.cadena {
-  background-image: url("../../Assets/logos/jean.jpeg");
-}
-
 .vario {
-  background-image: url("../../Assets/logos/vario.jpeg");
+  background-image: url("../../Assets/logos/varios.JPG");
 }
 
 .choker {
-  background-image: url("../../Assets/logos/choker.jpeg");
+  background-image: url("../../Assets/logos/Chokers.jpg");
 }
 
 .aro {
-  background-image: url("../../Assets/logos/ear.jpeg");
+  background-image: url("../../Assets/logos/Aros.jpg");
 }
 
 .collar {
-  background-image: url("../../Assets/logos/neck.jpeg");
+  background-image: url("../../Assets/logos/Collares.JPG");
 }
 
 @media screen and (max-width: 480px) {
