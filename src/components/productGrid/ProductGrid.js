@@ -1,7 +1,6 @@
-import React, { useState, Suspense, lazy } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "../pagination/Pagination";
-// import ProductCard from "./ProductCard";
 
 import SwiperCore, { Navigation, EffectFade, Zoom, Autoplay } from "swiper";
 
@@ -10,11 +9,10 @@ import "swiper/swiper-bundle.css";
 import "swiper/swiper.scss";
 import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
 import ReactPaginate from "react-paginate";
-import { Loading } from "../common/Loading";
+import ProductCard from './ProductCard';
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
-const ProductCard = lazy(() => import("./ProductCard"));
 export const ProductGrid = ({ swiperData, data }) => {
   const { width } = useWindowDimensions();
   const [cards] = useState(data);
@@ -27,9 +25,7 @@ export const ProductGrid = ({ swiperData, data }) => {
     .slice(pagesVisited, pagesVisited + cardsPerPage)
     .map((card) => {
       return (
-        <Suspense fallback={<Loading />} key={card.id}>
-          <ProductCard item={card} />
-        </Suspense>
+          <ProductCard item={card} key={card.id}/>
       );
     });
 
@@ -58,6 +54,7 @@ export const ProductGrid = ({ swiperData, data }) => {
       ) : (
         <>
           <h2 className="grid__title">{data.length > 0 && data[0].type}</h2>
+
           <article className="grid__card-container">
             {displayCards}
             <ReactPaginate

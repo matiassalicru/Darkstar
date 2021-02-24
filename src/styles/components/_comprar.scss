@@ -154,6 +154,7 @@
         height: 60px;
         font-family: inherit;
         font-size: 1.1em;
+        padding-left: 20px;
       }
     }
 
@@ -262,6 +263,13 @@
 @media screen and (max-width: 320px) {
   .comprar__items {
     max-width: 100%;
+
+    .comprar__emptyCart{
+      img{
+        width: 45px;
+        height: 45px;
+      }
+    }
 
     .comprar__item {
       max-width: 300px;

@@ -40,7 +40,6 @@
 
       button {
         border: 1px solid $black;
-        width: fit-content;
         color: $black;
       }
     }
@@ -58,12 +57,17 @@
       border-radius: 0 0 10px 10px;
       
       .card__btn {
-        width: fit-content;
         height: 35px;
+        width: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 999px;
+
+        &:last-of-type{
+          border-radius: 50%;
+          margin-left: 10px;
+        }
       }
 
     }

@@ -18,10 +18,10 @@ body {
   color: $dark-grey;
   border-radius: 10px;
   transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 2px 2px 5px violet;
 
   &:hover {
     transform: scale(1.025);
-    box-shadow: 2px 2px 5px violet;
   }
 }
 

@@ -75,7 +75,7 @@ export const View = () => {
     return cartItem.id === view.id;
   });
 
-  const addItem = (item) => {
+  const addItem = (item, type) => {
     if (existingItem) {
       swal({
         title: "Este accesorio ya se encuentra en tu carrito",
@@ -88,12 +88,15 @@ export const View = () => {
       }).then((value) => {
         switch (value) {
           case "openCart":
-            dispatch(openCart());
+            if (type !== "mobile") {
+              dispatch(openCart());
+            } else {
+              history.replace("/productCart");
+            }
+
             break;
-            
           case "accept":
             break;
-
           default:
             break;
         }
@@ -114,11 +117,10 @@ export const View = () => {
               <div className="view__btnTitle">
                 <button
                   className="btn__secundary"
-                  onClick={() =>{
+                  onClick={() => {
                     console.log(view.type);
-                    history.replace(`/tienda/${view.type.toLowerCase()}`)
-                  }
-                  }
+                    history.replace(`/tienda/${view.type.toLowerCase()}`);
+                  }}
                 >
                   <img src={arrow} alt="volver atras" className="base__arrow" />
                 </button>
@@ -132,18 +134,32 @@ export const View = () => {
                   <h2 className="view__description__title">
                     {view.description}
                   </h2>
-                  <hr />
-                  <h2>Precio ${view.price}</h2>
+                  <h2 className="view__description__precio">${view.price}</h2>
 
-                  <button onClick={() => addItem(view)} className="btn">
-                    Agregar al carrito
-                  </button>
+                  <div className="view__payment">
+                    <img
+                      className="view__paymentImg"
+                      src={creditCard}
+                      alt="credit card"
+                    />
+                    <p className="view__paymentDescription">
+                      <span>Aceptamos todos los medios de pago </span>
+                      EFECTIVO/TRANSFERENCIA/DEPOSITO
+                    </p>
+                  </div>
 
-                  <h3>Marca: {view.brand}</h3>
+                  <div className="view__buttons-box">
+                    <button onClick={() => addItem(view)} className="btn">
+                      Comprar
+                    </button>
 
-                  <button onClick={() => dispatch(openCart())} className="btn">
-                    Ver carrito
-                  </button>
+                    <button
+                      onClick={() => dispatch(openCart())}
+                      className="btn"
+                    >
+                      Ver carrito
+                    </button>
+                  </div>
                 </div>
               </section>
             </section>
@@ -198,13 +214,13 @@ export const View = () => {
                     alt="credit card"
                   />
                   <p className="view__paymentDescription">
-                    <span>15% de descuento</span> pagando con
+                    <span>Aceptamos todos los medios de pago </span>
                     EFECTIVO/TRANSFERENCIA/DEPOSITO
                   </p>
                 </div>
               </div>
-              <button onClick={() => addItem(view)} className="btn">
-                Agregar al carrito
+              <button onClick={() => addItem(view, "mobile")} className="btn">
+                Comprar
               </button>
             </section>
           )
