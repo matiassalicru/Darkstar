@@ -20,7 +20,7 @@ export const Comprar = () => {
   const joins = []; // Crea un array vacío
 
   for (let i = 0; i < cart.length; i++) {
-    joins.push("Producto: ", cart[i].title, "Cantidad: " + cart[i].quantity); //Mete los objetos del cart en un array
+    joins.push(`Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity}`); //Mete los objetos del cart en un array
   }
 
   const newJoin = joins.join(" <br/> "); //Junta los items de array en un string separados por un <br/> para que cree una nueva linea luego de cada item.
