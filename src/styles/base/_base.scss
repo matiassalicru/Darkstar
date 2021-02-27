@@ -25,6 +25,17 @@ body {
   }
 }
 
+.btn-disabled {
+  @extend .btn;
+  background-color: lighten($color: $primary, $amount: 5);
+  box-shadow: 1px 1px 5px grey;
+  cursor: not-allowed;
+
+  &:hover{
+    transform: scale(0.9)
+  }
+}
+
 .btn__secundary {
   @extend .btn;
   margin-top: 20px;

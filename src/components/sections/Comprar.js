@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Footer } from "../common/Footer";
 import { useForm } from "../../hooks/useForm/useForm";
 import swal from "sweetalert";
-import { updateItem } from "../../actions/cart";
+import { updateItem, cleanCart } from "../../actions/cart";
 import emptyBox from "../../Assets/emptyBox.svg";
 import emailjs from "emailjs-com";
 import { cleanData } from "../../actions/data";
@@ -15,6 +15,7 @@ export const Comprar = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
+  const [loading, setLoading] = useState(false);
   const [pedido, setPedido] = useState("");
 
   const joins = []; // Crea un array vacío
@@ -27,16 +28,25 @@ export const Comprar = () => {
 
   const newJoin = joins.join(" <br/> "); //Junta los items de array en un string separados por un <br/> para que cree una nueva linea luego de cada item.
 
-  const [values, handleInputChange] = useForm({});
+  const initialForm = {
+    user_name: "",
+    user_email: "",
+    user_phone: "",
+    user_localidad: "",
+  };
+
+  const [formValues, handleInputChange, reset] = useForm(initialForm);
 
   useEffect(() => {
     setPedido(newJoin); //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
-  }, [newJoin]);
+    console.log(loading);
+  }, [newJoin, loading]);
 
-  const { name, email, phone, localidad } = values;
+  const { user_name, user_email, user_phone, user_localidad } = formValues;
 
   const sendForm = (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log(e.target);
 
     swal({
@@ -56,6 +66,9 @@ export const Comprar = () => {
       )
       .then((res) => {
         console.log(res.text);
+        setLoading(false);
+        dispatch(cleanCart());
+        reset();
       })
       .catch((e) => {
         console.log(e.text);
@@ -135,7 +148,7 @@ export const Comprar = () => {
                 type="text"
                 name="user_name"
                 placeholder="Escribe tu nombre.."
-                value={name}
+                value={user_name}
                 required
                 onChange={handleInputChange}
               />
@@ -144,16 +157,17 @@ export const Comprar = () => {
                 type="email"
                 name="user_email"
                 placeholder="email@email.com"
-                value={email}
+                value={user_email}
                 required
                 onChange={handleInputChange}
               />
               <label>Número de Teléfono</label>
               <input
-                type="phone"
+                type="tel"
                 name="user_phone"
+                minLength={6}
                 required
-                value={phone}
+                value={user_phone}
                 onChange={handleInputChange}
               />
               <label>Provincia</label>
@@ -175,7 +189,7 @@ export const Comprar = () => {
                 type="text"
                 required
                 name="user_localidad"
-                value={localidad}
+                value={user_localidad}
                 onChange={handleInputChange}
               />
               <input
@@ -206,15 +220,13 @@ export const Comprar = () => {
                   -- Selecciona un método --
                 </option>
                 <option value="Transferencia">Transferencia</option>
-                <option value="Efectivo">
-                  Efectivo (Rapipago/Pago fácil)
-                </option>
+                <option value="Efectivo">Efectivo (Rapipago/Pago fácil)</option>
               </select>
 
               <input
                 type="submit"
-                required
-                className="btn"
+                disabled={loading}
+                className={loading ? "btn-disabled" : "btn"}
                 value="Enviar pedido"
               />
             </form>
