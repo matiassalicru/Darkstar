@@ -4,9 +4,19 @@
   bottom: 0;
   justify-content: center;
   align-items: center;
-  height: 4em;
+  height: 4.5em;
   width: 100%;
   background-color: #30303090;
+  flex-direction: column;
+  padding-bottom: 10px;
+
+  small {
+    color: white;
+    a {
+      color: $primary;
+      font-size: 1.2em;
+    }
+  }
 
   .footer__list {
     list-style: none;

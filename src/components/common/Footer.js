@@ -17,6 +17,10 @@ export const Footer = () => {
           <a href="https://www.instagram.com/darkstar.ar/">Instagram</a>
         </li>
       </ul>
+      <small>
+        Sitio web creado por
+        <a href="http://matiassalicru.com"> @matiassalicru</a>
+      </small>
     </div>
   );
 };
