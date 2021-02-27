@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { Footer } from "../common/Footer";
-import { useForm } from "../../hooks/useForm/useForm";
 import swal from "sweetalert";
-import { updateItem, cleanCart } from "../../actions/cart";
-import emptyBox from "../../Assets/emptyBox.svg";
 import emailjs from "emailjs-com";
-import { cleanData } from "../../actions/data";
+
+//Imported components/Images
+import { Footer } from "../common/Footer";
+import emptyBox from "../../Assets/emptyBox.svg";
 import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
+
+//Imported Actions
+import { updateItem, cleanCart } from "../../actions/cart";
+import { cleanData } from "../../actions/data";
+
+//Imported custom hooks
+import { useForm } from "../../hooks/useForm/useForm";
 
 export const Comprar = () => {
   const history = useHistory();
@@ -39,7 +45,6 @@ export const Comprar = () => {
 
   useEffect(() => {
     setPedido(newJoin); //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
-    console.log(loading);
   }, [newJoin, loading]);
 
   const { user_name, user_email, user_phone, user_localidad } = formValues;
@@ -47,7 +52,6 @@ export const Comprar = () => {
   const sendForm = (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(e.target);
 
     swal({
       title: "Recibimos tú pedido",
