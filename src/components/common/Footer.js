@@ -5,16 +5,16 @@ export const Footer = () => {
     <div className="footer__main">
       <ul className="footer__list">
         <li className="footer__list-item">
-          <a href="https://twitter.com/matiassalicru">Argentina</a>
+          <a href="https://goo.gl/maps/rznPYnMJVxiLsQhH8">Argentina</a>
         </li>
         <li className="footer__list-item">
-          <a href="https://twitter.com/matiassalicru">Córdoba</a>
+          <a href="https://goo.gl/maps/x8tXHDPYBkp6PVRy6">Córdoba</a>
         </li>
         <li className="footer__list-item">
-          <a href="https://facebook.com/matiassalicru">Facebook</a>
+          <a href="https://www.facebook.com/DARKSTAR.arg">Facebook</a>
         </li>
         <li className="footer__list-item">
-          <a href="https://instagram.com/matiassalicru">Instagram</a>
+          <a href="https://www.instagram.com/darkstar.ar/">Instagram</a>
         </li>
       </ul>
     </div>
