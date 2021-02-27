@@ -58,7 +58,7 @@ export const cartReducer = (state = initialState, action) => {
           itemToUpdate.quantity = cantidadItemToUpdate + 1;
           state.total += precioItemToUpdate;
           swal({
-            title: "Añadiste una unidad más! :D",
+            title: "Añadiste una unidad más! 😄",
             className: "sweetAlert",
             icon: "info",
           });
