@@ -188,11 +188,14 @@ export const Comprar = () => {
                 <option value="Catamarca">Catamarca</option>
                 <option value="Chaco">Chaco</option>
                 <option value="Chubut">Chubut</option>
+                <option value="Ciudad Autónoma de Buenos Aires">
+                  Ciudad Autónoma de Buenos Aires
+                </option>
                 <option value="Córdoba">Córdoba</option>
                 <option value="Corrientes">Corrientes</option>
                 <option value="Entre Rios">Entre Rios</option>
                 <option value="Formosa">Formosa</option>
-                <option value="Jujuy">Jujut</option>
+                <option value="Jujuy">Jujuy</option>
                 <option value="La Pampa">La Pampa</option>
                 <option value="La Rioja">La Rioja</option>
                 <option value="Mendoza">Mendoza</option>
@@ -245,6 +248,11 @@ export const Comprar = () => {
                 <option value="Transferencia">Transferencia</option>
                 <option value="Efectivo">Efectivo (Rapipago/Pago fácil)</option>
               </select>
+
+              <p style={{color: 'violet'}}>
+                Es importante que sepas que para los envíos trabajamos con
+                Andreani y/o E-pick
+              </p>
 
               <input
                 type="submit"
