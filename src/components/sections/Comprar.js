@@ -134,7 +134,7 @@ export const Comprar = () => {
               </>
             ) : (
               <section className="comprar__emptyCart">
-                <h1>Tu carrito está vacío 😭</h1>
+                <h1>Tu carrito está vacío</h1>
                 <img src={emptyBox} alt="carrito vacio" />
                 <button
                   className="btn"
@@ -184,9 +184,28 @@ export const Comprar = () => {
                 <option disabled value="empty">
                   -- Selecciona una --
                 </option>
-                <option value="Córdoba">Córdoba</option>
-                <option value="Catamarca">Catamarca</option>
                 <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Catamarca">Catamarca</option>
+                <option value="Chaco">Chaco</option>
+                <option value="Chubut">Chubut</option>
+                <option value="Córdoba">Córdoba</option>
+                <option value="Corrientes">Corrientes</option>
+                <option value="Entre Rios">Entre Rios</option>
+                <option value="Formosa">Formosa</option>
+                <option value="Jujuy">Jujut</option>
+                <option value="La Pampa">La Pampa</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="Misiones">Misiones</option>
+                <option value="Neuquén">Neuquén</option>
+                <option value="Río Negro">Río Negro</option>
+                <option value="Salta">Salta</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Santiago del estero">Santiago del estero</option>
+                <option value="Tucuman">Tucuman</option>
               </select>
               <label>Localidad</label>
               <input
