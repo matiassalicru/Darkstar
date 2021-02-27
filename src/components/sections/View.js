@@ -181,7 +181,6 @@ export const View = () => {
                     spaceBetween={60}
                     slidesPerView={1.4}
                     zoom={true}
-                    pagination={{ clickable: true }}
                   >
                     {view.images_big.map((item, i) => (
                       <SwiperSlide key={i}>
