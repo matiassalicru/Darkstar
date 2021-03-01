@@ -148,9 +148,16 @@ export const View = () => {
                       EFECTIVO/TRANSFERENCIA/DEPOSITO
                     </p>
                   </div>
+                  <p className={view.availability === 'in stock' ? 'view__inStock': 'view__outOfStock'}>{view.availability.toUpperCase()}</p>
 
                   <div className="view__buttons-box">
-                    <button onClick={() => addItem(view)} className="btn">
+                    <button
+                      onClick={() => addItem(view)}
+                      className="btn"
+                      disabled={
+                        view.availability === "out of stock" ? true : false
+                      }
+                    >
                       Comprar
                     </button>
 
@@ -177,11 +184,7 @@ export const View = () => {
               </div>
               <div className="view__swiperMobile">
                 {view.images_big.length > 1 ? (
-                  <Swiper
-                    spaceBetween={60}
-                    slidesPerView={1.4}
-                    zoom={true}
-                  >
+                  <Swiper spaceBetween={60} slidesPerView={1.4} zoom={true}>
                     {view.images_big.map((item, i) => (
                       <SwiperSlide key={i}>
                         <img

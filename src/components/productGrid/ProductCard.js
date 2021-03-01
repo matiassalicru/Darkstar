@@ -42,6 +42,7 @@ const ProductCard = ({ item }) => {
     }
   };
 
+
   return (
     <>
       {title ? (
@@ -54,12 +55,22 @@ const ProductCard = ({ item }) => {
           <div className="card__description" id="link" onClick={sendTo}>
             <h1 className="card__title">{title}</h1>
             <p className="card__price">$ {price}</p>
+            <strong
+              className={
+                item.availability !== "out of stock"
+                  ? `card__inStock`
+                  : `card__outOfStock`
+              }
+            >
+              {item.availability}
+            </strong>
             <div className="card__buttons">
               {/* Añade el item al carrito directamente */}
               <button
                 id="btn"
                 className="card__btn"
                 onClick={() => addToCart(item, "add")}
+                disabled={item.availability === "out of stock" ? true : false}
               >
                 Comprar
               </button>

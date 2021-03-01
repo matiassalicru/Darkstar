@@ -39,6 +39,7 @@ export const Comprar = () => {
     user_email: "",
     user_phone: "",
     user_localidad: "",
+    user_CP: "",
   };
 
   const [formValues, handleInputChange, reset] = useForm(initialForm);
@@ -47,7 +48,13 @@ export const Comprar = () => {
     setPedido(newJoin); //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
   }, [newJoin, loading]);
 
-  const { user_name, user_email, user_phone, user_localidad } = formValues;
+  const {
+    user_name,
+    user_email,
+    user_phone,
+    user_localidad,
+    user_CP,
+  } = formValues;
 
   const sendForm = (e) => {
     e.preventDefault();
@@ -218,6 +225,16 @@ export const Comprar = () => {
                 value={user_localidad}
                 onChange={handleInputChange}
               />
+
+              <label> Código Postal </label>
+              <input
+                type="number"
+                required
+                name="user_CP"
+                value={user_CP}
+                onChange={handleInputChange}
+              />
+
               <input
                 type="text"
                 onChange={handleInputChange}
@@ -251,7 +268,8 @@ export const Comprar = () => {
 
               <p style={{ color: "violet" }}>
                 Es importante que sepas que para los envíos trabajamos con
-                Andreani, Correo argentino y/o E-pick y son a cargo del comprador (El precio final no incluye el envío)
+                Andreani, Correo argentino y/o E-pick y son a cargo del
+                comprador (El precio final no incluye el envío)
               </p>
 
               <input

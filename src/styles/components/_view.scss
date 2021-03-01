@@ -31,7 +31,6 @@
     flex-direction: column;
     color: $white;
 
-
     .view__product {
       display: flex;
       width: 70vw;
@@ -52,20 +51,24 @@
         margin: 0 20px;
         padding-bottom: 20px;
 
-        .view__description__precio{
+        .view__description__precio {
           font-weight: 800;
           color: darken($primary, 30);
           font-size: 2.2em;
-          margin: .2em 0;
+          margin: 0.2em 0;
         }
 
         .view__description__title {
           margin: 0;
-          font-size: .8em;
+          font-size: 0.8em;
         }
 
         button {
           font-size: 1.1em;
+        }
+
+        button:disabled {
+          background: $light-grey;
         }
 
         h1 {
@@ -95,7 +98,15 @@
           }
         }
 
-        .view__buttons-box{
+        .view__outOfStock {
+          color: red;
+        }
+
+        .view__inStock {
+          color: green;
+        }
+
+        .view__buttons-box {
           display: flex;
           justify-content: space-evenly;
           width: 100%;

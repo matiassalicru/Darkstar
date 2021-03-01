@@ -32,6 +32,20 @@
     color: $black;
     border-radius: 0 0 10px 10px;
 
+    .card__inStock {
+      color: green;
+      font-size: .2em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .card__outOfStock {
+      color: red;
+      font-size: .2em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
     .card__buttons {
       display: flex;
       justify-content: space-around;
@@ -41,6 +55,10 @@
       button {
         border: 1px solid $black;
         color: $black;
+      }
+
+      button:disabled {
+        background: $light-grey;
       }
     }
 
@@ -55,7 +73,7 @@
       padding: 0;
       color: $black;
       border-radius: 0 0 10px 10px;
-      
+
       .card__btn {
         height: 35px;
         width: 35px;
@@ -64,12 +82,11 @@
         align-items: center;
         border-radius: 999px;
 
-        &:last-of-type{
+        &:last-of-type {
           border-radius: 50%;
           margin-left: 10px;
         }
       }
-
     }
     img {
       width: 24px;
@@ -155,7 +172,7 @@
 
 .card__price {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: darken($primary, 20%);
   font-weight: 600;
   font-size: 1.2em;

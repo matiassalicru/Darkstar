@@ -18,15 +18,18 @@ export const ProductGrid = ({ swiperData, data }) => {
   const [cards] = useState(data);
   const [pageNumber, setpageNumber] = useState(0);
 
+  // const availableItems = cards.filter( (i) => i.availability === 'in stock');
+
+  // console.log(availableItems);
+  console.log(cards);
+
   const cardsPerPage = 20;
   const pagesVisited = pageNumber * cardsPerPage;
 
   const displayCards = cards
     .slice(pagesVisited, pagesVisited + cardsPerPage)
     .map((card) => {
-      return (
-          <ProductCard item={card} key={card.id}/>
-      );
+      return <ProductCard item={card} key={card.id} />;
     });
 
   const pageCount = Math.ceil(cards.length / cardsPerPage);
