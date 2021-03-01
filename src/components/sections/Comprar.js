@@ -251,7 +251,7 @@ export const Comprar = () => {
 
               <p style={{ color: "violet" }}>
                 Es importante que sepas que para los envíos trabajamos con
-                Andreani y/o E-pick
+                Andreani, Correo argentino y/o E-pick y son a cargo del comprador (El precio final no incluye el envío)
               </p>
 
               <input

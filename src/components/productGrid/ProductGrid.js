@@ -18,7 +18,7 @@ export const ProductGrid = ({ swiperData, data }) => {
   const [cards] = useState(data);
   const [pageNumber, setpageNumber] = useState(0);
 
-  const cardsPerPage = 10;
+  const cardsPerPage = 20;
   const pagesVisited = pageNumber * cardsPerPage;
 
   const displayCards = cards
