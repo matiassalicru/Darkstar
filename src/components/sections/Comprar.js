@@ -28,7 +28,7 @@ export const Comprar = () => {
 
   for (let i = 0; i < cart.length; i++) {
     joins.push(
-      `Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity}`
+      `Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity} - precio: ${cart[i].price}`
     ); //Mete los objetos del cart en un array
   }
 
@@ -113,7 +113,7 @@ export const Comprar = () => {
                     <div className="item__description">
                       <h2 className="item__title">{item.title}</h2>
                       <p>Cantidad: {item.quantity}</p>
-                      <p> Precio: $ {item.price} </p>
+                      <p>Precio: $ {item.price} </p>
                       <div className="item__buttons">
                         <button
                           className="btn"
@@ -249,7 +249,7 @@ export const Comprar = () => {
                 <option value="Efectivo">Efectivo (Rapipago/Pago fácil)</option>
               </select>
 
-              <p style={{color: 'violet'}}>
+              <p style={{ color: "violet" }}>
                 Es importante que sepas que para los envíos trabajamos con
                 Andreani y/o E-pick
               </p>

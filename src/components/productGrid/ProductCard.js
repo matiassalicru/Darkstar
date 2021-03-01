@@ -31,19 +31,12 @@ const ProductCard = ({ item }) => {
   };
 
   const addToCart = (item, action) => {
-    let exist = false;
+    
+     const itemsExists = items.find(
+       (cartItem) => cartItem.id === item.id
+     );
 
-    for (let i = 0; i < items.length; i++) {
-      const id = items[i].id;
-
-      if (item.id === id) {
-        exist = true;
-      } else {
-        exist = false;
-      }
-    }
-
-    if (exist === true) {
+    if (itemsExists) {
       dispatch(updateItem(item, action));
     } else {
       dispatch(addCart(item));
