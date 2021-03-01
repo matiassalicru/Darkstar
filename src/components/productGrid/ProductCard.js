@@ -21,7 +21,6 @@ const ProductCard = ({ item }) => {
     
 
     if (e.target.id === "link" || '' || null) {
-      console.log("mandame");
       return history.push(
         `/tienda/${type.toLowerCase()}/${title
           .replace(/\s/g, "")
