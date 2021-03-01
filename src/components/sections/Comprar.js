@@ -28,7 +28,7 @@ export const Comprar = () => {
 
   for (let i = 0; i < cart.length; i++) {
     joins.push(
-      `Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity} - precio: ${cart[i].price}`
+      `Producto: ${cart[i].type} ${cart[i].title} - Cantidad: ${cart[i].quantity} - Precio por unidad: $${cart[i].price}`
     ); //Mete los objetos del cart en un array
   }
 
