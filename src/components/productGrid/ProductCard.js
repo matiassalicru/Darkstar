@@ -18,9 +18,7 @@ const ProductCard = ({ item }) => {
   const sendTo = (e) => {
     dispatch(sendToView(item));
 
-    
-
-    if (e.target.id === "link" || '' || null) {
+    if (e.target.id === "link" || "" || null) {
       return history.push(
         `/tienda/${type.toLowerCase()}/${title
           .replace(/\s/g, "")
@@ -30,10 +28,7 @@ const ProductCard = ({ item }) => {
   };
 
   const addToCart = (item, action) => {
-    
-     const itemsExists = items.find(
-       (cartItem) => cartItem.id === item.id
-     );
+    const itemsExists = items.find((cartItem) => cartItem.id === item.id);
 
     if (itemsExists) {
       dispatch(updateItem(item, action));
@@ -41,7 +36,6 @@ const ProductCard = ({ item }) => {
       dispatch(addCart(item));
     }
   };
-
 
   return (
     <>
@@ -66,6 +60,9 @@ const ProductCard = ({ item }) => {
             </strong>
             <div className="card__buttons">
               {/* Añade el item al carrito directamente */}
+              <button className="card__btn" onClick={sendTo} id="link">
+                <img src={eye} alt="detalles" onClick={sendTo} id="link" />
+              </button>
               <button
                 id="btn"
                 className="card__btn"
@@ -73,9 +70,6 @@ const ProductCard = ({ item }) => {
                 disabled={item.availability === "out of stock" ? true : false}
               >
                 Comprar
-              </button>
-              <button className="card__btn" onClick={sendTo} id="link">
-                <img src={eye} alt="detalles" onClick={sendTo} id="link" />
               </button>
             </div>
           </div>
