@@ -217,6 +217,9 @@
   }
 
   .comprar__main {
+    margin-left: 25px;
+    margin-right: 25px;
+
     .comprar__title {
       font-size: 2em;
       margin-top: 4em;
@@ -253,7 +256,11 @@
       margin: auto;
       margin-bottom: 50px;
 
+      select {
+        width: 80%;
+      }
       input {
+        width: 80%;
         &:last-child {
           height: 50px;
         }

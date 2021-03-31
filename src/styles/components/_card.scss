@@ -34,14 +34,14 @@
 
     .card__inStock {
       color: green;
-      font-size: .2em;
+      font-size: 0.2em;
       margin-bottom: 5px;
       text-transform: uppercase;
     }
 
     .card__outOfStock {
       color: red;
-      font-size: .2em;
+      font-size: 0.2em;
       text-transform: uppercase;
       margin-bottom: 5px;
     }
@@ -208,6 +208,16 @@
     }
   }
 
+  .card__description {
+    .card__inStock {
+      font-size: 0.7em !important;
+    }
+
+    .card__outOfStock {
+      font-size: 0.7em !important;
+    }
+  }
+
   .card__buttons {
     display: flex;
     justify-content: space-around;
@@ -222,12 +232,13 @@
     }
 
     button:nth-of-type(2) {
-      width: 30px;
+      width: 100%;
+      margin-left: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 30px;
-      border-radius: 50%;
+      // border-radius: 50%;
     }
 
     img {

@@ -268,8 +268,9 @@ export const Comprar = () => {
 
               <p style={{ color: "violet" }}>
                 Es importante que sepas que para los envíos trabajamos con
-                MercadoEnvíos o E-pick y son a cargo del comprador (El precio
-                final no incluye el envío)
+                MercadoEnvíos o E-pick ($360 ARS Válido para Córdoba, Rosario y
+                Buenos Aires) y son a cargo del comprador (El precio final no
+                incluye el envío)
               </p>
 
               <label>
