@@ -194,15 +194,15 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  left: 5rem;
+  left: 1.2rem;
   top: 10rem;
   z-index: 5;
-  border-radius: 20px;
+  border-radius: 5px;
+  border: 1px solid #fafafa;
   height: 50px;
   width: 60px;
   background: $primary;
   box-shadow: 2px 2px 5px $black;
-  border: none;
   animation: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:hover {

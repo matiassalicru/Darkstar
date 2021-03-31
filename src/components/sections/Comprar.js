@@ -217,7 +217,7 @@ export const Comprar = () => {
                 <option value="Santiago del estero">Santiago del estero</option>
                 <option value="Tucuman">Tucuman</option>
               </select>
-              <label>Localidad</label>
+              <label>Localidad/Dirección</label>
               <input
                 type="text"
                 required
@@ -271,6 +271,18 @@ export const Comprar = () => {
                 Andreani, Correo argentino y/o E-pick y son a cargo del
                 comprador (El precio final no incluye el envío)
               </p>
+
+              <label>
+                Calcula el costo de tú envío{" "}
+                <a 
+                  style={{color: 'violet'}}
+                  href="https://articulo.mercadolibre.com.ar/MLA-912443521-aros-aesthetic-darkstarar-ig-_JM?searchVariation=79117308142#searchVariation=79117308142&position=43&type=item&tracking_id=3224dada-54dd-4e6f-a9db-51dc21852e2b"
+                  target='_blank'
+                  rel='noreferrer noopener'
+                >
+                  Aquí
+                </a>
+              </label>
 
               <input
                 type="submit"
