@@ -222,8 +222,9 @@
   }
 
   .comprar__main {
-    margin-left: 25px;
-    margin-right: 25px;
+    // margin-left: 25px;
+    // margin-right: 25px;
+    padding: 0 25px;
 
     .comprar__title {
       font-size: 2em;
@@ -244,6 +245,13 @@
     .comprar__items {
       max-width: 100%;
 
+      .comprar__tusProductosTitle{
+        display: flex;
+        align-self: center;
+        width: 80%;
+        text-align: center;
+      }
+
       .comprar__item {
         min-width: 300px;
         width: fit-content;
@@ -256,7 +264,7 @@
 
     .comprar__form {
       width: fit-content;
-      // align-items: center;
+      align-items: center;
       justify-content: center;
       margin: auto;
       margin-bottom: 50px;

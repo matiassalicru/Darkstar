@@ -39,6 +39,7 @@ export const Comprar = () => {
     user_email: "",
     user_phone: "",
     user_localidad: "",
+    user_extra: "",
     user_CP: "",
   };
 
@@ -53,6 +54,7 @@ export const Comprar = () => {
     user_email,
     user_phone,
     user_localidad,
+    user_extra,
     user_CP,
   } = formValues;
 
@@ -223,7 +225,7 @@ export const Comprar = () => {
                 type="text"
                 required
                 name="user_localidad"
-                placeholder='Valle viejo...'
+                placeholder="Valle viejo..."
                 value={user_localidad}
                 onChange={handleInputChange}
               />
@@ -232,7 +234,7 @@ export const Comprar = () => {
               <input
                 type="number"
                 required
-                placeholder='4700...'
+                placeholder="4700..."
                 name="user_CP"
                 value={user_CP}
                 onChange={handleInputChange}
@@ -277,7 +279,14 @@ export const Comprar = () => {
               </p>
 
               <label>Algo más que nos quieras decir?</label>
-              <textarea placeholder='Vengo de instagram por la promo de...' name="extra" cols="30" rows="5"></textarea>
+              <textarea
+                placeholder="Vengo de instagram por la promo de..."
+                name="user_extra"
+                cols="30"
+                rows="5"
+                value={user_extra}
+                onChange={handleInputChange}
+              ></textarea>
 
               <label>
                 Calcula el costo de tú envío{" "}
