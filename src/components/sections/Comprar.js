@@ -158,7 +158,7 @@ export const Comprar = () => {
               <input
                 type="text"
                 name="user_name"
-                placeholder="Escribe tu nombre.."
+                placeholder="Matías Salicrú"
                 value={user_name}
                 required
                 onChange={handleInputChange}
@@ -167,7 +167,7 @@ export const Comprar = () => {
               <input
                 type="email"
                 name="user_email"
-                placeholder="email@email.com"
+                placeholder="mattiassalicru@email.com"
                 value={user_email}
                 required
                 onChange={handleInputChange}
@@ -176,6 +176,7 @@ export const Comprar = () => {
               <input
                 type="tel"
                 name="user_phone"
+                placeholder="3834123456"
                 minLength={6}
                 required
                 value={user_phone}
@@ -222,6 +223,7 @@ export const Comprar = () => {
                 type="text"
                 required
                 name="user_localidad"
+                placeholder='Valle viejo...'
                 value={user_localidad}
                 onChange={handleInputChange}
               />
@@ -230,6 +232,7 @@ export const Comprar = () => {
               <input
                 type="number"
                 required
+                placeholder='4700...'
                 name="user_CP"
                 value={user_CP}
                 onChange={handleInputChange}
@@ -272,6 +275,9 @@ export const Comprar = () => {
                 Buenos Aires) y son a cargo del comprador (El precio final no
                 incluye el envío)
               </p>
+
+              <label>Algo más que nos quieras decir?</label>
+              <textarea placeholder='Vengo de instagram por la promo de...' name="extra" cols="30" rows="5"></textarea>
 
               <label>
                 Calcula el costo de tú envío{" "}
