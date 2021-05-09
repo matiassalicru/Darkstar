@@ -76,35 +76,43 @@ export const View = () => {
   });
 
   const addItem = (item, type) => {
-    if (existingItem) {
-      swal({
-        title: "Este accesorio ya se encuentra en tu carrito",
-        text: "Si queres una unidad más agregala desde el carrito",
-        icon: "warning",
-        buttons: {
-          openCart: "Ver Carrito",
-          accept: "Aceptar",
-        },
-        className: "sweetAlert",
-      }).then((value) => {
-        switch (value) {
-          case "openCart":
-            if (type !== "mobile") {
-              dispatch(openCart());
-            } else {
-              history.replace("/productCart");
-            }
 
-            break;
-          case "accept":
-            break;
-          default:
-            break;
-        }
-      });
-    } else {
-      dispatch(addCart(item));
-    }
+    
+    swal({
+      title: "Sitio web en mantenimiento",
+      text:
+        "Para cualquier pedido puedes contactarnos por nuestros instagram @darkstar.ar",
+    });
+    
+    // if (existingItem) {
+    //   swal({
+    //     title: "Este accesorio ya se encuentra en tu carrito",
+    //     text: "Si queres una unidad más agregala desde el carrito",
+    //     icon: "warning",
+    //     buttons: {
+    //       openCart: "Ver Carrito",
+    //       accept: "Aceptar",
+    //     },
+    //     className: "sweetAlert",
+    //   }).then((value) => {
+    //     switch (value) {
+    //       case "openCart":
+    //         if (type !== "mobile") {
+    //           dispatch(openCart());
+    //         } else {
+    //           history.replace("/productCart");
+    //         }
+
+    //         break;
+    //       case "accept":
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //   });
+    // } else {
+    //   dispatch(addCart(item));
+    // }
   };
 
   return (

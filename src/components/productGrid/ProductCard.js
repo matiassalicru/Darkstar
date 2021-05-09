@@ -7,6 +7,7 @@ import { ProductSlider } from "./ProductSlider";
 //Images imports
 import eye from "../../Assets/eye.png";
 import { addCart, updateItem } from "../../actions/cart";
+import swal from "sweetalert";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
@@ -28,13 +29,20 @@ const ProductCard = ({ item }) => {
   };
 
   const addToCart = (item, action) => {
-    const itemsExists = items.find((cartItem) => cartItem.id === item.id);
+    // REFACTOR. MANTENIMIENTO.
 
-    if (itemsExists) {
-      dispatch(updateItem(item, action));
-    } else {
-      dispatch(addCart(item));
-    }
+    swal({
+      title: 'Sitio web en mantenimiento',
+      text: 'Para cualquier pedido puedes contactarnos por nuestros instagram @darkstar.ar'
+    })
+
+    // const itemsExists = items.find((cartItem) => cartItem.id === item.id);
+
+    // if (itemsExists) {
+      // dispatch(updateItem(item, action));
+    // } else {
+      // dispatch(addCart(item));
+    // }
   };
 
   return (

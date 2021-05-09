@@ -11,6 +11,7 @@ import { ProductGrid } from "../productGrid/ProductGrid";
 import { fetchData } from "../../actions/data";
 import { useParams } from "react-router-dom";
 import { Backbtn } from "../common/Backbtn";
+import { Mantenimiento } from "../error/Mantenimiento";
 
 export const Tienda = () => {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ export const Tienda = () => {
     <>
       <Navbar />
       <div className="tienda__main">
+        <Mantenimiento />
         <Template />
         <Backbtn />
         {loading ? (

@@ -10,12 +10,13 @@ import { View } from "../components/sections/View";
 export const AppRouter = () => {
   return (
     <div className="main">
+
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/error_404" component={NotFound} />
           <Route exact path="/comprar" component={Comprar} />
-          <Route exact path="/productCart" component={ProductCart}/>
+          <Route exact path="/productCart" component={ProductCart} />
 
           <Route exact path="/tienda/:tipo" component={Tienda} />
 

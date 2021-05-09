@@ -274,3 +274,13 @@ a {
     }
   }
 }
+
+.base__mantenimiento{
+  padding: 20px;
+  background-color: $white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 1.5em;
+}

@@ -6,6 +6,7 @@ import { Header } from "./header/Header";
 import { RoundGrid } from "./roundGrid/RoundGrid";
 import { Footer } from "./common/Footer";
 import { Template } from "./common/Template";
+import { Mantenimiento } from "./error/Mantenimiento";
 
 export const Home = () => {
   //Trae el state ui desde el store de redux.
@@ -17,6 +18,8 @@ export const Home = () => {
       <div className="home__main">
         <Template />
         <div className="home__container">
+          <Mantenimiento />
+
           <Header />
 
           <h1 className={`home__title ${!ui.darkMode ? `dark` : `light`}`}>
