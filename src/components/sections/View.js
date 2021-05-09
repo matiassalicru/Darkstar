@@ -8,7 +8,7 @@ import { Loading } from "../common/Loading";
 import { Navbar } from "../common/Navbar";
 import { TemplateNoWave } from "../common/TemplateNoWave";
 import { ProductSlider } from "../productGrid/ProductSlider";
-import { addCart } from "../../actions/cart";
+// import { addCart } from "../../actions/cart";
 import { openCart } from "../../actions/ui";
 import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
 
@@ -69,11 +69,11 @@ export const View = () => {
 
   const view = useSelector((state) => state.view);
 
-  const cart = useSelector((state) => state.cart.items);
+  // const cart = useSelector((state) => state.cart.items);
 
-  let existingItem = cart.find((cartItem) => {
-    return cartItem.id === view.id;
-  });
+  // let existingItem = cart.find((cartItem) => {
+  //   return cartItem.id === view.id;
+  // });
 
   const addItem = (item, type) => {
 

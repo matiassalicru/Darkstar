@@ -6,7 +6,7 @@ import { ProductSlider } from "./ProductSlider";
 
 //Images imports
 import eye from "../../Assets/eye.png";
-import { addCart, updateItem } from "../../actions/cart";
+// import { addCart, updateItem } from "../../actions/cart";
 import swal from "sweetalert";
 
 const ProductCard = ({ item }) => {
@@ -14,7 +14,7 @@ const ProductCard = ({ item }) => {
   const history = useHistory();
 
   const { images_thumb, title, price, type } = item;
-  const items = useSelector((state) => state.cart.items);
+  // const items = useSelector((state) => state.cart.items);
 
   const sendTo = (e) => {
     dispatch(sendToView(item));
