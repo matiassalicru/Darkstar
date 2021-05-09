@@ -1,5 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { sendToView } from "../../actions/view";
 import { ProductSlider } from "./ProductSlider";
