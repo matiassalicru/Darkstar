@@ -6,7 +6,7 @@ import { cleanData } from "../../actions/data";
 // Images/Logos/Assets
 import hambMenu from "../../Assets/hambMenu.svg";
 import cartMenu from "../../Assets/cart.svg";
-import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
+// import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
 
 //Actions
 import {
