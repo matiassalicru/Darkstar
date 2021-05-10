@@ -59,8 +59,8 @@ export const Navbar = () => {
       />
 
       <Link to="/" onClick={() => dispatch(cleanData())}>
-        <img className="nav__logo" src={logoDarkstar} alt="Darkstar" />
-        {/* <h1 className='nav__title'>darkstar.ar</h1> */}
+        {/* <img className="nav__logo" src={logoDarkstar} alt="Darkstar" /> */}
+        <h1 className='nav__title'>darkstar.ar</h1>
       </Link>
 
 
