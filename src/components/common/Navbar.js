@@ -21,7 +21,7 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
   let history = useHistory();
-  const {width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
 
   const toggleSidebar = () => {
@@ -39,7 +39,7 @@ export const Navbar = () => {
       dispatch(openCart());
     }
   };
-  
+
   const enterCart = () => {
     if (width <= 350) {
       history.push('/productCart')
@@ -53,14 +53,14 @@ export const Navbar = () => {
       <img
         src={hambMenu}
         alt="menu"
-        className={`${
-          ui.isSidebarOpen ? `nav__openNavSidebar` : `nav__navSidebar`
-        }`}
+        className={`${ui.isSidebarOpen ? `nav__openNavSidebar` : `nav__navSidebar`
+          }`}
         onClick={toggleSidebar}
       />
 
       <Link to="/" onClick={() => dispatch(cleanData())}>
         <img className="nav__logo" src={logoDarkstar} alt="Darkstar" />
+        {/* <h1 className='nav__title'>darkstar.ar</h1> */}
       </Link>
 
 

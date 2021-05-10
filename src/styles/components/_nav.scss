@@ -15,12 +15,19 @@
   z-index: 999;
   box-shadow: 0 2px 5px $white;
 
+  .nav__title {
+    font-family: "Montserrat alternates";
+    font-weight: 200;
+    color: $black;
+    text-align: center;
+    font-size: 2em;
+    font-style: normal;
+  }
+
   a {
-    width: 300px;
-    height: 60px;
-    align-self: center;
     display: flex;
-    justify-self: center;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav__logo {

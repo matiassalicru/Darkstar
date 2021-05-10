@@ -14,9 +14,5 @@ export const rounds = [
   {
     type: "Varios",
     bg: "vario",
-  },
-  // {
-  //   type: "Colores",
-  //   bg: "cadena",
-  // },
+  }
 ];
