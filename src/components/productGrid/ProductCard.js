@@ -40,9 +40,9 @@ const ProductCard = ({ item }) => {
     // const itemsExists = items.find((cartItem) => cartItem.id === item.id);
 
     // if (itemsExists) {
-      // dispatch(updateItem(item, action));
+    // dispatch(updateItem(item, action));
     // } else {
-      // dispatch(addCart(item));
+    // dispatch(addCart(item));
     // }
   };
 
@@ -58,7 +58,7 @@ const ProductCard = ({ item }) => {
           <div className="card__description" id="link" onClick={sendTo}>
             <h1 className="card__title">{title}</h1>
             <p className="card__price">$ {price}</p>
-            <strong
+            {/* <strong
               className={
                 item.availability !== "out of stock"
                   ? `card__inStock`
@@ -66,21 +66,21 @@ const ProductCard = ({ item }) => {
               }
             >
               {item.availability}
-            </strong>
-            <div className="card__buttons">
-              {/* Añade el item al carrito directamente */}
-              <button className="card__btn" onClick={sendTo} id="link">
+            </strong> */}
+            {/* <div className="card__buttons"> */}
+            {/* Añade el item al carrito directamente */}
+            {/* <button className="card__btn" onClick={sendTo} id="link">
                 <img src={eye} alt="detalles" onClick={sendTo} id="link" />
+              </button> */}
+            <button
+              id="btn"
+              className="card__btn"
+              onClick={() => addToCart(item, "add")}
+              disabled={item.availability === "out of stock" ? true : false}
+            >
+              Comprar
               </button>
-              <button
-                id="btn"
-                className="card__btn"
-                onClick={() => addToCart(item, "add")}
-                disabled={item.availability === "out of stock" ? true : false}
-              >
-                Comprar
-              </button>
-            </div>
+            {/* </div> */}
           </div>
         </div>
       ) : null}
