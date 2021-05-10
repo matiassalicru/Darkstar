@@ -20,9 +20,6 @@ export const ProductGrid = ({ swiperData, data }) => {
 
   // const availableItems = cards.filter( (i) => i.availability === 'in stock');
 
-  // console.log(availableItems);
-  console.log(cards);
-
   const cardsPerPage = 20;
   const pagesVisited = pageNumber * cardsPerPage;
 

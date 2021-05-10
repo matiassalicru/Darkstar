@@ -3,13 +3,12 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchData } from "../../actions/data";
 
-export const RoundCard = ({ title, bg }) => {
+export const GridCard = ({ title, bg }) => {
   const dispatch = useDispatch();
 
   const bringData = () => {
     console.log(title);
     dispatch(fetchData(title.toLowerCase()));
-
   };
 
   return (
@@ -17,8 +16,8 @@ export const RoundCard = ({ title, bg }) => {
       to={`/tienda/${title.toLowerCase()}`}
       onClick={bringData}
     >
-      <div className={`roundGrid__card `}>
-        <div className={`roundGrid__img ${bg}`}></div>
+      <div className={`gridSections__card `}>
+        <div className={`gridSections__img ${bg}`}></div>
         <p>{title}</p>
       </div>
     </Link>

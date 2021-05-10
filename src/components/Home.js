@@ -3,10 +3,12 @@ import { useSelector } from "react-redux";
 
 import { Navbar } from "./common/Navbar";
 import { Header } from "./header/Header";
-import { RoundGrid } from "./roundGrid/RoundGrid";
+import { GridSections } from "./gridSection/GridSections";
 import { Footer } from "./common/Footer";
 import { Template } from "./common/Template";
-import { Mantenimiento } from "./error/Mantenimiento";
+import { HomeSwiper } from "./common/HomeSwiper";
+import { ProductSlider } from '../components/productGrid/ProductSlider'
+// import { Mantenimiento } from "./error/Mantenimiento";
 
 export const Home = () => {
   //Trae el state ui desde el store de redux.
@@ -18,14 +20,15 @@ export const Home = () => {
       <div className="home__main">
         <Template />
         <div className="home__container">
-          <Mantenimiento />
-
           <Header />
-
-          <h1 className={`home__title ${!ui.darkMode ? `dark` : `light`}`}>
-            Nuestros productos
+          <h1 className='home__title'>
+            Populares
           </h1>
-          <RoundGrid />
+          {/* <HomeSwiper/> */}
+          <h1 className='home__title'>
+            Secciones
+          </h1>
+          <GridSections />
         </div>
         <Footer />
       </div>

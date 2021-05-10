@@ -46,10 +46,6 @@ export const Tienda = () => {
     }
   }, [loading, dispatch, data, tipo, url]);
 
-  // Get current posts
-
-  //Change Page
-
   return (
     <>
       <Navbar />

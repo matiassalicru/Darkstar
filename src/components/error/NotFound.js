@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../common/Navbar";
 import { Template } from "../common/Template";
-import { RoundGrid } from "../roundGrid/RoundGrid";
+import { GridSections } from "../gridSection/GridSections";
 
 export const NotFound = () => {
   return (
@@ -28,7 +28,7 @@ export const NotFound = () => {
             </Link>
           </div>
 
-          <RoundGrid />
+          <GridSections />
         </div>
       </div>
     </>

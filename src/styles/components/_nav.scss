@@ -11,9 +11,8 @@
   padding: 0 20px;
   box-sizing: border-box;
   height: 5em;
-  background-color: $primary;
+  background-color: $white;
   z-index: 999;
-  box-shadow: 0 2px 5px $white;
 
   .nav__title {
     font-family: "Montserrat alternates";
@@ -25,9 +24,11 @@
   }
 
   a {
+    width: 300px;
+    height: 60px;
+    align-self: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-self: center;
   }
 
   .nav__logo {
@@ -58,19 +59,18 @@
 
 @media screen and (max-width: 480px) {
   .nav__main {
-    height: 6em;
+    height: 4.5em;
     justify-content: center;
     min-width: 100vw;
     width: 100vw;
     z-index: 100;
-    box-shadow: 0 2px 5px $black;
 
     a {
-      width: 200px;
-      height: 100%;
+      width: fit-content;
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
     }
 
     %navButtons {
@@ -80,21 +80,20 @@
       z-index: 100;
       cursor: pointer;
       transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-      filter: invert(100%);
     }
 
     .nav__navSidebar {
       @extend %navButtons;
       width: 2.2em;
       left: 1.5em;
+      filter: invert(100%);
     }
 
     .nav__openNavSidebar {
       @extend %navButtons;
       width: 2.2em;
       left: 1.5em;
-
-      filter: invert(0);
+      filter: invert(100%);
     }
 
     .nav__navCart {
@@ -117,9 +116,6 @@
     box-sizing: border-box;
     a {
       width: 50%;
-      .nav__logo {
-        justify-self: center;
-      }
     }
   }
 }
