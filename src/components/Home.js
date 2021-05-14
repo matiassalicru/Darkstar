@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Navbar } from "./common/Navbar";
 import { Header } from "./header/Header";
 import { GridSections } from "./gridSection/GridSections";
 import { Footer } from "./common/Footer";
 import { Template } from "./common/Template";
 import { Loading } from './common/Loading';
-import { Swiper, SwiperSlide } from "swiper/react";
 import ProductCard from "./productGrid/ProductCard";
-// import { Mantenimiento } from "./error/Mantenimiento";
+import useWindowDimensions from "../hooks/useWindowDimensions/useWindowDimensions";
 
 export const Home = () => {
   //Trae el state ui desde el store de redux.
   const [data, setData] = useState([])
-  // const { ui } = useSelector((state) => state);
+  const { height, width } = useWindowDimensions();
 
   useEffect(() => {
     fetch('https://backend-darkstar.herokuapp.com/popu')
       .then(res => res.json())
       .then(data => setData(data)
       )
-
-  }, [data])
+    return () => {
+      setData([]);
+    }
+  }, [])
 
   return (
     <>
@@ -34,17 +34,26 @@ export const Home = () => {
           <h1 className='home__title'>
             Populares
           </h1>
-          <article className="grid__swiper">
-            <Swiper spaceBetween={0} slidesPerView={1.5} slidesPerGroupSkip={1}>
-              {data.length !== 0 ? data.map((item, i) => (
-                <SwiperSlide key={i}>
-                  <ProductCard item={item} />
-                </SwiperSlide>
-              )) : (
-                  <Loading/>
-              )}
-            </Swiper>
-          </article>
+          {
+            width < 700 ? (
+              <article className="productCart__swiper">
+                <Swiper spaceBetween={10} slidesPerView={1.5} slidesPerGroupSkip={0}>
+                  {data.length !== 0 ? data.map((item, i) => (
+                    <SwiperSlide key={i}>
+                      <ProductCard item={item} />
+                    </SwiperSlide>
+                  )) : (
+                    <Loading />
+                  )}
+                </Swiper>
+              </article>) : (
+              <div className='home__cardContainer'>
+                {data.map((item, i) => (
+                  <ProductCard key={i} item={item} />
+                ))}
+              </div>
+            )
+          }
           <h1 className='home__title'>
             Secciones
           </h1>

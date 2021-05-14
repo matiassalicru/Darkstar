@@ -50,7 +50,6 @@ export const Tienda = () => {
     <>
       <Navbar />
       <div className="tienda__main">
-        <Mantenimiento />
         <Template />
         {loading ? (
           <div className="tienda__loading">

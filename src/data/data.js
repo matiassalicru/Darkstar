@@ -1,4 +1,4 @@
-export const rounds = [
+export const homeBTN = [
   {
     type: "Aros",
     bg: "aro",

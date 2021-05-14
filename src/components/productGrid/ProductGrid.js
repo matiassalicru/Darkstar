@@ -13,12 +13,13 @@ import ProductCard from './ProductCard';
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
-export const ProductGrid = ({ swiperData, data }) => {
+export const ProductGrid = ({ swiperData, data, needsTitle }) => {
   const { width } = useWindowDimensions();
   const [cards] = useState(data);
   const [pageNumber, setpageNumber] = useState(0);
 
-  // const availableItems = cards.filter( (i) => i.availability === 'in stock');
+  // Get the section of products.
+  const title = cards[0]?.type;
 
   const cardsPerPage = 20;
   const pagesVisited = pageNumber * cardsPerPage;
@@ -26,7 +27,7 @@ export const ProductGrid = ({ swiperData, data }) => {
   const displayCards = cards
     .slice(pagesVisited, pagesVisited + cardsPerPage)
     .map((card) => {
-      return <ProductCard item={card} key={card.id} />;
+      return <ProductCard item={card} key={card.id} needsTitle={needsTitle} />;
     });
 
   const pageCount = Math.ceil(cards.length / cardsPerPage);
@@ -39,6 +40,7 @@ export const ProductGrid = ({ swiperData, data }) => {
 
   return (
     <section className="grid__main">
+      <h1 className='grid__title'>{title}</h1>
       {width <= 500 ? (
         <article className="grid__swiper">
           <Swiper spaceBetween={0} slidesPerView={1.5} slidesPerGroupSkip={1}>
@@ -53,8 +55,6 @@ export const ProductGrid = ({ swiperData, data }) => {
         </article>
       ) : (
         <>
-          <h2 className="grid__title">{data.length > 0 && data[0].type}</h2>
-
           <article className="grid__card-container">
             {displayCards}
             <ReactPaginate

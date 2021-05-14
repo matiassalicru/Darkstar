@@ -17,9 +17,9 @@ export const Cart = () => {
 
   return (
     <aside className="cart__main animate__animated animate__fadeInRight animate__faster">
-      {/* <div className={`cart__exit`} onClick={setCartClosed}>
+      <div className={`cart__exit`} onClick={setCartClosed}>
         <i className="fas fa-times"></i>
-      </div> */}
+      </div>
 
       <div className="cart__items">
         {items.length >= 1 ? (

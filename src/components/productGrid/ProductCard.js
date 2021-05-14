@@ -1,13 +1,12 @@
 import React from "react";
 // import { useSelector } from "react-redux";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { sendToView } from "../../actions/view";
 import { ProductSlider } from "./ProductSlider";
 
 //Images imports
-import eye from "../../Assets/eye.png";
-// import { addCart, updateItem } from "../../actions/cart";
+import { addCart, updateItem } from "../../actions/cart";
 import swal from "sweetalert";
 
 const ProductCard = ({ item }) => {
@@ -15,7 +14,7 @@ const ProductCard = ({ item }) => {
   const history = useHistory();
 
   const { images_thumb, title, price, type } = item;
-  // const items = useSelector((state) => state.cart.items);
+  const items = useSelector((state) => state.cart.items);
 
   const sendTo = (e) => {
     dispatch(sendToView(item));
@@ -40,9 +39,9 @@ const ProductCard = ({ item }) => {
     // const itemsExists = items.find((cartItem) => cartItem.id === item.id);
 
     // if (itemsExists) {
-    // dispatch(updateItem(item, action));
+      // dispatch(updateItem(item, action));
     // } else {
-    // dispatch(addCart(item));
+      // dispatch(addCart(item));
     // }
   };
 
@@ -58,7 +57,7 @@ const ProductCard = ({ item }) => {
           <div className="card__description" id="link" onClick={sendTo}>
             <h1 className="card__title">{title}</h1>
             <p className="card__price">$ {price}</p>
-            {/* <strong
+            <strong
               className={
                 item.availability !== "out of stock"
                   ? `card__inStock`
@@ -66,12 +65,7 @@ const ProductCard = ({ item }) => {
               }
             >
               {item.availability}
-            </strong> */}
-            {/* <div className="card__buttons"> */}
-            {/* Añade el item al carrito directamente */}
-            {/* <button className="card__btn" onClick={sendTo} id="link">
-                <img src={eye} alt="detalles" onClick={sendTo} id="link" />
-              </button> */}
+            </strong>
             <button
               id="btn"
               className="card__btn"

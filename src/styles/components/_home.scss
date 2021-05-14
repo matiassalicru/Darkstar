@@ -9,6 +9,11 @@
     margin-bottom: 6em;
   }
 
+  .home__cardContainer {
+    display: flex;
+    justify-content: center;
+  }
+
   .home__title {
     display: flex;
     font-family: "Montserrat Alternates";

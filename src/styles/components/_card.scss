@@ -3,18 +3,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: $black;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 20px;
   width: 12em;
+  // padding: 0 2rem;
   box-sizing: border-box;
   min-width: 100px;
   cursor: pointer;
-  color: $black;
-  border: 1px solid $black;
+  border: 1px solid $dark-grey;
   transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 2px 2px 5px 2px $violet;
+  box-shadow: 0px 0px 2px 1px $violet;
 
   &:hover {
     box-shadow: 0px 2px 1px 0px $violet;
@@ -54,8 +53,14 @@
       font-weight: 400;
       background: none;
       margin: 10px 0;
-      border-radius: 50px;
+      border-radius: 5px;
+      cursor: pointer;
       box-shadow: 2px 2px 2px 2px #00000030;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
@@ -63,6 +68,23 @@
     width: 140px;
     margin: 20px 10px;
     border-radius: 5px;
+  }
+
+  .card__stock {
+    font-size: 0.8em;
+    margin: 5px 0;
+    text-transform: capitalize;
+    font-weight: 400;
+  }
+
+  .card__inStock {
+    @extend .card__stock;
+    color: green;
+  }
+
+  .card__outOfStock {
+    @extend .card__stock;
+    color: red;
   }
 }
 
@@ -105,20 +127,6 @@
 //     padding: 0;
 //     color: $black;
 //     border-radius: 0 0 10px 10px;
-
-//     .card__inStock {
-//       color: green;
-//       font-size: 0.2em;
-//       margin-bottom: 5px;
-//       text-transform: uppercase;
-//     }
-
-//     .card__outOfStock {
-//       color: red;
-//       font-size: 0.2em;
-//       text-transform: uppercase;
-//       margin-bottom: 5px;
-//     }
 
 //     .card__buttons {
 //       display: flex;

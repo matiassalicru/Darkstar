@@ -23,23 +23,23 @@ SwiperCore.use([
 ]);
 
 export const HomeSwiper = ({ data }) => {
-  
+
   return (
     <>
       <Swiper
         effectcoverflow="true"
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView={1}
         // pagination={{ clickable: true }}
         loop={true}
         zoom={true}
         autoplay={{
-          delay: 2000,
+          delay: 1000,
           disableOnInteraction: false,
           waitForTransition: true,
         }}
-        // onSlideChange={() => console.log("slide changed")}
-        // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide changed")}
+      // onSwiper={(swiper) => console.log(swiper)}
       >
         {data.map((image, index) => (
           <SwiperSlide key={index}>
