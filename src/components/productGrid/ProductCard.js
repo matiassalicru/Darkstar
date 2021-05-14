@@ -8,6 +8,7 @@ import { ProductSlider } from "./ProductSlider";
 //Images imports
 import { addCart, updateItem } from "../../actions/cart";
 import swal from "sweetalert";
+import { Loading } from "../common/Loading";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
@@ -36,25 +37,25 @@ const ProductCard = ({ item }) => {
       text: 'Para cualquier pedido puedes contactarnos por nuestros instagram @darkstar.ar'
     })
 
-    // const itemsExists = items.find((cartItem) => cartItem.id === item.id);
+    const itemsExists = items.find((cartItem) => cartItem.id === item.id);
 
-    // if (itemsExists) {
-      // dispatch(updateItem(item, action));
-    // } else {
-      // dispatch(addCart(item));
-    // }
+    if (itemsExists) {
+      dispatch(updateItem(item, action));
+    } else {
+      dispatch(addCart(item));
+    }
   };
 
   return (
     <>
       {title ? (
-        <div className="card__main">
-          <div className="card__carousel">
+        <div className="card__main" onClick={sendTo}>
+          <div className="card__carousel" >
             <ProductSlider slideImgs={images_thumb} />
           </div>
 
           {/* Acá este link que reemplaza la url con el tipo de producto y el producto en sí, quitando espacios y llevando todo a minúscula */}
-          <div className="card__description" id="link" onClick={sendTo}>
+          <div className="card__description" id="link">
             <h1 className="card__title">{title}</h1>
             <p className="card__price">$ {price}</p>
             <strong
@@ -74,10 +75,9 @@ const ProductCard = ({ item }) => {
             >
               Comprar
               </button>
-            {/* </div> */}
           </div>
         </div>
-      ) : null}
+      ) : <Loading />}
     </>
   );
 };

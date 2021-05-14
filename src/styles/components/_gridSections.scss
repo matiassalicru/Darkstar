@@ -50,7 +50,7 @@
       pointer-events: none;
       font-size: 1.8rem;
       font-weight: 500;
-      filter: drop-shadow(3px 3px black);
+      filter: drop-shadow(2px 2px black);
     }
   }
 
@@ -92,7 +92,8 @@
       transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       pointer-events: none;
       font-size: 1.8rem;
-      filter: drop-shadow(3px 3px black);
+      font-weight: 500;
+      filter: drop-shadow(2px 2px black);
     }
   }
 }

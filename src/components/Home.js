@@ -12,7 +12,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions/useWindowDimension
 export const Home = () => {
   //Trae el state ui desde el store de redux.
   const [data, setData] = useState([])
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     fetch('https://backend-darkstar.herokuapp.com/popu')
@@ -48,9 +48,11 @@ export const Home = () => {
                 </Swiper>
               </article>) : (
               <div className='home__cardContainer'>
-                {data.map((item, i) => (
+                {data.length !== 0 ? data.map((item, i) => (
                   <ProductCard key={i} item={item} />
-                ))}
+                )) : (
+                  <Loading />
+                )}
               </div>
             )
           }
