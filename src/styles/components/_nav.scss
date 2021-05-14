@@ -2,33 +2,33 @@
 
 .nav__main {
   position: fixed;
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   padding: 0 20px;
   box-sizing: border-box;
-  height: 5em;
   background-color: $white;
-  z-index: 999;
-
-  .nav__title {
-    font-family: "Montserrat alternates";
-    font-weight: 200;
-    color: $black;
-    text-align: center;
-    font-size: 2em;
-    font-style: normal;
-  }
+  height: 4.5em;
+  justify-content: center;
+  min-width: 100vw;
+  width: 100vw;
+  z-index: 100;
 
   a {
-    width: 300px;
-    height: 60px;
-    align-self: center;
+    width: fit-content;
     display: flex;
-    justify-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav__title {
+    color: $black;
+    text-align: center;
+    font-size: 1.8rem;
+    font-style: normal;
   }
 
   .nav__logo {
@@ -40,82 +40,53 @@
     }
   }
 
+  %navButtons {
+    display: block;
+    position: fixed;
+    align-self: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
   .nav__navSidebar {
-    display: none;
-  }
-
-  .nav__navCart {
-    display: none;
-  }
-
-  .nav__openNavCart {
-    display: none;
+    @extend %navButtons;
+    width: 1.7em;
+    left: 1.5em;
+    filter: invert(100%);
   }
 
   .nav__openNavSidebar {
-    display: none;
+    @extend %navButtons;
+    width: 1.7em;
+    left: 1.5em;
+    filter: invert(100%);
+  }
+
+  .nav__navCart {
+    @extend %navButtons;
+    right: 1.5em;
+    width: 2.1em;
+  }
+
+  .nav__openNavCart {
+    @extend %navButtons;
+    right: 1.5em;
+    width: 2.5em;
+    filter: invert(0%);
   }
 }
 
-@media screen and (max-width: 480px) {
-  .nav__main {
-    height: 4.5em;
-    justify-content: center;
-    min-width: 100vw;
-    width: 100vw;
-    z-index: 100;
-
-    a {
-      width: fit-content;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    %navButtons {
-      display: block;
-      position: fixed;
-      align-self: center;
-      z-index: 100;
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
-    .nav__navSidebar {
-      @extend %navButtons;
-      width: 2.2em;
-      left: 1.5em;
-      filter: invert(100%);
-    }
-
-    .nav__openNavSidebar {
-      @extend %navButtons;
-      width: 2.2em;
-      left: 1.5em;
-      filter: invert(100%);
-    }
-
-    .nav__navCart {
-      @extend %navButtons;
-      right: 1.5em;
-      width: 2.5em;
-    }
-
-    .nav__openNavCart {
-      @extend %navButtons;
-      right: 1.5em;
-      width: 2.5em;
-      filter: invert(0%);
-    }
-  }
+// @media screen and (max-width: 480px) {
+.nav__main {
 }
+// }
 
-@media screen and (max-width: 320px) {
-  .nav__main {
-    box-sizing: border-box;
-    a {
-      width: 50%;
-    }
-  }
-}
+// @media screen and (max-width: 320px) {
+//   .nav__main {
+//     box-sizing: border-box;
+//     a {
+//       width: 50%;
+//     }
+//   }
+// }

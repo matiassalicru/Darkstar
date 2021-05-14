@@ -6,7 +6,6 @@ import { sendToView } from "../../actions/view";
 import { Footer } from "../common/Footer";
 import { Loading } from "../common/Loading";
 import { Navbar } from "../common/Navbar";
-import { TemplateNoWave } from "../common/TemplateNoWave";
 import { ProductSlider } from "../productGrid/ProductSlider";
 // import { addCart } from "../../actions/cart";
 import { openCart } from "../../actions/ui";
@@ -119,7 +118,7 @@ export const View = () => {
     <>
       <Navbar />
       <div className="view__main ">
-        <TemplateNoWave />
+        <template />
         {thereIsData && thereIsView ? (
           width > 480 ? (
             <section className="view__card animate__animated animate__bounceInLeft">

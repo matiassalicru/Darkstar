@@ -5,10 +5,6 @@ import { Footer } from "../common/Footer";
 import { Navbar } from "../common/Navbar";
 import { Link, useHistory } from "react-router-dom";
 
-//images imports
-import emptyBox from "../../Assets/emptyBox.svg";
-import arrow from "../../Assets/Arrow.png";
-
 export const ProductCart = () => {
   const cart = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
@@ -18,14 +14,10 @@ export const ProductCart = () => {
     <>
       <Navbar />
       <article className="productCart__main">
-        <h1 className="productCart__title">Tus productos</h1>
-
-        <button onClick={() => history.goBack()} className="base__backBtn">
-          <img className="base__arrow" src={arrow} alt="volver atras" />
-        </button>
 
         {cart.length >= 1 ? (
           <>
+            <h1 className="productCart__title">Tus productos</h1>
             <Link className="btn link" to="/comprar">
               Finalizar compra
             </Link>
@@ -52,9 +44,8 @@ export const ProductCart = () => {
             </button>
           </>
         ) : (
-          <section className="cart__emptyCart">
-            <h3>Aun no tienes accesorios en tu carrito ☹</h3>
-            <img src={emptyBox} alt="carrito vacío" />
+          <section className="productCart__empty">
+            <h3>Aun no tienes accesorios en tu carrito</h3>
             <button
               className="btn productCart__buyBTN"
               onClick={() => history.goBack()}

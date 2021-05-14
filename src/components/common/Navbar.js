@@ -14,13 +14,11 @@ import {
   openCart,
   openSidebar,
 } from "../../actions/ui";
-import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
   let history = useHistory();
-  const { width } = useWindowDimensions();
 
 
   const toggleSidebar = () => {
@@ -31,20 +29,16 @@ export const Navbar = () => {
     }
   };
 
-  const toggleCart = () => {
-    if (ui.isCartOpen) {
-      dispatch(closeCart());
-    } else {
-      dispatch(openCart());
-    }
-  };
+  // const toggleCart = () => {
+  //   if (ui.isCartOpen) {
+  //     dispatch(closeCart());
+  //   } else {
+  //     dispatch(openCart());
+  //   }
+  // };
 
   const enterCart = () => {
-    if (width <= 350) {
-      history.push('/productCart')
-    } else {
-      toggleCart();
-    }
+    history.push('/productCart')
   };
 
   return (

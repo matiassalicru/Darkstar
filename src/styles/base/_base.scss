@@ -4,32 +4,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background-color: $white;
-}
-
-.btn {
-  display: flex;
-  background: none;
-  cursor: pointer;
-  border: 1px solid $dark-grey;
-  text-transform: uppercase;
-  background-color: $primary;
-  font-weight: 500;
-  padding: 10px;
-  color: $dark-grey;
-  border-radius: 10px;
-  transition: all 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
-  box-shadow: 2px 2px 5px violet;
-
-  &:hover {
-    transform: scale(1.025);
-  }
+  font-family: "Montserrat alternates";
+  font-weight: 200;
 }
 
 .btn-disabled {
   @extend .btn;
-  background-color: lighten($color: $primary, $amount: 5);
+  background-color: lighten($color: $black, $amount: 5);
   box-shadow: 1px 1px 5px grey;
   cursor: not-allowed;
 
@@ -48,23 +30,12 @@ body {
 
 a {
   text-decoration: none;
-  font-style: italic;
-  color: $light-grey;
-  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  &:hover {
-    transform: translateZ(20deg);
-  }
 }
 
 .main {
   display: flex;
   height: 100%;
   width: 100%;
-}
-
-.pointer {
-  cursor: pointer;
 }
 
 .noDisplay {
@@ -110,58 +81,35 @@ a {
   display: none;
 }
 
-.bg1 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1000;
-  box-sizing: border-box;
-  margin: 0%;
-  padding: 0;
-
-  img {
-    position: absolute;
-    box-sizing: border-box;
-    bottom: -0px;
-    width: 100%;
-  }
-}
-
-.base__backBtn {
-  position: fixed;
-  top: 9em;
-  left: 15px;
-  background: $primary;
-  border: 1px solid $dark-grey;
-  border-radius: 50%;
-  height: 45px;
-  z-index: 100;
-  width: 45px;
-
-  .base__arrow {
-    width: 24px;
-  }
-}
-
 %main {
   position: relative;
   display: flex;
   flex-direction: column;
   margin: auto;
-  // align-items: flex-end;
   min-height: 100vh;
   width: 100%;
   z-index: 10;
-  // margin-top: 4em;
   box-sizing: border-box;
   background-color: $white;
 }
 
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
 .loading-animation {
-  margin-bottom: 200px;
-  padding: 30px;
-  border: 5px solid violet;
-  border-left: 5px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid $black;
+  border-left: 1px solid transparent;
   border-radius: 50%;
   animation-name: loading;
   animation-play-state: running;
@@ -179,49 +127,30 @@ a {
   }
 }
 
-.base__backContainer {
-  position: fixed;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  left: 1.2rem;
-  top: 10rem;
-  z-index: 5;
-  border-radius: 5px;
-  border: 1px solid #fafafa;
-  height: 50px;
-  width: 60px;
-  background: $primary;
-  box-shadow: 2px 2px 5px $black;
-  animation: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+// @media screen and (max-width: 480px) {
+//   .base__menu {
+//     display: none;
+//   }
 
-  &:hover {
-    transform: scale(1.025);
-  }
-}
+//   .base__backBtn {
+//     display: none;
+//   }
 
-@media screen and (max-width: 480px) {
-  .base__menu {
-    display: none;
-  }
+//   .base__backContainer {
+//     display: none;
+//   }
 
-  .base__backBtn {
-    display: none;
-  }
+//   .base__cart {
+//     display: none;
+//   }
 
-  .base__backContainer {
-    display: none;
-  }
+//   .bg1 {
+//     display: none;
+//   }
+// }
 
-  .base__cart {
-    display: none;
-  }
-
-  .bg1 {
-    display: none;
-  }
+.btn {
+  margin: 100px;
 }
 
 .swiper__image {
@@ -231,7 +160,6 @@ a {
 
 .swal-overlay {
   background-color: lighten($color: #d9c3e990, $amount: 0);
-  // opacity: .99;
 }
 .sweetAlert {
   background: $dark-grey;

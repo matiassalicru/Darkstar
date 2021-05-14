@@ -9,13 +9,12 @@
   width: 12em;
   box-sizing: border-box;
   min-width: 100px;
-  height: 100%;
   cursor: pointer;
   color: $black;
-  // border: 1px solid $black;
+  border: 1px solid $black;
   transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0px 0px 10px 2px $violet;
+  box-shadow: 2px 2px 5px 2px $violet;
 
   &:hover {
     box-shadow: 0px 2px 1px 0px $violet;
@@ -30,37 +29,40 @@
     width: 100%;
 
     .card__title {
-      font-family: "seaweed Script";
-      font-weight: lighter;
-      font-size: 1.5em;
-      margin: 0;
+      font-family: "Montserrat Alternates";
+      font-weight: 300;
+      font-size: 1rem;
+      margin-top: -10px;
+      margin-bottom: 10px;
     }
 
     .card__price {
       width: 100%;
-      margin: 5px 0;
+      margin: 3px 0;
       color: $white;
       text-align: center;
       font-family: "seaweed Script";
       padding: 5px 0;
-      font-size: 2em;
+      font-size: 1.5em;
       background-color: $black;
     }
 
     .card__btn {
       padding: 5px 20px;
-      border: 3px solid $black;
+      border: 2px solid $black;
       font-family: "Montserrat Alternates";
       font-weight: 400;
       background: none;
       margin: 10px 0;
       border-radius: 50px;
+      box-shadow: 2px 2px 2px 2px #00000030;
     }
   }
 
   .card__slide-img {
     width: 140px;
     margin: 20px 10px;
+    border-radius: 5px;
   }
 }
 

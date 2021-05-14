@@ -18,10 +18,8 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="sidebar__main  animate__animated animate__backInLeft animate__faster">
-      <div className={`sidebar__exit`} onClick={cSidebar}>
-        <i className="fas fa-times"></i>
-      </div>
+    <aside className="sidebar__main  animate__animated animate__slideInLeft animate__faster">
+
       <ul className="sidebar__list">
         <li
           className="sidebar__list-item"

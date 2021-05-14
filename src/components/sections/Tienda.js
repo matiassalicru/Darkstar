@@ -52,7 +52,6 @@ export const Tienda = () => {
       <div className="tienda__main">
         <Mantenimiento />
         <Template />
-        <Backbtn />
         {loading ? (
           <div className="tienda__loading">
             <Loading />

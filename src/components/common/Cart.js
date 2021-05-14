@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeCart } from "../../actions/ui";
 import { CartItem } from "./CartItem";
 
-import emptyBox from "../../Assets/emptyBox.svg";
+// import emptyBox from "../../Assets/emptyBox.svg";
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
@@ -17,9 +17,9 @@ export const Cart = () => {
 
   return (
     <aside className="cart__main animate__animated animate__fadeInRight animate__faster">
-      <div className={`cart__exit`} onClick={setCartClosed}>
+      {/* <div className={`cart__exit`} onClick={setCartClosed}>
         <i className="fas fa-times"></i>
-      </div>
+      </div> */}
 
       <div className="cart__items">
         {items.length >= 1 ? (
@@ -41,7 +41,7 @@ export const Cart = () => {
         ) : (
           <section className="cart__emptyCart">
             <h3>Aun no tienes accesorios en tu carrito ☹</h3>
-            <img src={emptyBox} alt="carrito vacío" />
+            {/* <img src={emptyBox} alt="carrito vacío" /> */}
           </section>
         )}
       </div>

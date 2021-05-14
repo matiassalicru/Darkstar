@@ -6,9 +6,9 @@ export const GridSections = () => {
 
   return (
     <div className="gridSections__main">
-        {rounds.map((destacado, index) => (
-          <GridCard key={index} title={destacado.type} bg={destacado.bg} />
-        ))}
+      {rounds.map((destacado, index) => (
+        <GridCard key={index} title={destacado.type} bg={destacado.bg} />
+      ))}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Header } from "./header/Header";
 import { GridSections } from "./gridSection/GridSections";
 import { Footer } from "./common/Footer";
 import { Template } from "./common/Template";
+import { Loading } from './common/Loading';
 import { Swiper, SwiperSlide } from "swiper/react";
 import ProductCard from "./productGrid/ProductCard";
 // import { Mantenimiento } from "./error/Mantenimiento";
@@ -35,13 +36,13 @@ export const Home = () => {
           </h1>
           <article className="grid__swiper">
             <Swiper spaceBetween={0} slidesPerView={1.5} slidesPerGroupSkip={1}>
-              {data.map((item, i) => (
+              {data.length !== 0 ? data.map((item, i) => (
                 <SwiperSlide key={i}>
-                  {/* <article className="grid__card-container"> */}
                   <ProductCard item={item} />
-                  {/* </article> */}
                 </SwiperSlide>
-              ))}
+              )) : (
+                  <Loading/>
+              )}
             </Swiper>
           </article>
           <h1 className='home__title'>
