@@ -10,10 +10,10 @@
   height: 50vh;
   box-sizing: border-box;
   border-radius: 0px 0px 5px 0px;
-  background-color: #fff;
+  background-color: $white;
   color: $black;
   width: 12em;
-  z-index: 1000;
+  z-index: 999999999;
   box-shadow: 4px 4px 3px 2px #00000050;
 
   .sidebar__list {
@@ -42,20 +42,20 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-  .sidebar__main {
-    padding: 20px;
-    height: 22em;
+// @media screen and (max-width: 320px) {
+//   .sidebar__main {
+//     padding: 20px;
+//     height: 22em;
 
-    .sidebar__exit {
-      margin-bottom: 2em;
-      font-size: 0.8em;
-    }
+//     .sidebar__exit {
+//       margin-bottom: 2em;
+//       font-size: 0.8em;
+//     }
 
-    .sidebar__list {
-      .sidebar__list-item {
-        font-size: 1.3em;
-      }
-    }
-  }
-}
+//     .sidebar__list {
+//       .sidebar__list-item {
+//         font-size: 1.3em;
+//       }
+//     }
+//   }
+// }

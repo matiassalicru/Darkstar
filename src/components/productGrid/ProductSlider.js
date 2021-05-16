@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const ProductSlider = ({ slideImgs }) => {
+export const ProductSlider = ({ slideImgs, action }) => {
   const [x, setX] = useState(0);
 
   const goLeft = () => {
@@ -18,6 +18,7 @@ export const ProductSlider = ({ slideImgs }) => {
           <div
             key={index}
             className="card__slide"
+            onClick={action}
             style={{ transform: `translateX(${x}%)` }}
           >
             <img src={img} alt="slide" className="card__slide-img" />

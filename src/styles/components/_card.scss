@@ -10,8 +10,7 @@
   box-sizing: border-box;
   min-width: 100px;
   cursor: pointer;
-  z-index: 99999;
-  background-color: black;
+  // z-index: 99999;
   border: 1px solid $dark-grey;
   transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -64,6 +63,11 @@
         transform: scale(1.05);
       }
     }
+  }
+
+  .card__slider {
+    // background-color: black;
+    cursor: pointer;
   }
 
   .card__slide-img {

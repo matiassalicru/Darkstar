@@ -24,16 +24,9 @@ export const Cart = () => {
       <div className="cart__items">
         {items.length >= 1 ? (
           <>
-            <Link
-              className="btn"
-              to="/comprar"
-              onClick={() => dispatch(closeCart())}
-            >
-              Realizar compra
-            </Link>
             <div className="">
             </div>
-            <p className="cart__total">Tú compra: ${total} ARS</p>
+            <p className="cart__total">Tú pedido: ${total} ARS</p>
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}

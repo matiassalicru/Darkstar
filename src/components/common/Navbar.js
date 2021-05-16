@@ -9,9 +9,7 @@ import cartMenu from "../../Assets/bag.svg";
 
 //Actions
 import {
-  closeCart,
   closeSidebar,
-  openCart,
   openSidebar,
 } from "../../actions/ui";
 
@@ -20,7 +18,6 @@ export const Navbar = () => {
   const { ui } = useSelector((state) => state);
   let history = useHistory();
 
-
   const toggleSidebar = () => {
     if (ui.isSidebarOpen) {
       dispatch(closeSidebar());
@@ -28,14 +25,6 @@ export const Navbar = () => {
       dispatch(openSidebar());
     }
   };
-
-  // const toggleCart = () => {
-  //   if (ui.isCartOpen) {
-  //     dispatch(closeCart());
-  //   } else {
-  //     dispatch(openCart());
-  //   }
-  // };
 
   const enterCart = () => {
     history.push('/productCart')
@@ -46,8 +35,7 @@ export const Navbar = () => {
       <img
         src={hambMenu}
         alt="menu"
-        className={`${ui.isSidebarOpen ? `nav__openNavSidebar` : `nav__navSidebar`
-          }`}
+        className={`nav__navSidebar`}
         onClick={toggleSidebar}
       />
 
@@ -58,7 +46,7 @@ export const Navbar = () => {
 
       <img
         src={cartMenu}
-        className={`${ui.isCartOpen ? `nav__openNavCart` : `nav__navCart`}`}
+        className={`nav__navCart`}
         alt="carrito de compras"
         onClick={enterCart}
       />

@@ -8,6 +8,7 @@ import ProductCard from "../productGrid/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Loading } from "../common/Loading";
 import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
+import { Template } from "../common/Template";
 
 
 export const ProductCart = () => {
@@ -32,7 +33,7 @@ export const ProductCart = () => {
     <>
       <Navbar />
       <article className="productCart__main">
-
+        <Template />
         {cart.length >= 1 ? (
           <>
             <h1 className="productCart__title">Tus productos</h1>

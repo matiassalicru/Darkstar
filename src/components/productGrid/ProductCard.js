@@ -20,13 +20,11 @@ const ProductCard = ({ item }) => {
   const sendTo = (e) => {
     dispatch(sendToView(item));
 
-    if (e.target.id === "link" || "" || null) {
-      return history.push(
-        `/tienda/${type.toLowerCase()}/${title
-          .replace(/\s/g, "")
-          .toLowerCase()}`
-      );
-    }
+    return history.push(
+      `/tienda/${type.toLowerCase()}/${title
+        .replace(/\s/g, "")
+        .toLowerCase()}`
+    );
   };
 
   const addToCart = (item, action) => {
@@ -49,9 +47,9 @@ const ProductCard = ({ item }) => {
   return (
     <>
       {title ? (
-        <div className="card__main" onClick={sendTo}>
+        <div className="card__main" >
           <div className="card__carousel" >
-            <ProductSlider slideImgs={images_thumb} />
+            <ProductSlider slideImgs={images_thumb} action={sendTo} />
           </div>
 
           {/* Acá este link que reemplaza la url con el tipo de producto y el producto en sí, quitando espacios y llevando todo a minúscula */}
