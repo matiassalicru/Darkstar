@@ -21,6 +21,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:hover {
     transform: translate3d(2px, 2px, 2px);
@@ -171,7 +172,7 @@ a {
     width: fit-content;
     text-align: center;
     justify-content: center;
-    background: $primary;
+    background: $white;
     color: $black;
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 

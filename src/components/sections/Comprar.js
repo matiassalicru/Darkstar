@@ -15,6 +15,7 @@ import { cleanData } from "../../actions/data";
 
 //Imported custom hooks
 import { useForm } from "../../hooks/useForm/useForm";
+import { Navbar } from "../common/Navbar";
 
 export const Comprar = () => {
   const history = useHistory();
@@ -94,17 +95,13 @@ export const Comprar = () => {
 
   return (
     <>
-      <nav className="comprar__nav">
-        <Link to="/" onClick={() => dispatch(cleanData())}>
-          <img className="nav__logo" src={logoDarkstar} alt="Darkstar" />
-        </Link>
-      </nav>
+      <Navbar />
       <section className="comprar__main">
-        <h1 className="comprar__title">Finalizar compra</h1>
+        <h1 className="comprar__title">Enviar pedido</h1>
 
-        <Link to="/" className="btn link">
+        {/* <Link to="/" className="btn link">
           Volver al inicio
-        </Link>
+        </Link> */}
         <div className="comprar__container">
           <section className="comprar__items">
             <h1 className="comprar__tusProductosTitle">Tus productos</h1>
@@ -114,11 +111,11 @@ export const Comprar = () => {
 
                 {cart.map((item) => (
                   <div className="comprar__item" key={item.id}>
-                    <img
+                    {/* <img
                       className="item__image"
                       src={item.images_thumb}
                       alt="producto"
-                    />
+                    /> */}
                     <div className="item__description">
                       <h2 className="item__title">{item.title}</h2>
                       <p>Cantidad: {item.quantity}</p>
@@ -271,7 +268,7 @@ export const Comprar = () => {
                 <option value="Efectivo">Efectivo (Rapipago/Pago fácil)</option>
               </select>
 
-              <p style={{ color: "violet" }}>
+              <p>
                 Es importante que sepas que para los envíos trabajamos con
                 MercadoEnvíos o E-pick ($360 ARS Válido para Córdoba, Rosario y
                 Buenos Aires) y son a cargo del comprador (El precio final no
@@ -289,7 +286,7 @@ export const Comprar = () => {
               ></textarea>
 
               <label>
-                Calcula el costo de tú envío{" "}
+                Calcula el costo de tú envío
                 <a
                   style={{ color: "violet" }}
                   href="https://articulo.mercadolibre.com.ar/MLA-912443521-aros-aesthetic-darkstarar-ig-_JM?searchVariation=79117308142#searchVariation=79117308142&position=43&type=item&tracking_id=3224dada-54dd-4e6f-a9db-51dc21852e2b"

@@ -36,31 +36,36 @@ export const ProductCart = () => {
         <Template />
         {cart.length >= 1 ? (
           <>
-            <h1 className="productCart__title">Tus productos</h1>
-            <Link className="btn link" to="/comprar">
-              Finalizar compra
-            </Link>
-            <h2>Total a pagar: ${total} ARS</h2>
-            <small>
-              El método de pago se acuerda con la tienda una vez realizado el
-              pedido.
-            </small>
+            <section className="productCart__container">
 
-            {cart.map((item) => (
-              <section key={item.id} className="productCart__card">
-                <CartItem item={item} />
-              </section>
-            ))}
+              <Link className="btn link" to="/comprar">
+                Finalizar compra
+              </Link>
+              <h2>Total a pagar: ${total} ARS</h2>
+              <small>
+                El método de pago se acuerda con la tienda una vez realizado el
+                pedido.
+              </small>
 
-            <p className="productCart__mediosDePago">
-              Acordate que podes abonar mediante transferencia bancaria,
-              Efectivo o MercadoPago
-              <span> (Ualá, Brubank, MercadoPago)</span>
-            </p>
+              <small>
+                Acordate que podes abonar mediante transferencia bancaria,
+                Efectivo o MercadoPago
+                <span> (Ualá, Brubank, MercadoPago)</span>
+              </small>
 
-            <button className="btn" onClick={() => history.goBack()}>
-              Seguir comprando
-            </button>
+              <h1 className="productCart__title">Tus productos</h1>
+
+              {cart.map((item) => (
+                <section key={item.id} className="productCart__card">
+                  <CartItem item={item} />
+                </section>
+              ))}
+
+
+              <button className="btn" onClick={() => history.goBack()}>
+                Seguir comprando
+              </button>
+            </section>
           </>
         ) : (
           <section className="productCart__empty">
@@ -86,7 +91,7 @@ export const ProductCart = () => {
                     )}
                   </Swiper>
                 </article>) : (
-                <div className='productCard__container'>
+                <div className='productCart__reco__container'>
                   {data.map((item, i) => (
                     <ProductCard key={i} item={item} />
                   ))}
@@ -95,9 +100,7 @@ export const ProductCart = () => {
             }
           </section>
         )}
-        <footer>
-          <Footer />
-        </footer>
+        <Footer />
       </article>
     </>
   );

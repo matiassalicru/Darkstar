@@ -11,7 +11,8 @@
   margin-top: 10px;
   color: white;
   width: 75vw;
-  box-shadow: -1px 1px 4px 1px $black;
+  box-shadow: -4px 4px 3px 2px #00000050;
+
   background-color: $white;
   overflow: auto;
   overflow-x: hidden;
@@ -79,7 +80,7 @@
 }
 
 @media screen and (min-width: 720px) {
-  .cart__main { 
+  .cart__main {
     width: 400px;
   }
 }

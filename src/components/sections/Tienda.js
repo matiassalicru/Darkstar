@@ -10,8 +10,6 @@ import { ProductGrid } from "../productGrid/ProductGrid";
 //Actions
 import { fetchData } from "../../actions/data";
 import { useParams } from "react-router-dom";
-import { Backbtn } from "../common/Backbtn";
-import { Mantenimiento } from "../error/Mantenimiento";
 
 export const Tienda = () => {
   const dispatch = useDispatch();

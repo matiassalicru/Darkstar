@@ -8,8 +8,7 @@ import { Loading } from "../common/Loading";
 import { Navbar } from "../common/Navbar";
 import { ProductSlider } from "../productGrid/ProductSlider";
 import { addCart } from "../../actions/cart";
-import { openCart } from "../../actions/ui";
-import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
+import { closeCart, closeSidebar, openCart } from "../../actions/ui";
 import { Template } from '../common/Template'
 
 //import images
@@ -17,7 +16,6 @@ import creditCard from "../../Assets/creditCard.png";
 import arrow from "../../Assets/Arrow.png";
 
 //Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import SwiperCore, {
   Navigation,
@@ -38,7 +36,6 @@ export const View = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [thereIsView, setThereIsView] = useState(false);
-  const { width } = useWindowDimensions();
 
   let data = useSelector((state) => state.data);
   let thereIsData = false;
@@ -55,6 +52,11 @@ export const View = () => {
       dispatch(sendToView(data));
       setThereIsView(true);
     }
+
+    return (() => {
+      dispatch(closeSidebar());
+      dispatch(closeCart());
+    })
   }, [dispatch, params, data, thereIsData]);
 
   for (let i = 0; i < data.length; i++) {
