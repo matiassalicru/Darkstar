@@ -67,7 +67,7 @@ const ProductCard = ({ item }) => {
             </strong>
             <button
               id="btn"
-              className="card__btn"
+              className="btn btn__success"
               onClick={() => addToCart(item, "add")}
               disabled={item.availability === "out of stock" ? true : false}
             >

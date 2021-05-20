@@ -238,7 +238,7 @@
         margin-top: 10px;
 
         a {
-          color: darken($color: $primary, $amount: 40)
+          color: darken($color: $primary, $amount: 40);
         }
       }
 
@@ -263,6 +263,42 @@
       font-size: 1rem;
       font-weight: 300;
       color: darken($color: $primary, $amount: 40);
+    }
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .comprar__main {
+    padding: 4.5rem 0;
+  }
+  .comprar__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    width: 100%;
+    padding-bottom: 4.5rem;
+    max-width: 600px;
+  }
+
+  .comprar__form {
+    select,
+    textarea {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px 0;
+      border: 1px solid $black;
+      outline: none;
+
+      &:last-child {
+        height: 50px;
+      }
     }
   }
 }

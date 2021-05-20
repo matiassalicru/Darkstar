@@ -25,13 +25,13 @@ export const CartItem = ({ item }) => {
           <div className="cartItem__buttons">
             <button
               onClick={() => updateAnItem(item, "remove")}
-              className="btn"
+              className="btn btn__danger"
             >
               Quitar
             </button>
             <button
               onClick={() => updateAnItem(item, "add")}
-              className="btn"
+              className="btn btn__success"
             >
               Añadir
             </button>

@@ -16,7 +16,7 @@
 
   &:hover {
     box-shadow: 0px 2px 1px 0px $violet;
-    transform: scale(1.025);
+    transform: scale(1.01);
   }
 
   .card__description {
@@ -45,22 +45,15 @@
       background-color: $black;
     }
 
-    .card__btn {
-      padding: 5px 20px;
-      border: 2px solid $black;
-      font-family: "Montserrat Alternates";
-      font-weight: 400;
-      background: none;
-      margin: 10px 0;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 2px 2px 2px 2px #00000030;
-      transition: all 0.2s ease-in-out;
+    .btn {
+      margin: 10px;
 
-      &:hover {
-        transform: scale(1.05);
+      &:disabled {
+        color: lightslategray;
       }
     }
+
+    
   }
 
   .card__slider {

@@ -24,3 +24,16 @@
     font-size: 2.2em;
   }
 }
+
+@media screen and (min-width: 320px) {
+  .home__main {
+    .home__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+      text-decoration: 1px underline;
+      // margin-left: 10rem;
+    }
+  }
+}

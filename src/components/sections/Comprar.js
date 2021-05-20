@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { BrowserRouter, Link, Redirect, Route, Switch, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 import emailjs from "emailjs-com";
 
@@ -16,6 +16,7 @@ import { cleanData } from "../../actions/data";
 //Imported custom hooks
 import { useForm } from "../../hooks/useForm/useForm";
 import { Navbar } from "../common/Navbar";
+import { Home } from "../Home";
 
 export const Comprar = () => {
   const history = useHistory();
@@ -93,65 +94,17 @@ export const Comprar = () => {
     dispatch(updateItem(item, action));
   };
 
+  if (cart.length === 0) {
+    return <Redirect to='/' />
+  }
+
   return (
     <>
       <Navbar />
       <section className="comprar__main">
         <h1 className="comprar__title">Enviar pedido</h1>
-
-        {/* <Link to="/" className="btn link">
-          Volver al inicio
-        </Link> */}
         <div className="comprar__container">
-          <section className="comprar__items">
-            <h1 className="comprar__tusProductosTitle">Tus productos</h1>
-            {cart.length >= 1 ? (
-              <>
-                <h1 className="comprar__subtotal">Subtotal: ${total}</h1>
-
-                {cart.map((item) => (
-                  <div className="comprar__item" key={item.id}>
-                    {/* <img
-                      className="item__image"
-                      src={item.images_thumb}
-                      alt="producto"
-                    /> */}
-                    <div className="item__description">
-                      <h2 className="item__title">{item.title}</h2>
-                      <p>Cantidad: {item.quantity}</p>
-                      <p>Precio: $ {item.price} </p>
-                      <div className="item__buttons">
-                        <button
-                          className="btn"
-                          onClick={() => update(item, "add")}
-                        >
-                          Añadir
-                        </button>
-                        <button
-                          className="btn"
-                          onClick={() => update(item, "remove")}
-                        >
-                          Quitar
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <section className="comprar__emptyCart">
-                <h1>Tu carrito está vacío</h1>
-                <img src={emptyBox} alt="carrito vacio" />
-                <button
-                  className="btn"
-                  onClick={() => history.push("/tienda/aros")}
-                >
-                  Empezá a añadir accesorios a tu carrito!
-                </button>
-              </section>
-            )}
-          </section>
-          {cart.length >= 1 && (
+          {cart.length >= 1 ? (
             <form action="POST" className="comprar__form" onSubmit={sendForm}>
               <label>Nombre y Apellido</label>
               <input
@@ -304,6 +257,10 @@ export const Comprar = () => {
                 value="Enviar pedido"
               />
             </form>
+          ) : (
+            <>
+              Loading...
+            </>
           )}
         </div>
         <Footer />
