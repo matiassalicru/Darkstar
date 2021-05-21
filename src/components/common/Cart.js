@@ -24,8 +24,6 @@ export const Cart = () => {
       <div className="cart__items">
         {items.length >= 1 ? (
           <>
-            <div className="">
-            </div>
             <p className="cart__total">Tú pedido: ${total} ARS</p>
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
@@ -33,8 +31,7 @@ export const Cart = () => {
           </>
         ) : (
           <section className="cart__emptyCart">
-            <h3>Aun no tienes accesorios en tu carrito ☹</h3>
-            {/* <img src={emptyBox} alt="carrito vacío" /> */}
+            <h3>Aun no tienes accesorios en tu carrito</h3>
           </section>
         )}
       </div>

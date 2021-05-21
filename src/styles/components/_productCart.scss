@@ -1,6 +1,6 @@
 .productCart__main {
   @extend %main;
-  padding-top: 4.5rem;
+  padding-top: 5rem;
   padding-bottom: 8rem;
 
   .productCart__container {
@@ -28,10 +28,17 @@
         width: 10%;
       }
     }
+
+    .btn__end{
+      font-size: 1.6rem;
+      font-weight: 400;
+      // color: $black;
+    }
   }
 
   .link {
-    margin: 1em 0;
+    margin: .6rem 0;
+    color: inherit;
   }
 
   h2 {
@@ -40,9 +47,10 @@
 
   small {
     padding: 0 20px;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    width: 60%;
     text-align: center;
-    margin: 0 0 10px 0;
+    margin: 10px 0;
 
     span {
       color: darken($color: $primary, $amount: 40);

@@ -38,10 +38,10 @@ export const ProductCart = () => {
           <>
             <section className="productCart__container">
 
-              <Link className="btn link" to="/comprar">
+              <h2>Total a pagar: ${total} ARS</h2>
+              <Link className="btn btn__success btn__end link" to="/comprar">
                 Finalizar compra
               </Link>
-              <h2>Total a pagar: ${total} ARS</h2>
               <small>
                 El método de pago se acuerda con la tienda una vez realizado el
                 pedido.

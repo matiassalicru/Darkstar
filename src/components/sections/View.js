@@ -160,7 +160,7 @@ export const View = () => {
                   </button>
                   <button
                     onClick={() => addItem(view)}
-                    className="btn btn__success"
+                    className={view.availability !== 'out of stock' ? 'btn btn__success' : 'btn btn__danger'}
                     disabled={
                       view.availability === "out of stock" ? true : false
                     }

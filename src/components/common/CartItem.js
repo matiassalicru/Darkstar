@@ -14,12 +14,12 @@ export const CartItem = ({ item }) => {
 
   return (
     <div className="cartItem__main">
-      <div className="cartItem__description">
+      {/* <div className="cartItem__description"> */}
         <h1 className="cartItem__title">{title}</h1>
         <section className="cartItem__subdescription">
           <img src={images_thumb} alt="thumbnail" />
           <div>
-            <p> Precio: {price} </p>
+            <p> Precio: ${price} </p>
             <p> Cantidad: {quantity} </p>
           </div>
           <div className="cartItem__buttons">
@@ -37,7 +37,7 @@ export const CartItem = ({ item }) => {
             </button>
           </div>
         </section>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

@@ -32,24 +32,28 @@ export const Navbar = () => {
 
   return (
     <nav className="nav__main">
-      <img
-        src={hambMenu}
-        alt="menu"
-        className={`nav__navSidebar`}
-        onClick={toggleSidebar}
-      />
+      <div className="menu">
+        <img
+          src={hambMenu}
+          alt="menu"
+          className={`nav__menu`}
+          onClick={toggleSidebar}
+        />
+      </div>
 
       <Link to="/" onClick={() => dispatch(cleanData())}>
         <h1 className='nav__title'>darkstar.ar</h1>
       </Link>
 
 
-      <img
-        src={cartMenu}
-        className={`nav__navCart`}
-        alt="carrito de compras"
-        onClick={enterCart}
-      />
+      <div className='carrito' onClick={enterCart}>
+        <p>Carrito</p>
+        <img
+          src={cartMenu}
+          className={`nav__bag`}
+          alt="carrito de compras"
+        />
+      </div>
     </nav>
   );
 };
