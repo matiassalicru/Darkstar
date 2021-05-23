@@ -15,15 +15,6 @@
   width: 100vw;
   z-index: 9999999;
 
-  a {
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-
   .carrito {
     display: flex;
     min-width: 100px;
@@ -31,7 +22,7 @@
 
     p {
       opacity: 0;
-      transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     &:hover {
@@ -52,18 +43,26 @@
     filter: invert(100%);
   }
 
-  .nav__title {
-    color: $black;
-    font-size: 1.8rem;
-    font-weight: 400;
-  }
+  .nav__titleContainer {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
-  .nav__logo {
-    width: 100%;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    .nav__title {
+      color: $black;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
 
-    &:hover {
-      filter: drop-shadow(2px 2px 1px $black);
+    .nav__logo {
+      width: 50px;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      &:hover {
+        filter: drop-shadow(1px 1px 1px $black);
+      }
     }
   }
 

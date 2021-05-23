@@ -6,6 +6,7 @@ import { cleanData } from "../../actions/data";
 // Images/Logos/Assets
 import hambMenu from "../../Assets/hambMenu.svg";
 import cartMenu from "../../Assets/bag.svg";
+import logo from '../../Assets/logos/LogoBlackStar.png'
 
 //Actions
 import {
@@ -41,8 +42,9 @@ export const Navbar = () => {
         />
       </div>
 
-      <Link to="/" onClick={() => dispatch(cleanData())}>
-        <h1 className='nav__title'>darkstar.ar</h1>
+      <Link to="/" className='nav__titleContainer' onClick={() => dispatch(cleanData())}>
+        <img className='nav__logo' src={logo} alt="Logo" />
+        <h1 className='nav__title'>Darkstar.ar</h1>
       </Link>
 
 
