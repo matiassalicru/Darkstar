@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "../pagination/Pagination";
 
 import SwiperCore, { Navigation, EffectFade, Zoom, Autoplay } from "swiper";
 
@@ -11,7 +10,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimens
 import ReactPaginate from "react-paginate";
 import ProductCard from './ProductCard';
 
-SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
+SwiperCore.use([Navigation, EffectFade, Zoom, Autoplay]);
 
 export const ProductGrid = ({ swiperData, data, needsTitle }) => {
   const { width } = useWindowDimensions();
@@ -21,7 +20,7 @@ export const ProductGrid = ({ swiperData, data, needsTitle }) => {
   // Get the section of products.
   const title = cards[0]?.type;
 
-  const cardsPerPage = 20;
+  const cardsPerPage = 10;
   const pagesVisited = pageNumber * cardsPerPage;
 
   const displayCards = cards
@@ -32,10 +31,9 @@ export const ProductGrid = ({ swiperData, data, needsTitle }) => {
 
   const pageCount = Math.ceil(cards.length / cardsPerPage);
 
-  const changePage = ({ selected }) => {
+  const changePage = (selected) => {
     setpageNumber(selected);
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -61,7 +59,7 @@ export const ProductGrid = ({ swiperData, data, needsTitle }) => {
               previousLabel={"Atras"}
               nextLabel={"Siguiente"}
               pageCount={pageCount}
-              onPageChange={changePage}
+              onPageChange={(e) => changePage(e.selected)}
               nextClassName={"paginate__next"}
               activeClassName={"paginate__active"}
               previousClassName={"paginate__prev"}

@@ -13,6 +13,7 @@ import { cleanCart } from "../../actions/cart";
 //Imported custom hooks
 import { useForm } from "../../hooks/useForm/useForm";
 import { Navbar } from "../common/Navbar";
+import { Template } from "../common/Template";
 
 export const Comprar = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,8 @@ export const Comprar = () => {
   const [formValues, handleInputChange, reset] = useForm(initialForm);
 
   useEffect(() => {
-    setPedido(newJoin); //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
+    //Setea el state "pedido" con el valor del string ya separado por <br/> para crear nuevas lineas luego de cada item.
+    setPedido(newJoin);
   }, [newJoin, loading]);
 
   const {
@@ -94,6 +96,8 @@ export const Comprar = () => {
     <>
       <Navbar />
       <section className="comprar__main">
+        <Template />
+
         <div className="comprar__container">
           <h1 className="comprar__title">Enviar pedido</h1>
           {cart.length >= 1 ? (
