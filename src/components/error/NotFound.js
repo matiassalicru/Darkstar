@@ -21,9 +21,9 @@ export const NotFound = () => {
 
           <div className="roundGrid__main">
             <Link to="/">
-              <div className={`roundGrid__card `}>
+              <div className={`roundGrid__card`}>
                 <div className={`roundGrid__img`}></div>
-                <p>Inicio</p>
+                <button className='btn btn__success'>Inicio</button>
               </div>
             </Link>
           </div>
