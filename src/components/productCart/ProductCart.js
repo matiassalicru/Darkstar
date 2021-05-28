@@ -39,6 +39,7 @@ export const ProductCart = () => {
             <section className="productCart__container">
 
               <h2>Total a pagar: ${total} ARS</h2>
+              <p>No incluye envío</p>
               <Link className="btn btn__success btn__end link" to="/comprar">
                 Finalizar compra
               </Link>

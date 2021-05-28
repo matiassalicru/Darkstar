@@ -4,28 +4,32 @@
   position: fixed;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
   background-color: $white;
   height: 4.5em;
   justify-content: space-between;
-  min-width: 100vw;
-  width: 100vw;
-  z-index: 9999999;
+  min-width: 100%;
+  width: 100%;
+  z-index: 100;
 
   .carrito {
     display: flex;
-    min-width: 100px;
+    // min-width: 100px;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
 
     p {
+      display: none;
       opacity: 0;
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     &:hover {
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
       p {
         opacity: 1;
       }
@@ -34,7 +38,7 @@
 
   .menu {
     display: flex;
-    min-width: 100px;
+    // min-width: 80px;
     cursor: pointer;
   }
 
@@ -49,6 +53,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: fit-content;
 
     .nav__title {
       color: $black;
@@ -57,12 +62,7 @@
     }
 
     .nav__logo {
-      width: 50px;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-      &:hover {
-        filter: drop-shadow(1px 1px 1px $black);
-      }
+      width: 40px;
     }
   }
 
@@ -103,15 +103,38 @@
   }
 }
 
-// @media screen and (max-width: 480px) {
-// }
-// }
+@media screen and (min-width: 720px) {
+  .nav__main {
+    .nav__titleContainer {
+      display: flex;
+      margin-left: 50px;
 
-// @media screen and (max-width: 320px) {
-//   .nav__main {
-//     box-sizing: border-box;
-//     a {
-//       width: 50%;
-//     }
-//   }
-// }
+      .nav__logo {
+        display: flex;
+        width: 50px;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover {
+          filter: drop-shadow(1px 1px 1px $black);
+        }
+      }
+    }
+
+    .carrito {
+      display: flex;
+      cursor: pointer;
+
+      &:hover {
+        p {
+          opacity: 1;
+        }
+      }
+
+      p {
+        display: block;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+    }
+  }
+}

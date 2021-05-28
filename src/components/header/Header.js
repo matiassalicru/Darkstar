@@ -1,7 +1,7 @@
 import React from "react";
 
-import header1 from "../../Assets/carousel/HeaderCollares.png";
-import header2 from "../../Assets/carousel/HeaderAros.png";
+import header1 from "../../Assets/carousel/Collares.png";
+import header2 from "../../Assets/carousel/Aros.png";
 import { HomeSwiper } from "../common/HomeSwiper";
 
 export const Header = () => {

@@ -4,17 +4,17 @@
   bottom: 0;
   justify-content: center;
   align-items: center;
-  height: 4.5em;
   width: 100%;
   background-color: lighten($color: $black, $amount: 10);
   flex-direction: column;
-  padding-bottom: 10px;
+  color: $white;
 
-  small {
-    color: white;
-    a {
-      color: $primary;
-    }
+  a {
+    color: $primary;
+  }
+
+  .footer__rights {
+    font-size: 0.7rem;
   }
 
   .footer__list {

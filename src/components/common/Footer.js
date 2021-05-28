@@ -19,8 +19,10 @@ export const Footer = () => {
         </li>
       </ul>
       <small>
-        Sitio web creado por
+        <p className='footer__rights'>
+          Sitio web creado por
         <a href="http://matiassalicru.com"> @matiassalicru</a>
+        </p>
       </small>
     </div>
   );
