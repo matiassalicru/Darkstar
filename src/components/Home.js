@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navbar } from "./common/Navbar";
 import { Header } from "./header/Header";
@@ -25,7 +25,7 @@ export const Home = () => {
   }, [])
 
   return (
-    <>
+    <Fragment>
       <Navbar />
       <div className="home__main">
         <Template />
@@ -63,6 +63,6 @@ export const Home = () => {
         </div>
         <Footer />
       </div>
-    </>
+    </Fragment>
   );
 };

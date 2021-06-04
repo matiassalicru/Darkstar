@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Navigation,
@@ -25,7 +25,7 @@ SwiperCore.use([
 export const HomeSwiper = ({ data }) => {
 
   return (
-    <>
+    <Fragment>
       <Swiper
         effectcoverflow="true"
         spaceBetween={10}
@@ -47,6 +47,6 @@ export const HomeSwiper = ({ data }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </Fragment>
   );
 };

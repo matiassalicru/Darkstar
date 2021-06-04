@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../common/Navbar";
 import { Template } from "../common/Template";
@@ -6,7 +6,7 @@ import { GridSections } from "../gridSection/GridSections";
 
 export const NotFound = () => {
   return (
-    <>
+    <Fragment>
       <Navbar />
       <div className="notFound__main">
         <Template />
@@ -31,6 +31,6 @@ export const NotFound = () => {
           <GridSections />
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };

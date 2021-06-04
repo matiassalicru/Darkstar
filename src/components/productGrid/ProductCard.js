@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment}  from "react";
 // import { useSelector } from "react-redux";
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
@@ -45,7 +45,7 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <>
+    <Fragment>
       {title ? (
         <div className="card__main" >
           <div className="card__carousel" >
@@ -76,7 +76,7 @@ const ProductCard = ({ item }) => {
           </div>
         </div>
       ) : <Loading />}
-    </>
+    </Fragment>
   );
 };
 

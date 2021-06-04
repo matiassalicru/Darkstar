@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import swal from "sweetalert";
@@ -93,7 +93,7 @@ export const Comprar = () => {
   }
 
   return (
-    <>
+    <Fragment>
       <Navbar />
       <section className="comprar__main">
         <Template />
@@ -219,8 +219,8 @@ export const Comprar = () => {
 
               <p className='comprar__disclaimer'>
                 Importante: Para los envíos trabajamos con
-                MercadoEnvíos o E-pick ($400 ARS Válido para Córdoba, Rosario y
-                Buenos Aires) y son a cargo del comprador (El precio final no
+                E-pick ($400 ARS Válido para Córdoba, Rosario y
+                Buenos Aires) ó MercadoEnvíos y estos costos son a cargo del comprador (El precio final no
                 incluye el envío)
               </p>
 
@@ -254,13 +254,13 @@ export const Comprar = () => {
               />
             </form>
           ) : (
-            <>
+            <Fragment>
               Loading...
-            </>
+            </Fragment>
           )}
         </div>
         <Footer />
       </section>
-    </>
+    </Fragment>
   );
 };
