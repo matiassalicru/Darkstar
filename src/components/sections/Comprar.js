@@ -81,7 +81,7 @@ export const Comprar = () => {
 				e.target,
 				'user_K4IrELRUXZH27hX6lozBt'
 			)
-			.then((res) => {
+			.then(() => {
 				setLoading(false);
 				dispatch(cleanCart());
 				reset();
