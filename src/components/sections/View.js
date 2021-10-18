@@ -7,7 +7,7 @@ import { Footer } from '../common/Footer';
 import { Loading } from '../common/Loading';
 import { Navbar } from '../common/Navbar';
 import { ProductSlider } from '../productGrid/ProductSlider';
-import { addCart } from '../../actions/cart';
+import { addCart, updateItem } from '../../actions/cart';
 import { closeCart, closeSidebar, openCart } from '../../actions/ui';
 import { Template } from '../common/Template';
 
@@ -45,7 +45,7 @@ export const View = () => {
 	useEffect(() => {
 		//Efecto para traer la data a traves de los params enviando el tipo de producto.
 		if (!thereIsData) {
-			dispatch(fetchData(params.tipo));
+			dispatch(fetchData(params?.tipo));
 		}
 
 		if (thereIsData) {
@@ -73,42 +73,13 @@ export const View = () => {
 
 	const cart = useSelector((state) => state.cart.items);
 
-	let existingItem = cart.find((cartItem) => {
+	const existingItem = cart.find((cartItem) => {
 		return cartItem.id === view.id;
 	});
 
 	const addItem = (item, type) => {
-		swal({
-			title: 'Sitio web en mantenimiento',
-			text: 'Para cualquier pedido puedes contactarnos por nuestros instagram @darkstar.ar',
-		});
-
 		if (existingItem) {
-			swal({
-				title: 'Este accesorio ya se encuentra en tu carrito',
-				text: 'Si queres una unidad más agregala desde el carrito',
-				icon: 'warning',
-				buttons: {
-					openCart: 'Ver Carrito',
-					accept: 'Cancelar',
-				},
-				className: 'sweetAlert',
-			}).then((value) => {
-				switch (value) {
-					case 'openCart':
-						if (type !== 'mobile') {
-							dispatch(openCart());
-						} else {
-							history.replace('/productCart');
-						}
-
-						break;
-					case 'accept':
-						break;
-					default:
-						break;
-				}
-			});
+			dispatch(updateItem(item, 'add'))
 		} else {
 			dispatch(addCart(item));
 		}
@@ -161,7 +132,6 @@ export const View = () => {
 									<button
 										className="btn"
 										onClick={() => {
-											console.log(view.type);
 											history.replace(
 												`/tienda/${view.type.toLowerCase()}`
 											);

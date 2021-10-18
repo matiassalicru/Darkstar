@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CartItem } from '../common/CartItem';
 import { Footer } from '../common/Footer';
@@ -15,9 +15,7 @@ export const ProductCart = () => {
 	const total = useSelector((state) => state.cart.total);
 	const history = useHistory();
 	const [data, setData] = useState([]);
-	const { height, width } = useWindowDimensions();
-
-	console.log(height);
+	const { width } = useWindowDimensions();
 
 	useEffect(() => {
 		fetch('https://backend-darkstar.herokuapp.com/popu')
@@ -29,12 +27,12 @@ export const ProductCart = () => {
 	}, []);
 
 	return (
-		<Fragment>
+		<>
 			<Navbar />
 			<article className="productCart__main">
 				<Template />
 				{cart.length >= 1 ? (
-					<Fragment>
+					<>
 						<section className="productCart__container">
 							<h2>Total a pagar: ${total} ARS</h2>
 							<p>No incluye envío</p>
@@ -75,7 +73,7 @@ export const ProductCart = () => {
 								Seguir comprando
 							</button>
 						</section>
-					</Fragment>
+					</>
 				) : (
 					<section className="productCart__empty">
 						<h3>Aun no tienes accesorios en tu carrito</h3>
@@ -119,6 +117,6 @@ export const ProductCart = () => {
 				)}
 				<Footer />
 			</article>
-		</Fragment>
+		</>
 	);
 };

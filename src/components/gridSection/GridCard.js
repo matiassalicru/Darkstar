@@ -9,7 +9,6 @@ export const GridCard = ({ title, bg }) => {
   const { width } = useWindowDimensions();
 
   const bringData = () => {
-    console.log(title);
     dispatch(fetchData(title.toLowerCase()));
   };
 

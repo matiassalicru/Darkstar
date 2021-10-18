@@ -18,11 +18,10 @@ export const ProductGrid = ({ swiperData, data, needsTitle }) => {
 	const [pageNumber, setpageNumber] = useState(0);
 
 	// Get the title of section of products.
-	console.log(cards[0]);
 	const title = cards[0]?.type;
 
 	// Calculate cards per page
-	const cardsPerPage = 10;
+	const cardsPerPage = 20;
 	const pagesVisited = pageNumber * cardsPerPage;
 
 	const displayCards = cards

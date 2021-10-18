@@ -1,5 +1,4 @@
-import React, {Fragment}  from "react";
-// import { useSelector } from "react-redux";
+import React  from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { sendToView } from "../../actions/view";
@@ -7,7 +6,6 @@ import { ProductSlider } from "./ProductSlider";
 
 //Images imports
 import { addCart, updateItem } from "../../actions/cart";
-import swal from "sweetalert";
 import { Loading } from "../common/Loading";
 
 const ProductCard = ({ item }) => {
@@ -28,13 +26,6 @@ const ProductCard = ({ item }) => {
   };
 
   const addToCart = (item, action) => {
-    // REFACTOR. MANTENIMIENTO.
-
-    swal({
-      title: 'Sitio web en mantenimiento',
-      text: 'Para cualquier pedido puedes contactarnos por nuestros instagram @darkstar.ar'
-    })
-
     const itemsExists = items.find((cartItem) => cartItem.id === item.id);
 
     if (itemsExists) {
@@ -45,7 +36,7 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <Fragment>
+    <>
       {title ? (
         <div className="card__main" >
           <div className="card__carousel" >
@@ -76,7 +67,7 @@ const ProductCard = ({ item }) => {
           </div>
         </div>
       ) : <Loading />}
-    </Fragment>
+    </>
   );
 };
 
