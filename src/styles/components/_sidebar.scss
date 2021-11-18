@@ -13,7 +13,7 @@
   background-color: $white;
   color: $black;
   width: 12em;
-  z-index: 999999999;
+  z-index: 20;
   box-shadow: 4px 4px 3px 2px #00000050;
 
   .sidebar__list {
@@ -32,7 +32,7 @@
       font-style: normal;
 
       &:hover {
-        color: $violet;
+        color: $primary;
       }
     }
 
