@@ -85,8 +85,7 @@ export const ProductCart = () => {
 						</button>
 						<hr />
 						<h3 className="productCart__title">
-							{' '}
-							Productos recomendados{' '}
+							Productos recomendados
 						</h3>
 						{width < 700 ? (
 							<article className="productCart__swiper">

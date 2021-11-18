@@ -41,7 +41,7 @@ export const HomeSwiper = ({ data }) => {
       >
         {data.map((image, index) => (
           <SwiperSlide key={index}>
-            <img className="swiper__image" src={image} alt="carousel" />
+            <img loading="lazy" className="swiper__image" src={image} alt="carousel" />
           </SwiperSlide>
         ))}
       </Swiper>
