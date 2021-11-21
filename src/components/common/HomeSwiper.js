@@ -30,7 +30,6 @@ export const HomeSwiper = ({ data }) => {
         effectcoverflow="true"
         spaceBetween={10}
         slidesPerView={1}
-        // pagination={{ clickable: true }}
         loop={true}
         zoom={true}
         autoplay={{

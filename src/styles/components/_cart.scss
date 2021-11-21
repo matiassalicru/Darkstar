@@ -85,41 +85,6 @@
   }
 }
 
-// @media screen and (max-width: 480px) {
-//   .cart__main {
-//     top: 3em;
-//     display: flex;
-//     flex-direction: column;
-//     font-size: 2em;
-//     padding: 20px;
-//     z-index: 10;
-//     border: 1px solid $black;
-//     box-shadow: -2px 2px 5px 1px $dark-grey;
-//     margin-top: 0px;
-//     color: white;
-//     width: 10em;
-//     height: 100%;
-//     background-color: $white;
-//     white-space: nowrap;
-//     overflow: scroll;
-
-//     a {
-//       text-align: center;
-//       font-size: 0.5em;
-//       width: fit-content;
-//     }
-
-//     .cart__items {
-//       position: relative;
-//       padding-bottom: 20px;
-//       .cart__cleanBtn {
-//         width: 100%;
-//         align-self: flex-start;
-//       }
-//     }
-//   }
-// }
-
 @media screen and (max-width: 320px) {
   .cart__emptyCart {
     display: flex;
