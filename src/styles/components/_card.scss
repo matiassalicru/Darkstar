@@ -58,7 +58,6 @@
   }
 
   .card__slider {
-    // background-color: black;
     cursor: pointer;
   }
 
@@ -86,96 +85,6 @@
     color: red;
   }
 }
-
-// img {
-//   justify-self: center;
-//   border-radius: 20px;
-//   margin: 20px 10px;
-// }
-
-// .card__main {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: center;
-//   color: $dark-grey;
-//   border-radius: 10px;
-//   margin: 20px;
-//   width: 15em;
-//   box-sizing: border-box;
-//   min-width: 100px;
-//   height: 100%;
-//   cursor: pointer;
-//   transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-//   color: $white;
-//   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-//   &:hover {
-//     box-shadow: 6px 6px 10px $primary;
-//     transform: scale(1.025);
-//   }
-
-//   .card__description {
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     background: $white;
-//     margin: 0;
-//     padding: 0;
-//     color: $black;
-//     border-radius: 0 0 10px 10px;
-
-//     .card__buttons {
-//       display: flex;
-//       justify-content: space-around;
-//       width: 60%;
-//       align-items: center;
-
-//       button {
-//         border: 1px solid $black;
-//         color: $black;
-//       }
-
-//       button:disabled {
-//         background: $light-grey;
-//       }
-//     }
-
-// a {
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   background: $white;
-//   margin: 0;
-//   padding: 0;
-//   color: $black;
-//   border-radius: 0 0 10px 10px;
-
-//   .card__btn {
-//     height: 35px;
-//     width: 35px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border-radius: 999px;
-
-//     &:last-of-type {
-//       border-radius: 50%;
-//       margin-left: 10px;
-//     }
-//   }
-// }
-//     img {
-//       width: 24px;
-//       margin: 0;
-//       justify-self: center;
-//     }
-//   }
-// }
 
 .card__carousel {
   display: flex;
@@ -279,24 +188,6 @@
     }
   }
 
-  // @media screen and (max-width: 480px) {
-  //   .card__main {
-  //     &:hover {
-  //       box-shadow: 2px 2px 10px $primary;
-  //       transform: scale(1.025);
-  //     }
-  //   }
-
-  //   .card__description {
-  //     .card__inStock {
-  //       font-size: 0.7em !important;
-  //     }
-
-  //     .card__outOfStock {
-  //       font-size: 0.7em !important;
-  //     }
-  //   }
-
   .card__buttons {
     display: flex;
     justify-content: space-around;
@@ -317,7 +208,6 @@
       justify-content: center;
       align-items: center;
       height: 30px;
-      // border-radius: 50%;
     }
 
     img {
