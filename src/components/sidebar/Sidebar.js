@@ -38,15 +38,6 @@ export const Sidebar = () => {
             Aros
           </Link>
         </li>
-        <li className="sidebar__list-item" onClick={() => getData("chokers")}>
-          <Link
-            to="/tienda/chokers"
-            className="sidebar__linkTo"
-            onClick={cSidebar}
-          >
-            Chokers
-          </Link>
-        </li>
         <li className="sidebar__list-item" onClick={() => getData("collares")}>
           <Link
             to="/tienda/collares"
