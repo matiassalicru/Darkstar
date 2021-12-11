@@ -8,14 +8,16 @@ import { ProductSlider } from "./ProductSlider";
 import { addCart, updateItem } from "../../actions/cart";
 import { Loading } from "../common/Loading";
 
-const ProductCard = React.memo(({ item }) => {
+const OUT_OF_STOCK = 'out of stock' 
+
+const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const { images_thumb, title, price, type } = item;
   const items = useSelector((state) => state.cart.items);
 
-  const sendTo = () => {
+  const sendTo = (e) => {
     dispatch(sendToView(item));
 
     return history.push(
@@ -24,6 +26,7 @@ const ProductCard = React.memo(({ item }) => {
         .toLowerCase()}`
     );
   };
+
 
   const addToCart = (item, action) => {
     const itemsExists = items.find((cartItem) => cartItem.id === item.id);
@@ -49,7 +52,7 @@ const ProductCard = React.memo(({ item }) => {
             <p className="card__price">$ {price}</p>
             <strong
               className={
-                item.availability !== "out of stock"
+                item.availability !== OUT_OF_STOCK
                   ? `card__inStock`
                   : `card__outOfStock`
               }
@@ -60,7 +63,7 @@ const ProductCard = React.memo(({ item }) => {
               id="btn"
               className="btn btn__success"
               onClick={() => addToCart(item, "add")}
-              disabled={item.availability === "out of stock" ? true : false}
+              disabled={item.availability === OUT_OF_STOCK}
             >
               Comprar
               </button>
@@ -69,6 +72,6 @@ const ProductCard = React.memo(({ item }) => {
       ) : <Loading />}
     </>
   );
-})
+};
 
 export default ProductCard;
