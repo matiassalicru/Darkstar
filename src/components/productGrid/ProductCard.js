@@ -8,6 +8,8 @@ import { ProductSlider } from "./ProductSlider";
 import { addCart, updateItem } from "../../actions/cart";
 import { Loading } from "../common/Loading";
 
+const OUT_OF_STOCK = 'out of stock' 
+
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -49,7 +51,7 @@ const ProductCard = ({ item }) => {
             <p className="card__price">$ {price}</p>
             <strong
               className={
-                item.availability !== "out of stock"
+                item.availability !== OUT_OF_STOCK
                   ? `card__inStock`
                   : `card__outOfStock`
               }
@@ -60,7 +62,7 @@ const ProductCard = ({ item }) => {
               id="btn"
               className="btn btn__success"
               onClick={() => addToCart(item, "add")}
-              disabled={item.availability === "out of stock" ? true : false}
+              disabled={item.availability === OUT_OF_STOCK}
             >
               Comprar
               </button>
