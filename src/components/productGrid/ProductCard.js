@@ -8,14 +8,14 @@ import { ProductSlider } from "./ProductSlider";
 import { addCart, updateItem } from "../../actions/cart";
 import { Loading } from "../common/Loading";
 
-const ProductCard = ({ item }) => {
+const ProductCard = React.memo(({ item }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const { images_thumb, title, price, type } = item;
   const items = useSelector((state) => state.cart.items);
 
-  const sendTo = (e) => {
+  const sendTo = () => {
     dispatch(sendToView(item));
 
     return history.push(
@@ -69,6 +69,6 @@ const ProductCard = ({ item }) => {
       ) : <Loading />}
     </>
   );
-};
+})
 
 export default ProductCard;
