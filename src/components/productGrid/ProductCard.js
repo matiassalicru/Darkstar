@@ -27,6 +27,7 @@ const ProductCard = ({ item }) => {
     );
   };
 
+
   const addToCart = (item, action) => {
     const itemsExists = items.find((cartItem) => cartItem.id === item.id);
 
