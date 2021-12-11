@@ -4,11 +4,7 @@ export const homeBTN = [
     bg: "aro",
   },
   {
-    type: "Collares",
-    bg: "collar",
-  },
-  {
-    type: "Chokers",
+    type: "Cadenas",
     bg: "choker",
   },
   {
