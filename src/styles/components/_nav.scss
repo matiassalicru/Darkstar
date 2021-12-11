@@ -2,123 +2,135 @@
 
 .nav__main {
   position: fixed;
-  width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   padding: 0 20px;
   box-sizing: border-box;
-  height: 5em;
-  background-color: $primary;
-  z-index: 999;
-  box-shadow: 0 2px 5px $white;
+  background-color: $white;
+  height: 4.5em;
+  justify-content: space-between;
+  min-width: 100%;
+  width: 100%;
+  z-index: 100;
 
-  .nav__title {
-    font-family: "Montserrat alternates";
-    font-weight: 200;
-    color: $black;
-    text-align: center;
-    font-size: 2em;
-    font-style: normal;
+  .carrito {
+    display: flex;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+
+    p {
+      display: none;
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    &:hover {
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      p {
+        opacity: 1;
+      }
+    }
   }
 
-  a {
+  .menu {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .nav__menu {
+    width: 1.7em;
+    filter: invert(100%);
+  }
+
+  .nav__titleContainer {
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: fit-content;
+
+    .nav__title {
+      color: $black;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+
+    .nav__logo {
+      width: 40px;
+    }
   }
 
-  .nav__logo {
-    width: 100%;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    &:hover {
-      filter: drop-shadow(2px 2px 1px $black);
-    }
+  %navButtons {
+    display: block;
+    position: fixed;
+    align-self: center;
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   .nav__navSidebar {
-    display: none;
-  }
-
-  .nav__navCart {
-    display: none;
-  }
-
-  .nav__openNavCart {
-    display: none;
+    @extend %navButtons;
+    width: 1.7em;
+    left: 1.5em;
+    filter: invert(100%);
   }
 
   .nav__openNavSidebar {
-    display: none;
+    @extend %navButtons;
+    width: 1.7em;
+    left: 1.5em;
+    filter: invert(100%);
+  }
+
+  .nav__navCart {
+    @extend %navButtons;
+    right: 1.5em;
+    width: 2.1em;
+  }
+
+  .nav__openNavCart {
+    @extend %navButtons;
+    right: 1.5em;
+    width: 2.5em;
+    filter: invert(0%);
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 720px) {
   .nav__main {
-    height: 6em;
-    justify-content: center;
-    min-width: 100vw;
-    width: 100vw;
-    z-index: 100;
-    box-shadow: 0 2px 5px $black;
-
-    a {
-      width: 200px;
-      height: 100%;
+    .nav__titleContainer {
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
+      margin-left: 50px;
 
-    %navButtons {
-      display: block;
-      position: fixed;
-      align-self: center;
-      z-index: 100;
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-      filter: invert(100%);
-    }
-
-    .nav__navSidebar {
-      @extend %navButtons;
-      width: 2.2em;
-      left: 1.5em;
-    }
-
-    .nav__openNavSidebar {
-      @extend %navButtons;
-      width: 2.2em;
-      left: 1.5em;
-
-      filter: invert(0);
-    }
-
-    .nav__navCart {
-      @extend %navButtons;
-      right: 1.5em;
-      width: 2.5em;
-    }
-
-    .nav__openNavCart {
-      @extend %navButtons;
-      right: 1.5em;
-      width: 2.5em;
-      filter: invert(0%);
-    }
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .nav__main {
-    box-sizing: border-box;
-    a {
-      width: 50%;
       .nav__logo {
-        justify-self: center;
+        display: flex;
+        width: 50px;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover {
+          filter: drop-shadow(1px 1px 1px $black);
+        }
+      }
+    }
+
+    .carrito {
+      display: flex;
+      cursor: pointer;
+
+      &:hover {
+        p {
+          opacity: 1;
+        }
+      }
+
+      p {
+        display: block;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       }
     }
   }

@@ -18,10 +18,8 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="sidebar__main  animate__animated animate__backInLeft animate__faster">
-      <div className={`sidebar__exit`} onClick={cSidebar}>
-        <i className="fas fa-times"></i>
-      </div>
+    <aside className="sidebar__main  animate__animated animate__slideInLeft animate__faster">
+
       <ul className="sidebar__list">
         <li
           className="sidebar__list-item"
@@ -38,15 +36,6 @@ export const Sidebar = () => {
             onClick={cSidebar}
           >
             Aros
-          </Link>
-        </li>
-        <li className="sidebar__list-item" onClick={() => getData("chokers")}>
-          <Link
-            to="/tienda/chokers"
-            className="sidebar__linkTo"
-            onClick={cSidebar}
-          >
-            Chokers
           </Link>
         </li>
         <li className="sidebar__list-item" onClick={() => getData("collares")}>

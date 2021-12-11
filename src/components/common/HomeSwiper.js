@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Navigation,
@@ -23,30 +23,27 @@ SwiperCore.use([
 ]);
 
 export const HomeSwiper = ({ data }) => {
-  
+
   return (
-    <>
+    <Fragment>
       <Swiper
         effectcoverflow="true"
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView={1}
-        // pagination={{ clickable: true }}
         loop={true}
         zoom={true}
         autoplay={{
-          delay: 2000,
+          delay: 3000,
           disableOnInteraction: false,
           waitForTransition: true,
         }}
-        // onSlideChange={() => console.log("slide changed")}
-        // onSwiper={(swiper) => console.log(swiper)}
       >
         {data.map((image, index) => (
           <SwiperSlide key={index}>
-            <img className="swiper__image" src={image} alt="carousel" />
+            <img loading="lazy" className="swiper__image" src={image} alt="carousel" />
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </Fragment>
   );
 };

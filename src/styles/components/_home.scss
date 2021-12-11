@@ -4,72 +4,35 @@
   .home__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
     height: 90%;
     margin-top: 4em;
-    margin-bottom: 5em;
+    margin-bottom: 6em;
+  }
+
+  .home__cardContainer {
     display: flex;
-    z-index: -10;
+    justify-content: center;
   }
 
   .home__title {
-    font-style: 2em;
-    padding: 10px 20px;
-    margin: 2em auto;
-    border-radius: 40px;
-
-    .dark {
-      @extend %dark;
-    }
-
-    .light {
-      @extend %light;
-    }
-  }
-
-  .home__bg1 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    box-sizing: border-box;
-    margin: 0%;
-    padding: 0;
-
-    img {
-      position: absolute;
-      box-sizing: border-box;
-      bottom: 0px;
-      width: 100%;
-    }
+    display: flex;
+    font-family: "Montserrat Alternates";
+    font-weight: 200;
+    margin: 0;
+    margin-top: 15px;
+    margin-left: 0.5em;
+    font-size: 2.2em;
   }
 }
 
-.dark {
-  @extend %dark;
-}
-
-.light {
-  @extend %light;
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 320px) {
   .home__main {
-    margin-top: 2.2em;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .home__main {
-    overflow: hidden;
     .home__title {
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      font-size: 1.4em;
+      margin: 20px;
+      text-decoration: 1px underline;
     }
   }
 }
