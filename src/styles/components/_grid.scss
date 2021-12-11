@@ -3,23 +3,16 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin: 2em auto;
-  align-items: center;
-  margin-top: 4em;
+  margin-top: 4.5em;
   box-sizing: border-box;
   width: 80%;
 
   .grid__title {
-    font-size: 1.5em;
-    font-family: Roboto;
+    font-size: 2rem;
     text-transform: uppercase;
-    align-self: flex-start;
     padding: 7px 30px;
-    margin: 0;
-    background: $primary;
-    font-weight: 100;
-    border-radius: 20px;
-    // border: 1px solid $white;
-    box-shadow: 2px 2px 5px $black;
+    font-weight: 200;
+    font-style: italic;
   }
 
   .grid__card-container {
@@ -48,7 +41,6 @@
     }
 
     .grid__swiper {
-      // display: flex;
       margin-bottom: 3em;
       width: 100vw;
     }

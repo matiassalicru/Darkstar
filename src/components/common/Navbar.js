@@ -5,24 +5,19 @@ import { cleanData } from "../../actions/data";
 
 // Images/Logos/Assets
 import hambMenu from "../../Assets/hambMenu.svg";
-import cartMenu from "../../Assets/cart.svg";
-// import logoDarkstar from "../../Assets/logos/Darkstar.ar.png";
+import cartMenu from "../../Assets/bag.svg";
+import logo from '../../Assets/logos/LogoBlackStar.png'
 
 //Actions
 import {
-  closeCart,
   closeSidebar,
-  openCart,
   openSidebar,
 } from "../../actions/ui";
-import useWindowDimensions from "../../hooks/useWindowDimensions/useWindowDimensions";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
   let history = useHistory();
-  const { width } = useWindowDimensions();
-
 
   const toggleSidebar = () => {
     if (ui.isSidebarOpen) {
@@ -32,44 +27,35 @@ export const Navbar = () => {
     }
   };
 
-  const toggleCart = () => {
-    if (ui.isCartOpen) {
-      dispatch(closeCart());
-    } else {
-      dispatch(openCart());
-    }
-  };
-
   const enterCart = () => {
-    if (width <= 350) {
-      history.push('/productCart')
-    } else {
-      toggleCart();
-    }
+    history.push('/productCart')
   };
 
   return (
     <nav className="nav__main">
-      <img
-        src={hambMenu}
-        alt="menu"
-        className={`${ui.isSidebarOpen ? `nav__openNavSidebar` : `nav__navSidebar`
-          }`}
-        onClick={toggleSidebar}
-      />
+      <div className="menu">
+        <img
+          src={hambMenu}
+          alt="menu"
+          className={`nav__menu`}
+          onClick={toggleSidebar}
+        />
+      </div>
 
-      <Link to="/" onClick={() => dispatch(cleanData())}>
-        {/* <img className="nav__logo" src={logoDarkstar} alt="Darkstar" /> */}
-        <h1 className='nav__title'>darkstar.ar</h1>
+      <Link to="/" className='nav__titleContainer' onClick={() => dispatch(cleanData())}>
+        <img className='nav__logo' src={logo} alt="Logo" />
+        <h1 className='nav__title'>Darkstar.ar</h1>
       </Link>
 
 
-      <img
-        src={cartMenu}
-        className={`${ui.isCartOpen ? `nav__openNavCart` : `nav__navCart`}`}
-        alt="carrito de compras"
-        onClick={enterCart}
-      />
+      <div className='carrito' onClick={enterCart}>
+        <p>Carrito</p>
+        <img
+          src={cartMenu}
+          className={`nav__bag`}
+          alt="carrito de compras"
+        />
+      </div>
     </nav>
   );
 };

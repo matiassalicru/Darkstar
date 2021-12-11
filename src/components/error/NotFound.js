@@ -1,12 +1,12 @@
-import React from "react";
+import React, {Fragment} from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "../common/Navbar";
 import { Template } from "../common/Template";
-import { RoundGrid } from "../roundGrid/RoundGrid";
+import { GridSections } from "../gridSection/GridSections";
 
 export const NotFound = () => {
   return (
-    <>
+    <Fragment>
       <Navbar />
       <div className="notFound__main">
         <Template />
@@ -21,16 +21,16 @@ export const NotFound = () => {
 
           <div className="roundGrid__main">
             <Link to="/">
-              <div className={`roundGrid__card `}>
+              <div className={`roundGrid__card`}>
                 <div className={`roundGrid__img`}></div>
-                <p>Inicio</p>
+                <button className='btn btn__success'>Inicio</button>
               </div>
             </Link>
           </div>
 
-          <RoundGrid />
+          <GridSections />
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };

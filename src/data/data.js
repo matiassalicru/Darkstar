@@ -1,14 +1,10 @@
-export const rounds = [
+export const homeBTN = [
   {
     type: "Aros",
     bg: "aro",
   },
   {
-    type: "Collares",
-    bg: "collar",
-  },
-  {
-    type: "Chokers",
+    type: "Cadenas",
     bg: "choker",
   },
   {
