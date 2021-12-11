@@ -28,7 +28,6 @@ import SwiperCore, {
 //Import Swiper styles
 import 'swiper/swiper-bundle.css';
 import 'swiper/swiper.scss';
-import swal from 'sweetalert';
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Zoom, Autoplay]);
 
