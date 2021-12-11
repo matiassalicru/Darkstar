@@ -5,7 +5,7 @@ export const fetchData = (type) => {
 		fetch('https://backend-darkstar.herokuapp.com/darkstar')
 			.then((resp) => resp.json())
 			.then((data) => {
-				dispatch(setData(data[type]));
+				data && dispatch(setData(data[type]));
 			});
 	};
 };
